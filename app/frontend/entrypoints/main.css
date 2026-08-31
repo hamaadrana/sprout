@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@source "../../views";
+
+@theme {
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+
+  --color-paper: #faf6ee;
+  --color-cream: #f3ecdd;
+  --color-ink: #22301f;
+  --color-ink-soft: #5c6657;
+  --color-pine: #2b5540;
+  --color-pine-deep: #1e3f2f;
+  --color-sage: #e3ead9;
+  --color-sage-line: #d3ddc6;
+  --color-marigold: #e9a83a;
+  --color-marigold-soft: #fbf0d8;
+  --color-clay: #bf5b3d;
+  --color-clay-soft: #f7e5dd;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(var(--color-sage-line) 0.85px, transparent 0.85px);
+  background-size: 26px 26px;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.card-enter {
+  animation: card-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

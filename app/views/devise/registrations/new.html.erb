@@ -1,0 +1,36 @@
+<h1 class="font-display text-xl font-semibold text-ink mb-5">Create your account</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages" %>
+  <div class="space-y-4">
+    <div>
+      <%= f.label :name, "Your name", class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.text_field :name, autofocus: true,
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    </div>
+    <div>
+      <%= f.label :email, class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.email_field :email, autocomplete: "email",
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    </div>
+    <div>
+      <%= f.label :password, class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.password_field :password, autocomplete: "new-password",
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+      <% if @minimum_password_length %>
+        <p class="mt-1 text-xs text-ink-soft"><%= @minimum_password_length %> characters minimum</p>
+      <% end %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation, "Confirm password", class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    </div>
+    <%= f.submit "Create account",
+          class: "w-full rounded-xl bg-pine text-paper font-bold py-3 hover:bg-pine-deep transition-colors cursor-pointer" %>
+  </div>
+<% end %>
+
+<div class="mt-5 pt-4 border-t border-sage-line text-sm text-ink-soft">
+  <p>Already have an account? <%= link_to "Sign in", new_session_path(resource_name), class: "text-pine font-bold hover:underline" %></p>
+</div>

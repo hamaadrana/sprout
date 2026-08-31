@@ -35,6 +35,10 @@ gem "image_processing", "~> 1.2"
 # Authentication
 gem "devise"
 
+# React frontend without an API layer
+gem "inertia_rails"
+gem "vite_rails"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

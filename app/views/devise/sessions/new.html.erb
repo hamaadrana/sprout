@@ -1,0 +1,29 @@
+<h1 class="font-display text-xl font-semibold text-ink mb-5">Sign in</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="space-y-4">
+    <div>
+      <%= f.label :email, class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    </div>
+    <div>
+      <%= f.label :password, class: "block text-sm font-medium text-ink-soft mb-1" %>
+      <%= f.password_field :password, autocomplete: "current-password",
+            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <label class="flex items-center gap-2 text-sm text-ink-soft">
+        <%= f.check_box :remember_me, class: "rounded border-sage-line text-pine focus:ring-pine/40" %>
+        Remember me
+      </label>
+    <% end %>
+    <%= f.submit "Sign in",
+          class: "w-full rounded-xl bg-pine text-paper font-bold py-3 hover:bg-pine-deep transition-colors cursor-pointer" %>
+  </div>
+<% end %>
+
+<div class="mt-5 pt-4 border-t border-sage-line text-sm text-ink-soft space-y-1">
+  <p>New here? <%= link_to "Create an account", new_registration_path(resource_name), class: "text-pine font-bold hover:underline" %></p>
+  <p><%= link_to "Forgot your password?", new_password_path(resource_name), class: "hover:underline" %></p>
+</div>

@@ -3,17 +3,8 @@
   <head>
     <title><%= content_for(:title) || "Preschool Tracker" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Preschool Tracker">
-    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= yield :head %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +12,19 @@
 
     <%= vite_client_tag %>
     <%= vite_stylesheet_tag "main" %>
-    <%= vite_react_refresh_tag %>
-    <%= vite_javascript_tag "application.jsx" %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="min-h-screen flex items-center justify-center px-4 py-12">
+      <div class="w-full max-w-sm">
+        <div class="text-center mb-8">
+          <p class="font-display text-3xl font-semibold text-pine">Preschool Tracker</p>
+          <p class="text-ink-soft mt-2 text-sm">What to teach today, and the record to show for it.</p>
+        </div>
+        <div class="bg-white/80 backdrop-blur rounded-2xl border border-sage-line p-6 shadow-sm">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

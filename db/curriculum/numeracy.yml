@@ -1,0 +1,895 @@
+# Numeracy curriculum for ages 3-6.
+#
+# Skill sequence derived from the National Curriculum of Pakistan 2022-23,
+# Early Childhood Education (National Curriculum Council, Ministry of Federal
+# Education & Professional Training) — Domain C: Basic Mathematical Concepts.
+# SLO codes reference that document. Descriptors and activities are written
+# in our own words.
+#
+# RULES:
+# - `code` is stable and NEVER renumbered. All child progress keys on it.
+# - `position` orders skills within the domain for display and tie-breaking.
+#   Gaps of 10 are deliberate: insert new skills without renumbering.
+# - `prerequisites` lists skill codes. They form a graph per strand, not one
+#   global line. The loader verifies the graph is acyclic.
+
+domain:
+  code: NUM
+  name: Numeracy
+  name_ur: حساب
+  position: 1
+
+skills:
+  # ── Strand: counting & number sense ────────────────────────────────
+
+  - code: NUM.01.count_to_5_rote
+    position: 10
+    title: Says numbers 1 to 5 in order
+    mastery_descriptor: >-
+      Says "one, two, three, four, five" in the correct order without help,
+      three days in a row — while playing, climbing stairs, or on request.
+    age_min_months: 36
+    age_max_months: 48
+    slo_refs: [ECE-00-C1-01]
+    school_readiness: false
+    prerequisites: []
+    activities:
+      - title: Counting stairs and steps
+        kind: hands_on
+        duration_minutes: 5
+        materials: [stairs or floor tiles]
+        instructions: >-
+          Every time you climb stairs together, count each step out loud up to
+          five and start again. Let her join in. Do the same on floor tiles or
+          while jumping. Keep it playful — stop before she gets bored.
+      - title: Five little fingers
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >-
+          Hold up your fist and raise one finger at a time while counting to
+          five together. Then ask her to do it on her own hand. Sing any
+          counting rhyme she likes (English or Urdu) and count on fingers as
+          you sing.
+
+  - code: NUM.02.count_to_10_rote
+    position: 20
+    title: Says numbers 1 to 10 in order
+    mastery_descriptor: >-
+      Recites 1 to 10 in the correct order without skipping or repeating a
+      number, without an adult starting her off.
+    age_min_months: 36
+    age_max_months: 54
+    slo_refs: [ECE-00-C1-01, ECE-00-C1-02]
+    school_readiness: true
+    prerequisites: [NUM.01.count_to_5_rote]
+    activities:
+      - title: Count and clap to 10
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >-
+          Count to ten together, clapping once for each number. Then vary it:
+          whisper the numbers, say them loudly, count while hopping. Ask her
+          to count alone and clap along silently to support her rhythm.
+      - title: Hide and seek counting
+        kind: game
+        duration_minutes: 10
+        materials: []
+        instructions: >-
+          Play hide and seek where she is the seeker and must count to ten
+          before searching. The motivation to start looking keeps the counting
+          honest — listen for skipped numbers and gently repair them.
+
+  - code: NUM.03.one_to_one_5
+    position: 30
+    title: Counts up to 5 objects, one number per object
+    mastery_descriptor: >-
+      Touches or moves each object exactly once while counting a group of up
+      to five, and says the last number as "how many there are" when asked.
+    age_min_months: 36
+    age_max_months: 54
+    slo_refs: [ECE-00-C1-03, ECE-00-C2-06]
+    school_readiness: true
+    prerequisites: [NUM.02.count_to_10_rote]
+    activities:
+      - title: Counting snack pieces
+        kind: hands_on
+        duration_minutes: 10
+        materials: [5 small snacks (grapes, biscuits, nuts)]
+        instructions: >-
+          Put out three snack pieces. Ask "how many?" and show her how to touch
+          each one as she counts. When she finishes, ask "so how many are
+          there?" — the answer is the last number she said. Repeat with four,
+          then five. She eats them afterwards, which is the point.
+      - title: Count and move the buttons
+        kind: hands_on
+        duration_minutes: 10
+        materials: [5 buttons or bottle caps, 2 bowls]
+        instructions: >-
+          Place up to five buttons in one bowl. Ask her to count them by moving
+          each button to the other bowl as she says its number. Moving objects
+          makes double-counting visible — if she double-counts, slow down and
+          count together hand over hand.
+
+  - code: NUM.04.compare_more_less
+    position: 40
+    title: Tells which group has more and which has less
+    mastery_descriptor: >-
+      Looks at two groups of objects (up to 5 each) and says correctly which
+      has more and which has less, in her own words, most of the time.
+    age_min_months: 36
+    age_max_months: 60
+    slo_refs: [ECE-00-C1-04, ECE-00-C2-01, ECE-00-C3-01]
+    school_readiness: true
+    prerequisites: [NUM.03.one_to_one_5]
+    activities:
+      - title: Whose plate has more?
+        kind: conversation
+        duration_minutes: 5
+        materials: [snacks or toys in two groups]
+        instructions: >-
+          At snack time make two plates with obviously different amounts. Ask
+          "which plate has more? which has less?" Then make them close in size
+          so she has to count to check. Swap the plates and ask again.
+      - title: More or less worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the sheet. For each pair of boxes, ask her to count both
+          groups and circle the box with more. If she guesses, ask her to
+          count each side out loud first.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: more_or_less
+            worksheet_params: { pair_count: 5, max_quantity: 5 }
+
+  - code: NUM.05.one_to_one_10
+    position: 50
+    title: Counts up to 10 objects accurately
+    mastery_descriptor: >-
+      Counts a group of up to ten objects touching each exactly once, tells
+      you the total, and can fetch "exactly 7" (or any number to 10) of
+      something when asked.
+    age_min_months: 42
+    age_max_months: 60
+    slo_refs: [ECE-00-C2-06, ECE-00-C1-03]
+    school_readiness: true
+    prerequisites: [NUM.03.one_to_one_5]
+    activities:
+      - title: Fetch me exactly...
+        kind: game
+        duration_minutes: 10
+        materials: [10 small objects (blocks, clothes pegs, spoons)]
+        instructions: >-
+          Ask her to bring you exactly six pegs from a pile. Count them
+          together when she returns. Vary the number up to ten. Fetching a
+          fixed number is harder than counting a group — it shows whether the
+          count actually means something to her.
+      - title: Count and write worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the sheet. She counts the pictures in each box, touching each
+          one, and writes or says the total. If writing numerals is still
+          hard, let her say the answer and you write it — the counting is the
+          skill here, not the handwriting.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: count_and_write
+            worksheet_params: { max_count: 10, item_count: 6 }
+
+  - code: NUM.06.recognise_numerals_1_5
+    position: 60
+    title: Recognises written numerals 1 to 5
+    mastery_descriptor: >-
+      Points to the right numeral from 1-5 when you name it, and names a
+      numeral from 1-5 when you point to it, even out of order.
+    age_min_months: 36
+    age_max_months: 54
+    slo_refs: [ECE-00-C1-01, ECE-00-C2-05]
+    school_readiness: true
+    prerequisites: [NUM.01.count_to_5_rote]
+    activities:
+      - title: Number hunt around the house
+        kind: game
+        duration_minutes: 10
+        materials: [numbers visible at home (clock, remote, calendar, number plates)]
+        instructions: >-
+          Hunt for numbers 1-5 around the house or on parked cars' number
+          plates. When she finds one, she names it. Keep score of how many she
+          finds. Clocks, remotes and calendars are full of them.
+      - title: Numeral cards match
+        kind: hands_on
+        duration_minutes: 10
+        materials: [5 paper cards with numerals 1-5 written large]
+        instructions: >-
+          Write 1-5 large on five cards. Spread them out. Say a number and she
+          slaps the right card. Then reverse: point at a card and she names
+          it. Shuffle so order never gives the answer away.
+
+  - code: NUM.07.recognise_numerals_1_10
+    position: 70
+    title: Recognises written numerals 1 to 10
+    mastery_descriptor: >-
+      Names any numeral from 1-10 shown out of order, and picks the right one
+      when asked, without counting up from 1 to work it out.
+    age_min_months: 42
+    age_max_months: 60
+    slo_refs: [ECE-00-C1-01]
+    school_readiness: true
+    prerequisites: [NUM.06.recognise_numerals_1_5]
+    activities:
+      - title: Numeral cards to 10
+        kind: hands_on
+        duration_minutes: 10
+        materials: [10 paper cards with numerals 1-10]
+        instructions: >-
+          Extend the card game to ten cards. Mix "show me 8" with "what is
+          this?" Watch for the usual confusions — 6 with 9, 1 with 7 in some
+          fonts — and give those cards extra turns.
+      - title: Calendar pointing game
+        kind: conversation
+        duration_minutes: 5
+        materials: [wall or phone calendar]
+        instructions: >-
+          On a calendar page, call out numbers 1-10 for her to find and point
+          to. The grid layout means she must recognise the numeral shape, not
+          recite her way there.
+
+  - code: NUM.08.match_quantity_numeral_10
+    position: 80
+    title: Matches a numeral to the right quantity
+    mastery_descriptor: >-
+      Given a group of objects up to 10, picks the numeral that says how many
+      — and given a numeral, makes a group of that many objects.
+    age_min_months: 42
+    age_max_months: 60
+    slo_refs: [ECE-00-C2-05]
+    school_readiness: true
+    prerequisites: [NUM.05.one_to_one_10, NUM.07.recognise_numerals_1_10]
+    activities:
+      - title: Card and pile matching
+        kind: hands_on
+        duration_minutes: 15
+        materials: [numeral cards 1-10, 10 small objects]
+        instructions: >-
+          Lay out three numeral cards. Make a pile of objects and ask her to
+          place it under the matching card. Then reverse: point at a card and
+          she builds a pile of that many. This joins the two things she knows
+          — counting and numerals — into one idea.
+      - title: Match quantity worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the sheet and have her draw a line from each group of pictures
+          to the numeral that says how many. Ask her to count out loud so you
+          can hear her method, not just see her answer.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: match_quantity_numeral
+            worksheet_params: { number_range: [1, 10], pair_count: 5 }
+
+  - code: NUM.09.make_sets_10
+    position: 90
+    title: Makes sets of a given size up to 10
+    mastery_descriptor: >-
+      Counts out a requested number of objects from a larger pile (up to 10)
+      and stops at the right place without being reminded.
+    age_min_months: 42
+    age_max_months: 66
+    slo_refs: [ECE-00-C1-07]
+    school_readiness: false
+    prerequisites: [NUM.05.one_to_one_10]
+    activities:
+      - title: Setting the table by numbers
+        kind: hands_on
+        duration_minutes: 10
+        materials: [spoons, plates, or cups]
+        instructions: >-
+          Make her the table-setter: "we need 4 spoons and 6 plates." She
+          counts them out from the drawer. Real jobs beat drills — she is
+          making sets without knowing it's practice.
+
+  - code: NUM.10.trace_numerals_1_10
+    position: 100
+    title: Traces and writes numerals 1 to 10
+    mastery_descriptor: >-
+      Traces numerals 1-10 staying mostly on the line with correct stroke
+      direction, and writes most of them from memory when asked, readable
+      even if wobbly.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C1-01, ECE-00-B4-04]
+    school_readiness: true
+    prerequisites: [NUM.07.recognise_numerals_1_10]
+    activities:
+      - title: Numeral tracing worksheet
+        kind: worksheet
+        duration_minutes: 15
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the tracing sheet. Two or three numerals per sitting is
+          plenty. Watch the starting point and stroke direction on each — a
+          wrong habit now is hard to unlearn in school. Wobbly lines are fine;
+          wrong direction is worth correcting gently.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: numeral_tracing
+            worksheet_params: { numerals: [1, 2, 3, 4, 5], repetitions: 4, guide_style: dashed }
+      - title: Sand tray numerals
+        kind: hands_on
+        duration_minutes: 10
+        materials: [tray with a layer of flour, salt or sand]
+        instructions: >-
+          Spread flour or salt thinly on a tray. Write a numeral for her to
+          copy with her finger, then shake to erase. Finger-writing builds the
+          movement memory before pencil control is ready — do this alongside
+          the worksheet, not instead of it.
+
+  - code: NUM.11.zero_concept
+    position: 110
+    title: Understands zero means none
+    mastery_descriptor: >-
+      Uses "zero" for an empty group without prompting — when asked "how many
+      are left?" after taking everything away, answers zero and can point to
+      the numeral 0.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C1-06]
+    school_readiness: false
+    prerequisites: [NUM.08.match_quantity_numeral_10]
+    activities:
+      - title: Eat them all — how many left?
+        kind: hands_on
+        duration_minutes: 5
+        materials: [3 small snacks]
+        instructions: >-
+          Count three snacks together, eat one at a time, recounting after
+          each: "two left... one left..." After the last: "how many now?"
+          Introduce the word zero and the numeral 0 as the way to write
+          "none". Play it again with toys going into a box.
+
+  - code: NUM.12.count_backwards_10
+    position: 120
+    title: Counts backwards from 10
+    mastery_descriptor: >-
+      Counts down from 10 to 1 without help — the rocket-launch countdown
+      done correctly, three separate times.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C1-05]
+    school_readiness: false
+    prerequisites: [NUM.05.one_to_one_10]
+    activities:
+      - title: Rocket launch countdown
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >-
+          Count down 10 to 1 and "blast off!" — she jumps in the air. Use it
+          everywhere: before turning on the TV, before racing to the door.
+          Start by counting together, then let her lead and only mouth along.
+
+  - code: NUM.13.number_before_after_10
+    position: 130
+    title: Says what comes before and after a number (to 10)
+    mastery_descriptor: >-
+      Answers "what comes after 6?" and "what comes before 4?" for numbers up
+      to 10 without counting up from 1 on her fingers each time.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C2-07]
+    school_readiness: true
+    prerequisites: [NUM.07.recognise_numerals_1_10, NUM.05.one_to_one_10]
+    activities:
+      - title: Number line hops
+        kind: hands_on
+        duration_minutes: 10
+        materials: [numeral cards 1-10 laid in a row on the floor]
+        instructions: >-
+          Lay the cards 1-10 in a line on the floor. She stands on a number
+          you call, then hops to "the one after" or "the one before". Once
+          the hopping is easy, ask the same questions away from the line.
+      - title: Missing number game
+        kind: conversation
+        duration_minutes: 5
+        materials: []
+        instructions: >-
+          Count out loud but stop suddenly: "4, 5, 6..." and wait. She fills
+          in the next number. Then try "what did I skip? 3, 4, 6!" Keep it
+          quick and silly — in the car, in a queue.
+
+  - code: NUM.14.ordinal_first_third
+    position: 140
+    title: Uses first, second and third
+    mastery_descriptor: >-
+      Uses "first", "second" and "third" correctly to describe positions in
+      a line or race — "the red car came second" — without prompting.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C1-08]
+    school_readiness: false
+    prerequisites: [NUM.05.one_to_one_10]
+    activities:
+      - title: Toy race commentary
+        kind: game
+        duration_minutes: 10
+        materials: [3 toy cars or stuffed toys]
+        instructions: >-
+          Race three toys across the floor and commentate together: "the bear
+          came first! who came second?" Then give ordinal instructions: "put
+          the cat third in line." Queues at shops are free practice.
+
+  - code: NUM.15.count_to_20
+    position: 150
+    title: Counts to 20 and recognises numerals to 20
+    mastery_descriptor: >-
+      Counts out loud to 20 without help, including the tricky 13-15 stretch,
+      and names written numerals from 11 to 20 shown out of order.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C1-01, ECE-00-C1-02]
+    school_readiness: true
+    prerequisites: [NUM.05.one_to_one_10]
+    activities:
+      - title: Count everything to 20
+        kind: hands_on
+        duration_minutes: 10
+        materials: [20 small objects (buttons, beads, pasta)]
+        instructions: >-
+          Count a pile of 20 buttons together, moving each aside. The teens
+          are where children stumble — 13, 14, 15 sound alike. When she trips,
+          just say the right number and carry on; don't restart from 1.
+      - title: Teen numeral cards
+        kind: hands_on
+        duration_minutes: 10
+        materials: [cards with numerals 11-20]
+        instructions: >-
+          Play the familiar card game with 11-20. Point out the pattern: a 1
+          in front means "teen". Mix in cards from 1-10 she already knows so
+          she feels the difference between 4 and 14.
+
+  - code: NUM.16.write_numerals_to_20
+    position: 160
+    title: Writes numerals up to 20
+    mastery_descriptor: >-
+      Writes numerals up to 20 from dictation — you say "seventeen", she
+      writes 17 — with digits in the right order and readable formation.
+    age_min_months: 60
+    age_max_months: 72
+    slo_refs: [ECE-00-C1-01, ECE-00-C1-02]
+    school_readiness: true
+    prerequisites: [NUM.15.count_to_20, NUM.10.trace_numerals_1_10]
+    activities:
+      - title: Numeral tracing to 20
+        kind: worksheet
+        duration_minutes: 15
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the tracing sheet for 11-20. Say each number aloud as she
+          traces it so the sound and the shape connect. Then dictate two or
+          three for her to write with no guide.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: numeral_tracing
+            worksheet_params: { numerals: [11, 12, 13, 14, 15], repetitions: 3, guide_style: dashed }
+
+  - code: NUM.17.ordinal_first_tenth
+    position: 170
+    title: Uses ordinals first to tenth
+    mastery_descriptor: >-
+      Names the position of any item in a line of up to ten ("the spoon is
+      seventh") and places an item at a named position when asked.
+    age_min_months: 60
+    age_max_months: 72
+    slo_refs: [ECE-00-C1-08]
+    school_readiness: false
+    prerequisites: [NUM.14.ordinal_first_third, NUM.15.count_to_20]
+    activities:
+      - title: Line up the toys
+        kind: hands_on
+        duration_minutes: 10
+        materials: [10 toys or household objects]
+        instructions: >-
+          Line up ten toys. Ask "which is fifth?" and "put the ball eighth."
+          Then ask her to quiz you — and get some wrong on purpose, so she
+          has to catch and correct you.
+
+  - code: NUM.18.count_backwards_20
+    position: 180
+    title: Counts backwards from 20
+    mastery_descriptor: >-
+      Counts down from 20 to 1 smoothly without help, three separate times.
+    age_min_months: 60
+    age_max_months: 72
+    slo_refs: [ECE-00-C1-05]
+    school_readiness: false
+    prerequisites: [NUM.12.count_backwards_10, NUM.15.count_to_20]
+    activities:
+      - title: The long countdown
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >-
+          Extend the rocket countdown to start at 20. Use it as a timer:
+          "you have 20 seconds to find your shoes — 20, 19, 18..." She
+          counts along, then leads it herself.
+
+  # ── Strand: operations ─────────────────────────────────────────────
+
+  - code: NUM.19.combining_sets
+    position: 190
+    title: Understands that adding makes more, taking away makes less
+    mastery_descriptor: >-
+      Predicts correctly whether there will be more or fewer before you
+      combine two groups or take some away, and explains it in her own words.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C2-02, ECE-00-C2-03]
+    school_readiness: false
+    prerequisites: [NUM.05.one_to_one_10]
+    activities:
+      - title: The joining game
+        kind: hands_on
+        duration_minutes: 10
+        materials: [10 blocks or buttons in 2 bowls]
+        instructions: >-
+          Put three blocks in one bowl, two in another. Ask: "if we pour them
+          together, will there be more or less?" Pour, count, check. Then
+          take some away and ask again. The prediction is the skill — the
+          count is just the proof.
+
+  - code: NUM.20.add_subtract_within_5
+    position: 200
+    title: Adds and takes away with small groups (to 5)
+    mastery_descriptor: >-
+      Solves little object stories within 5 — "you have 2 biscuits, I give
+      you 2 more, how many now?" — by counting objects or fingers, reliably.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C2-04, ECE-00-C2-03]
+    school_readiness: true
+    prerequisites: [NUM.19.combining_sets]
+    activities:
+      - title: Biscuit maths
+        kind: hands_on
+        duration_minutes: 10
+        materials: [5 biscuits or grapes]
+        instructions: >-
+          Tell tiny stories with real food: "you have 3 grapes. I eat 1. How
+          many left?" Let her count what's actually there. Keep totals at 5
+          or under and always use objects she can touch — no written sums.
+
+  - code: NUM.21.add_subtract_within_10
+    position: 210
+    title: Solves adding and taking-away stories within 10
+    mastery_descriptor: >-
+      Solves spoken addition and subtraction stories with totals up to 10
+      using objects, fingers or counting on — correct answer and can show
+      you how she got it.
+    age_min_months: 60
+    age_max_months: 72
+    slo_refs: [ECE-00-C2-03]
+    school_readiness: true
+    prerequisites: [NUM.20.add_subtract_within_5, NUM.09.make_sets_10]
+    activities:
+      - title: Shop at home
+        kind: game
+        duration_minutes: 15
+        materials: [10 small objects as goods, buttons as coins]
+        instructions: >-
+          Set up a pretend shop. Goods cost 1-3 buttons. She starts with 10
+          buttons and buys things: "you had 10, you spent 3 — how many left?"
+          Swap roles so she runs the shop and takes payment too.
+      - title: Ten frame worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the ten-frame sheet. She fills the frame to show a number,
+          then you ask "how many more to make 10?" The frame makes the empty
+          spaces visible — that's the bridge from counting to adding.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: ten_frame
+            worksheet_params: { numbers: [4, 6, 7, 8] }
+
+  # ── Strand: measurement & comparison ───────────────────────────────
+
+  - code: NUM.22.size_words
+    position: 220
+    title: Uses big/small, long/short correctly
+    mastery_descriptor: >-
+      Describes and compares everyday objects using size words — big, small,
+      long, short, heavy, light — correctly and unprompted.
+    age_min_months: 36
+    age_max_months: 54
+    slo_refs: [ECE-00-C3-02, ECE-00-C3-01]
+    school_readiness: true
+    prerequisites: []
+    activities:
+      - title: Big spoon, little spoon
+        kind: conversation
+        duration_minutes: 5
+        materials: [pairs of household objects differing in size]
+        instructions: >-
+          While tidying or cooking, hand her pairs: a big spoon and a small
+          one, a long scarf and a short sock. Ask which is which. Then ask
+          for things: "bring me the small plate." Correct usage in errands
+          is the real test.
+
+  - code: NUM.23.compare_order_size
+    position: 230
+    title: Orders objects by size and uses -er/-est words
+    mastery_descriptor: >-
+      Arranges three or four objects from smallest to biggest and uses
+      comparing words — taller, tallest, shorter, shortest — correctly.
+    age_min_months: 42
+    age_max_months: 66
+    slo_refs: [ECE-00-C3-02, ECE-00-C4-03]
+    school_readiness: true
+    prerequisites: [NUM.22.size_words]
+    activities:
+      - title: Family shoe parade
+        kind: hands_on
+        duration_minutes: 10
+        materials: [4 shoes of different sizes from the family]
+        instructions: >-
+          Collect one shoe from each family member. She lines them up from
+          smallest to biggest and tells the story: "baby's shoe is smallest,
+          Baba's is biggest." Mix them up and time her re-sorting them.
+      - title: Size ordering worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil]
+        instructions: >-
+          Print the sheet and have her number the pictures from smallest to
+          largest, saying the comparison out loud: "this is the smallest,
+          this is bigger, this is the biggest."
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: size_ordering
+            worksheet_params: { shape: circle, item_count: 4 }
+
+  - code: NUM.24.nonstandard_measurement
+    position: 240
+    title: Measures with hands, feet and cups
+    mastery_descriptor: >-
+      Measures length or capacity with a repeated unit — "the table is 8
+      hands long" — counting the units correctly, and compares two things by
+      their measurements.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C3-03, ECE-00-C3-04]
+    school_readiness: false
+    prerequisites: [NUM.23.compare_order_size, NUM.05.one_to_one_10]
+    activities:
+      - title: Measure the house in hands
+        kind: hands_on
+        duration_minutes: 15
+        materials: [her own hands and feet, a cup and a bowl of water]
+        instructions: >-
+          Measure the table in hand-spans together, walking her hand along
+          end to end. Then measure the sofa — which is longer? At bath time,
+          count how many cups fill the bucket. Write the numbers down like a
+          scientist; she'll want a clipboard.
+
+  # ── Strand: time ───────────────────────────────────────────────────
+
+  - code: NUM.25.day_night_sequence
+    position: 250
+    title: Knows day from night and orders daily events
+    mastery_descriptor: >-
+      Sorts day and night activities correctly and retells her own day in
+      order using before, after, morning, night — "after lunch I sleep, then
+      I play."
+    age_min_months: 36
+    age_max_months: 60
+    slo_refs: [ECE-00-C3-05]
+    school_readiness: false
+    prerequisites: []
+    activities:
+      - title: My day in pictures
+        kind: hands_on
+        duration_minutes: 15
+        materials: [4-5 hand-drawn cards of daily routine (waking, breakfast, play, dinner, sleep)]
+        instructions: >-
+          Draw quick stick-figure cards of her routine together. Shuffle them
+          and ask her to lay them in order, narrating with "first... then...
+          after that..." Ask trick questions: "does the moon come out before
+          or after breakfast?"
+
+  - code: NUM.26.days_of_week
+    position: 260
+    title: Names the days of the week
+    mastery_descriptor: >-
+      Recites the seven days in order, knows what today is when asked
+      (checking a calendar counts), and knows which days are school or
+      special days.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C3-08, ECE-00-C3-06]
+    school_readiness: true
+    prerequisites: [NUM.25.day_night_sequence]
+    activities:
+      - title: Calendar morning ritual
+        kind: conversation
+        duration_minutes: 5
+        materials: [wall calendar]
+        instructions: >-
+          Every morning she finds today on the calendar and crosses off
+          yesterday. Say the day out loud together and one thing that happens
+          today: "it's Friday — Baba is home tomorrow." Anchoring days to
+          events is what makes them stick.
+
+  # ── Strand: geometry & space ───────────────────────────────────────
+
+  - code: NUM.27.shapes_2d_basic
+    position: 270
+    title: Names circle, square and triangle
+    mastery_descriptor: >-
+      Names circles, squares and triangles when she sees them — in any size,
+      colour or rotation — and finds examples around the house when asked.
+    age_min_months: 36
+    age_max_months: 54
+    slo_refs: [ECE-00-C4-01]
+    school_readiness: true
+    prerequisites: []
+    activities:
+      - title: Shape hunt
+        kind: game
+        duration_minutes: 10
+        materials: [the house itself]
+        instructions: >-
+          Hunt for shapes room by room: the clock is a circle, the window a
+          square, the samosa a triangle. Keep a tally of who finds more.
+          Show triangles pointing different ways — a tilted triangle is
+          still a triangle, which is the bit children miss.
+      - title: Shape tracing worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, pencil, crayons]
+        instructions: >-
+          Print the sheet. She traces each shape, names it out loud, then
+          colours each kind its own colour — all circles red, all squares
+          blue. Naming while tracing is what ties the word to the shape.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: shape_tracing
+            worksheet_params: { shapes: [circle, square, triangle] }
+
+  - code: NUM.28.shapes_2d_more
+    position: 280
+    title: Knows rectangle and oval; combines shapes
+    mastery_descriptor: >-
+      Names rectangles and ovals alongside the basic three, and puts shapes
+      together to make pictures — two triangles into a square, shapes into a
+      house — explaining what she used.
+    age_min_months: 48
+    age_max_months: 66
+    slo_refs: [ECE-00-C4-01, ECE-00-C4-02]
+    school_readiness: true
+    prerequisites: [NUM.27.shapes_2d_basic]
+    activities:
+      - title: Paper shape pictures
+        kind: hands_on
+        duration_minutes: 20
+        materials: [coloured paper cut into shapes, glue, plain paper]
+        instructions: >-
+          Cut paper into circles, squares, triangles, rectangles and ovals.
+          She glues them into pictures — a house, a rocket, a cat — and then
+          gives you the tour: "the roof is a triangle, the door is a
+          rectangle." Keep the finished picture for the portfolio.
+
+  - code: NUM.29.shapes_3d
+    position: 290
+    title: Recognises solid shapes
+    mastery_descriptor: >-
+      Names ball (sphere), box (cube) and tube (cylinder) shapes in real
+      objects and sorts objects by which solid they are — knows a ball rolls
+      and a box stacks.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C4-01]
+    school_readiness: false
+    prerequisites: [NUM.27.shapes_2d_basic]
+    activities:
+      - title: Roll or stack?
+        kind: hands_on
+        duration_minutes: 15
+        materials: [ball, dice or box, tin or bottle, other household solids]
+        instructions: >-
+          Gather balls, boxes and tins. Test each: does it roll? does it
+          stack? Sort into families and name them — sphere, cube, cylinder.
+          The flat-vs-curved-face idea matters more than perfect names.
+
+  - code: NUM.30.position_words
+    position: 300
+    title: Uses position words (on, under, behind, next to)
+    mastery_descriptor: >-
+      Follows and gives instructions with position words — puts the toy
+      under the chair when asked, and tells you where something is using
+      on, under, behind, in front of, next to, between.
+    age_min_months: 36
+    age_max_months: 60
+    slo_refs: [ECE-00-C4-04]
+    school_readiness: true
+    prerequisites: []
+    activities:
+      - title: Teddy hide and seek
+        kind: game
+        duration_minutes: 10
+        materials: [a favourite soft toy]
+        instructions: >-
+          Hide the teddy and give position clues: "he's under something...
+          behind the door!" Then she hides it and gives you clues — using
+          the words herself is the harder half. Play in Urdu and English if
+          you use both at home.
+
+  # ── Strand: patterns ───────────────────────────────────────────────
+
+  - code: NUM.31.copy_patterns
+    position: 310
+    title: Copies and continues a simple pattern
+    mastery_descriptor: >-
+      Copies a red-blue-red-blue pattern you build and continues it
+      correctly for at least three more repeats, saying the pattern out
+      loud.
+    age_min_months: 42
+    age_max_months: 60
+    slo_refs: [ECE-00-C4-05]
+    school_readiness: true
+    prerequisites: []
+    activities:
+      - title: Pattern necklace
+        kind: hands_on
+        duration_minutes: 15
+        materials: [beads or dyed pasta, string]
+        instructions: >-
+          Start threading a bead pattern — red, blue, red, blue — and hand it
+          over mid-pattern. Chanting it aloud ("red, blue, red, blue...")
+          helps her hear what comes next. She wears the necklace after, which
+          is most of the motivation.
+      - title: Pattern completion worksheet
+        kind: worksheet
+        duration_minutes: 10
+        materials: [printed worksheet, crayons]
+        instructions: >-
+          Print the sheet. She says each pattern out loud and draws or
+          colours what comes next. If she's stuck, chant the pattern together
+          from the start — the rhythm usually gives it away.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: pattern_completion
+            worksheet_params: { pattern_type: AB, length: 8 }
+
+  - code: NUM.32.create_patterns
+    position: 320
+    title: Creates her own patterns
+    mastery_descriptor: >-
+      Invents and builds her own repeating pattern (including three-part
+      patterns like red-red-blue) with objects, stickers or drawings, and
+      can say the rule.
+    age_min_months: 54
+    age_max_months: 72
+    slo_refs: [ECE-00-C4-05]
+    school_readiness: false
+    prerequisites: [NUM.31.copy_patterns]
+    activities:
+      - title: Pattern designer
+        kind: hands_on
+        duration_minutes: 15
+        materials: [buttons, blocks or stickers in 3 colours]
+        instructions: >-
+          Ask her to invent a pattern for you to continue — then deliberately
+          get it wrong and let her correct you. Push gently towards
+          three-part patterns (red-red-blue). Photograph her best one for
+          the portfolio.
+        resources:
+          - kind: generated_worksheet
+            worksheet_template: pattern_completion
+            worksheet_params: { pattern_type: AAB, length: 9 }

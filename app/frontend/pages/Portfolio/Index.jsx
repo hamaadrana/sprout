@@ -1,7 +1,8 @@
-import { Link, router, useForm } from '@inertiajs/react'
+import { router, useForm } from '@inertiajs/react'
 import { useRef, useState } from 'react'
+import Shell from '../../components/Shell'
 
-function UploadCard({ skills, errors }) {
+function UploadPanel({ skills, errors, onDone }) {
   const fileRef = useRef(null)
   const { data, setData, post, processing, reset } = useForm({
     image: null,
@@ -18,70 +19,58 @@ function UploadCard({ skills, errors }) {
       onSuccess: () => {
         reset()
         if (fileRef.current) fileRef.current.value = ''
+        onDone()
       },
     })
   }
 
-  const inputClass =
-    'w-full rounded-lg border border-sage-line bg-white px-3 py-2 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine'
-
   return (
     <form
       onSubmit={submit}
-      className="card-enter rounded-2xl border border-sage-line bg-white p-5 shadow-sm mb-8"
+      style={{ background: 'var(--color-neutral-100)', borderRadius: 'var(--radius-md)', padding: 'var(--space-6)', marginTop: 'var(--space-6)' }}
     >
-      <p className="font-bold text-ink mb-3">Add a piece of work</p>
-      <div className="grid gap-3 sm:grid-cols-2">
-        <div className="sm:col-span-2">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
+        <div style={{ gridColumn: '1 / -1' }} className="field">
+          <label>Photo</label>
           <input
             ref={fileRef}
             type="file"
             accept="image/*"
+            className="input"
+            style={{ paddingTop: 5 }}
             onChange={(e) => setData('image', e.target.files[0] || null)}
-            className="block w-full text-sm text-ink-soft file:mr-3 file:rounded-lg file:border-0 file:bg-sage file:px-4 file:py-2 file:text-sm file:font-bold file:text-pine-deep file:cursor-pointer"
           />
-          {errors?.image && <p className="mt-1 text-sm text-clay">{errors.image[0]}</p>}
+          {errors?.image && <p style={{ color: 'var(--color-accent-2-700)', fontSize: 13, margin: '4px 0 0' }}>{errors.image[0]}</p>}
         </div>
-        <input
-          type="text"
-          placeholder="Caption (optional)"
-          value={data.caption}
-          onChange={(e) => setData('caption', e.target.value)}
-          className={inputClass}
-        />
-        <select
-          value={data.skill_id}
-          onChange={(e) => setData('skill_id', e.target.value)}
-          className={inputClass}
-        >
-          <option value="">No skill tag</option>
-          {skills.map((s) => (
-            <option key={s.id} value={s.id}>
-              {s.title}
-            </option>
-          ))}
-        </select>
-        <input
-          type="date"
-          value={data.taken_on}
-          onChange={(e) => setData('taken_on', e.target.value)}
-          className={inputClass}
-        />
-        <button
-          type="submit"
-          disabled={processing || !data.image}
-          className="rounded-xl bg-pine py-2.5 font-bold text-paper hover:bg-pine-deep disabled:opacity-50 cursor-pointer"
-        >
-          {processing ? 'Saving…' : 'Add to portfolio'}
-        </button>
+        <div className="field">
+          <label>Caption <span style={{ color: 'var(--color-neutral-600)' }}>(optional)</span></label>
+          <input className="input" value={data.caption} onChange={(e) => setData('caption', e.target.value)} />
+        </div>
+        <div className="field">
+          <label>Skill tag <span style={{ color: 'var(--color-neutral-600)' }}>(optional)</span></label>
+          <select className="input" value={data.skill_id} onChange={(e) => setData('skill_id', e.target.value)}>
+            <option value="">No skill tag</option>
+            {skills.map((s) => (
+              <option key={s.id} value={s.id}>{s.title}</option>
+            ))}
+          </select>
+        </div>
+        <div className="field">
+          <label>Date</label>
+          <input className="input" type="date" value={data.taken_on} onChange={(e) => setData('taken_on', e.target.value)} />
+        </div>
+        <div style={{ alignSelf: 'end' }}>
+          <button type="submit" className="btn btn-primary btn-block" disabled={processing || !data.image}>
+            {processing ? 'Saving…' : 'Add to portfolio'}
+          </button>
+        </div>
       </div>
     </form>
   )
 }
 
-function PhotoCard({ item }) {
+function Piece({ item }) {
   const [confirming, setConfirming] = useState(false)
-
   const remove = () => {
     if (!confirming) {
       setConfirming(true)
@@ -90,69 +79,70 @@ function PhotoCard({ item }) {
     }
     router.delete(`/portfolio/${item.id}`, { preserveScroll: true })
   }
+  const dateLabel = new Date(`${item.taken_on}T00:00:00`).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
 
   return (
-    <figure className="rounded-xl border border-sage-line bg-white overflow-hidden shadow-sm">
+    <div>
       <a href={item.full_url} target="_blank" rel="noreferrer">
         <img
           src={item.thumb_url}
           alt={item.caption || 'Portfolio piece'}
           loading="lazy"
-          className="aspect-square w-full object-cover"
+          style={{ aspectRatio: 1, width: '100%', objectFit: 'cover', boxShadow: 'var(--shadow-sm)' }}
         />
       </a>
-      <figcaption className="px-3 py-2 text-xs">
-        {item.caption && <p className="text-ink font-medium leading-snug">{item.caption}</p>}
-        {item.skill_title && (
-          <p className="mt-0.5 inline-block rounded-full bg-sage px-2 py-0.5 text-[11px] font-bold text-pine-deep">
-            {item.skill_title}
-          </p>
-        )}
-        <div className="mt-1 flex items-center justify-between text-ink-soft">
-          <span>{new Date(`${item.taken_on}T00:00:00`).toLocaleDateString('en-PK', { day: 'numeric', month: 'short' })}</span>
-          <button
-            onClick={remove}
-            className={`cursor-pointer font-bold ${confirming ? 'text-clay' : 'text-ink-soft/60 hover:text-clay'}`}
-          >
-            {confirming ? 'Tap to confirm' : 'Remove'}
-          </button>
-        </div>
-      </figcaption>
-    </figure>
+      <div style={{ fontSize: 13, marginTop: 'var(--space-2)' }}>{item.caption || 'Untitled'}</div>
+      <div style={{ fontSize: 12, color: 'var(--color-neutral-600)', display: 'flex', justifyContent: 'space-between', gap: 4 }}>
+        <span>{dateLabel}{item.skill_code ? ` · ${item.skill_code}` : ' · untagged'}</span>
+        <button
+          onClick={remove}
+          style={{ font: 'inherit', fontSize: 12, border: 'none', background: 'none', cursor: 'pointer', color: confirming ? 'var(--color-accent-2-700)' : 'var(--color-neutral-500)', padding: 0 }}
+        >
+          {confirming ? 'confirm' : 'remove'}
+        </button>
+      </div>
+    </div>
   )
 }
 
-export default function PortfolioIndex({ months, skills, errors }) {
-  return (
-    <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-      <header className="mb-6">
-        <Link href="/" className="text-xs font-bold uppercase tracking-[0.18em] text-ink-soft hover:text-pine">
-          ← Today
-        </Link>
-        <h1 className="font-display text-4xl font-bold text-pine-deep mt-1">Portfolio</h1>
-        <p className="text-ink-soft mt-1 text-sm">
-          Photos of finished work — the record that shows how far she’s come.
-        </p>
-      </header>
+export default function PortfolioIndex({ months, skills, total_count, errors }) {
+  const [uploading, setUploading] = useState(false)
 
-      <UploadCard skills={skills} errors={errors} />
+  return (
+    <Shell active="Portfolio">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
+        <div>
+          <div className="n">Portfolio · {total_count} piece{total_count === 1 ? '' : 's'}</div>
+          <h1 style={{ fontSize: 34, margin: 'var(--space-2) 0 0' }}>Her work</h1>
+        </div>
+        <button className="btn btn-primary" onClick={() => setUploading(!uploading)}>
+          {uploading ? 'Close' : 'Add photos'}
+        </button>
+      </div>
+
+      {(uploading || months.length === 0) && (
+        <UploadPanel skills={skills} errors={errors} onDone={() => setUploading(false)} />
+      )}
 
       {months.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-sage-line bg-white/50 px-6 py-10 text-center text-ink-soft">
+        <p style={{ marginTop: 'var(--space-6)', color: 'var(--color-neutral-600)' }}>
           Nothing here yet. Photograph today’s worksheet or craft and add it.
-        </div>
+        </p>
       ) : (
         months.map((month) => (
-          <section key={month.label} className="mb-8">
-            <h2 className="font-display text-xl font-semibold text-pine-deep mb-3">{month.label}</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {month.items.map((item) => (
-                <PhotoCard key={item.id} item={item} />
-              ))}
+          <section key={month.label} style={{ marginTop: 'var(--space-8)' }}>
+            <h3 style={{ fontSize: 18, margin: '0 0 var(--space-3)' }}>
+              {month.label}{' '}
+              <span style={{ color: 'var(--color-neutral-600)', fontWeight: 400 }}>
+                · {month.items.length} piece{month.items.length === 1 ? '' : 's'}
+              </span>
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: 'var(--space-4)' }}>
+              {month.items.map((item) => <Piece key={item.id} item={item} />)}
             </div>
           </section>
         ))
       )}
-    </main>
+    </Shell>
   )
 }

@@ -9,7 +9,12 @@ class ApplicationController < ActionController::Base
   inertia_share do
     {
       auth: current_user && { name: current_user.name, email: current_user.email },
-      child: current_child && { id: current_child.id, name: current_child.name }
+      child: current_child && {
+        id: current_child.id,
+        name: current_child.name,
+        age_label: current_child.age_label,
+        framing: current_child.framing
+      }
     }
   end
 
@@ -31,7 +36,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_child
 
   def require_child!
-    redirect_to new_child_path if current_child.nil?
+    redirect_to onboarding_path if current_child.nil?
   end
 
   def use_user_time_zone(&block)

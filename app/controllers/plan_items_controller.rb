@@ -20,6 +20,6 @@ class PlanItemsController < ApplicationController
       end
     end
 
-    redirect_to root_path
+    redirect_to today_path
   end
 end

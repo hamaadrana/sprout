@@ -47,7 +47,7 @@ RSpec.describe "Skill library", type: :request do
       expect(item.reload.skill).to eq(skill_b)
       expect(item.activity).to eq(skill_b.activities.first)
       expect(child.skill_progress.find_by!(skill: skill_b)).to be_introduced
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(today_path)
     end
 
     it "refuses to swap a plan item that is already done" do

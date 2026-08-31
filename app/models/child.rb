@@ -18,6 +18,12 @@ class Child < ApplicationRecord
     domains.merge(ChildDomain.where(active: true))
   end
 
+  # "4y 2m" — shown in the app chrome next to the child's name.
+  def age_label(on: Date.current)
+    months = age_in_months(on: on)
+    "#{months / 12}y #{months % 12}m"
+  end
+
   def age_in_months(on: Date.current)
     (on.year * 12 + on.month) - (date_of_birth.year * 12 + date_of_birth.month) -
       (on.day < date_of_birth.day ? 1 : 0)

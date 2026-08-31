@@ -25,6 +25,24 @@ plan; its guardrails still apply:
 - Portfolio uploads: process to ≤1600px WebP via `PortfolioPhoto`; never
   attach the raw upload.
 
+## Design system
+
+The UI is "Broadsheet" — sober newsprint serif from the user's Claude Design
+wireframes (project f00c663a…, nine screens 1a–1i). Tokens and component
+classes (`.btn`, `.seg`, `.tag`, `.field`, `.input`, `.radio`, `.n`) live in
+`app/frontend/entrypoints/main.css`. Font is Source Serif 4. Accent #0088b0.
+**No Urdu anywhere in the UI** — explicit note in the design brief. Pages are
+React with inline styles referencing the CSS custom properties, matching the
+wireframe markup.
+
+## Content data
+
+- `db/curriculum/numeracy.yml` — 35 skills, codes NUM.A01…NUM.E05; the track
+  letter maps to a display strand (CurriculumLoader::STRANDS).
+- `db/library/` — activity_library.yml (106 cross-domain activities) and
+  make_it_projects.yml (45 projects), loaded by `rake curriculum:load_library`,
+  keyed on stable codes. Supervision flags must always surface in the UI.
+
 ## Gotchas
 
 - `@inertiajs/react` is pinned to v2 — inertia_rails 3.x serves the v2 page

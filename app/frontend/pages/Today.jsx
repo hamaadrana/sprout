@@ -1,205 +1,168 @@
-import { Link, router, usePage } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import { useState } from 'react'
-
-const KIND_LABELS = {
-  hands_on: 'Hands-on',
-  worksheet: 'Worksheet',
-  game: 'Game',
-  conversation: 'Conversation',
-}
-
-const KIND_STYLES = {
-  hands_on: 'bg-sage text-pine-deep',
-  worksheet: 'bg-marigold-soft text-clay',
-  game: 'bg-clay-soft text-clay',
-  conversation: 'bg-cream text-ink-soft',
-}
+import Shell from '../components/Shell'
 
 function formatDate(iso) {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString('en-PK', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
+  return new Date(`${iso}T00:00:00`).toLocaleDateString('en-GB', {
+    weekday: 'long', day: 'numeric', month: 'long',
   })
 }
 
-function PlanItemCard({ item, index }) {
-  const [busy, setBusy] = useState(null)
-
-  const logOutcome = (outcome) => {
-    setBusy(outcome)
-    router.post(
-      `/plan_items/${item.id}/log`,
-      { outcome },
-      { preserveScroll: true, onFinish: () => setBusy(null) }
-    )
-  }
-
-  if (item.state !== 'pending') {
-    const gotIt = item.outcome === 'got_it'
-    return (
-      <div className="card-enter rounded-2xl border border-sage-line bg-white/60 px-5 py-4 flex items-center gap-3">
-        <span
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-            gotIt ? 'bg-pine text-paper' : 'bg-marigold text-ink'
-          }`}
-        >
-          {gotIt ? '✓' : '↻'}
-        </span>
-        <div className="min-w-0">
-          <p className="font-bold text-ink truncate">{item.skill.title}</p>
-          <p className="text-sm text-ink-soft">
-            {gotIt ? 'Got it — well done.' : 'Marked for more practice. It will come around again.'}
-          </p>
-        </div>
-      </div>
-    )
-  }
-
+function DoneRow({ item }) {
+  const gotIt = item.outcome === 'got_it'
   return (
-    <article
-      className="card-enter rounded-2xl border border-sage-line bg-white shadow-sm overflow-hidden"
-      style={{ animationDelay: `${index * 90}ms` }}
+    <div
+      style={{
+        display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
+        padding: 'var(--space-4) var(--space-6)',
+        background: 'var(--color-neutral-100)', borderRadius: 'var(--radius-md)',
+      }}
     >
-      <div className="px-6 pt-5 pb-4 border-b border-sage-line/70">
-        <div className="flex items-center gap-2 mb-2">
-          <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide ${KIND_STYLES[item.activity.kind] || 'bg-cream text-ink-soft'}`}>
-            {KIND_LABELS[item.activity.kind] || item.activity.kind}
-          </span>
-          <span className="text-xs text-ink-soft">{item.skill.domain}</span>
-          <span className="ml-auto text-xs font-bold text-ink-soft">
-            ~{item.activity.duration_minutes} min
-          </span>
-        </div>
-        <h2 className="font-display text-2xl font-semibold text-pine-deep leading-snug">
+      <span className={gotIt ? 'tag tag-accent' : 'tag tag-accent-2'}>
+        {gotIt ? 'got it' : 'needs practice'}
+      </span>
+      <div style={{ minWidth: 0 }}>
+        <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 17 }}>
           {item.skill.title}
-        </h2>
-        <p className="mt-1 font-bold text-ink">{item.activity.title}</p>
-      </div>
-
-      <div className="px-6 py-4 space-y-4">
-        {item.activity.materials.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
-            {item.activity.materials.map((m) => (
-              <span key={m} className="rounded-md bg-cream px-2 py-1 text-xs text-ink-soft border border-sage-line/60">
-                {m}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <p className="text-[15px] leading-relaxed text-ink">{item.activity.instructions}</p>
-
-        <div className="rounded-xl bg-marigold-soft/70 border border-marigold/30 px-4 py-3">
-          <p className="text-xs font-bold uppercase tracking-wide text-clay mb-1">
-            What “got it” looks like
-          </p>
-          <p className="text-sm leading-relaxed text-ink">{item.skill.mastery_descriptor}</p>
         </div>
-
-        {item.has_worksheet && (
-          <a
-            href={`/plan_items/${item.id}/worksheet`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-pine bg-white px-4 py-2.5 text-sm font-bold text-pine hover:bg-sage transition-colors"
-          >
-            🖨 Open the worksheet
-          </a>
-        )}
+        <div style={{ fontSize: 13, color: 'var(--color-neutral-600)' }}>
+          {gotIt ? 'Logged — well done.' : 'Logged. It stays in the plan until it lands.'}
+        </div>
       </div>
-
-      <div className="grid grid-cols-2 gap-3 px-6 pb-3">
-        <button
-          onClick={() => logOutcome('got_it')}
-          disabled={busy !== null}
-          className="rounded-xl bg-pine py-3 font-bold text-paper transition-colors hover:bg-pine-deep disabled:opacity-60 cursor-pointer"
-        >
-          {busy === 'got_it' ? 'Saving…' : 'Got it'}
-        </button>
-        <button
-          onClick={() => logOutcome('needs_practice')}
-          disabled={busy !== null}
-          className="rounded-xl border-2 border-marigold bg-white py-3 font-bold text-ink transition-colors hover:bg-marigold-soft disabled:opacity-60 cursor-pointer"
-        >
-          {busy === 'needs_practice' ? 'Saving…' : 'Needs practice'}
-        </button>
-      </div>
-
-      <div className="px-6 pb-4 text-center">
-        <Link
-          href={`/skills?swap=${item.id}`}
-          className="text-xs text-ink-soft hover:text-pine underline decoration-sage-line underline-offset-2"
-        >
-          Teach something else instead
-        </Link>
-      </div>
-    </article>
+    </div>
   )
 }
 
-export default function Today({ date, plan_items, all_done, nothing_left }) {
-  const { props } = usePage()
-  const childName = props.child?.name
+function ActivityCard({ item, index, expanded, onExpand }) {
+  if (item.state !== 'pending') return <DoneRow item={item} />
+
+  if (!expanded) {
+    return (
+      <div
+        style={{
+          display: 'grid', gridTemplateColumns: '1fr 260px', gap: 'var(--space-8)',
+          alignItems: 'center', padding: 'var(--space-4) var(--space-6)',
+          background: 'var(--color-neutral-100)', borderRadius: 'var(--radius-md)',
+        }}
+      >
+        <div>
+          <div className="n">
+            Activity {index + 1} · {item.activity.kind} · {item.activity.duration_minutes} min
+          </div>
+          <h2 style={{ fontSize: 22, margin: 'var(--space-2) 0 0' }}>{item.skill.title}</h2>
+        </div>
+        <button className="btn btn-secondary btn-block" onClick={onExpand}>Open</button>
+      </div>
+    )
+  }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-      <header className="mb-8">
-        <div className="flex items-baseline justify-between">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink-soft">
-            {formatDate(date)}
-          </p>
-          <nav className="flex items-center gap-4">
-          <Link href="/skills" className="text-xs font-bold text-pine hover:underline">
-            Skill library
-          </Link>
-          <Link href="/portfolio" className="text-xs font-bold text-pine hover:underline">
-            Portfolio
-          </Link>
-          <form method="post" action="/users/sign_out">
-            <input type="hidden" name="_method" value="delete" />
-            <input
-              type="hidden"
-              name="authenticity_token"
-              value={document.querySelector('meta[name="csrf-token"]')?.content || ''}
-            />
-            <button type="submit" className="text-xs text-ink-soft hover:text-ink cursor-pointer">
-              Sign out
-            </button>
-          </form>
-          </nav>
+    <div
+      style={{
+        display: 'grid', gridTemplateColumns: '1fr 260px', gap: 'var(--space-8)',
+        alignItems: 'start', padding: 'var(--space-6)',
+        background: 'var(--color-neutral-100)', borderRadius: 'var(--radius-md)',
+      }}
+    >
+      <div>
+        <div className="n">
+          Activity {index + 1} · {item.activity.kind} · {item.activity.duration_minutes} min
         </div>
-        <h1 className="font-display text-4xl font-bold text-pine-deep mt-1">
-          Today{childName ? ` with ${childName}` : ''}
-        </h1>
-      </header>
-
-      {nothing_left ? (
-        <div className="card-enter rounded-2xl border border-sage-line bg-white px-6 py-10 text-center">
-          <p className="font-display text-2xl font-semibold text-pine-deep mb-2">
-            Everything is mastered 🎉
-          </p>
-          <p className="text-ink-soft">
-            {childName || 'Your child'} has worked through every skill currently in the
-            curriculum. New material is coming.
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {plan_items.map((item, i) => (
-            <PlanItemCard key={item.id} item={item} index={i} />
-          ))}
-
-          {all_done && (
-            <div className="card-enter rounded-2xl bg-pine px-6 py-8 text-center text-paper">
-              <p className="font-display text-2xl font-semibold mb-1">That’s today done.</p>
-              <p className="text-paper/80 text-sm">
-                Ten minutes of teaching, logged for good. See you tomorrow morning.
-              </p>
+        <h2 style={{ fontSize: 26, margin: 'var(--space-2) 0 var(--space-3)' }}>
+          {item.skill.title}
+        </h2>
+        <p style={{ margin: '0 0 var(--space-3)', fontSize: 15, lineHeight: 1.5, color: 'var(--color-neutral-800)', maxWidth: '52ch' }}>
+          {item.activity.title} — {item.activity.instructions}
+        </p>
+        <details style={{ fontSize: 14 }}>
+          <summary style={{ cursor: 'pointer', color: 'var(--color-accent-700)', fontWeight: 600 }}>
+            Materials and what “got it” looks like
+          </summary>
+          <div style={{ paddingTop: 'var(--space-3)', display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', color: 'var(--color-neutral-700)' }}>
+            {item.activity.materials.length > 0 && (
+              <div>Materials: {item.activity.materials.join(' · ')}</div>
+            )}
+            <div style={{ maxWidth: '58ch' }}>
+              <strong style={{ color: 'var(--color-text)' }}>Got it looks like:</strong>{' '}
+              {item.skill.mastery_descriptor}
             </div>
-          )}
+          </div>
+        </details>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+        <Link
+          href={`/plan_items/${item.id}/log`}
+          className="btn btn-primary btn-block"
+          style={{ fontSize: 17, padding: 'var(--space-3) var(--space-4)' }}
+        >
+          Start
+        </Link>
+        <Link href="/skills" className="btn btn-ghost btn-block">Swap this activity</Link>
+        {item.has_worksheet && (
+          <Link href={`/worksheets/${item.skill.id}`} className="btn btn-ghost btn-block">
+            Print a worksheet
+          </Link>
+        )}
+        <div className="n" style={{ marginTop: 'var(--space-2)', color: 'var(--color-neutral-600)' }}>
+          Start opens the log sheet
         </div>
-      )}
-    </main>
+      </div>
+    </div>
+  )
+}
+
+export default function Today({ date, total_minutes, pending_count, progress, plan_items }) {
+  const { child } = usePage().props
+  const firstPendingId = plan_items.find((i) => i.state === 'pending')?.id
+  const [expandedId, setExpandedId] = useState(firstPendingId)
+  const allDone = plan_items.length > 0 && plan_items.every((i) => i.state !== 'pending')
+  const pct = progress.total > 0 ? Math.round((progress.mastered / progress.total) * 100) : 0
+
+  const headline = allDone
+    ? `That’s today done`
+    : plan_items.length === 0
+      ? `Nothing left to plan`
+      : `${pending_count === 1 ? 'One thing' : 'Two things'} with ${child?.name} today`
+
+  return (
+    <Shell active="Today">
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 'var(--space-6)', flexWrap: 'wrap' }}>
+        <div>
+          <div className="n">{formatDate(date)}</div>
+          <h1 style={{ fontSize: 40, margin: 'var(--space-2) 0 var(--space-1)' }}>{headline}</h1>
+          <p style={{ margin: 0, fontSize: 16, color: 'var(--color-neutral-700)' }}>
+            {allDone
+              ? 'Logged for good. See you tomorrow morning.'
+              : plan_items.length === 0
+                ? `${child?.name} has worked through every skill currently in the curriculum.`
+                : `About ${total_minutes} minutes. ${progress.domain}, picking up where you left off.`}
+          </p>
+        </div>
+        <div style={{ textAlign: 'right', fontSize: 13, color: 'var(--color-neutral-600)', flex: 'none' }}>
+          <div>{progress.mastered} of {progress.total} {progress.domain.toLowerCase()} skills mastered</div>
+          <div style={{ display: 'flex', marginTop: 'var(--space-2)', justifyContent: 'flex-end', width: 320, maxWidth: '100%', height: 6, background: 'var(--color-neutral-300)', borderRadius: 1 }}>
+            <div style={{ width: `${pct}%`, height: 6, background: 'var(--color-accent)', borderRadius: 1, marginRight: 'auto' }} />
+          </div>
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', marginTop: 'var(--space-8)' }}>
+        {plan_items.map((item, i) => (
+          <ActivityCard
+            key={item.id}
+            item={item}
+            index={i}
+            expanded={expandedId === item.id}
+            onExpand={() => setExpandedId(item.id)}
+          />
+        ))}
+      </div>
+
+      <div style={{ marginTop: 'var(--space-6)', display: 'flex', gap: 'var(--space-4)', alignItems: 'center', fontSize: 14, color: 'var(--color-neutral-700)', flexWrap: 'wrap' }}>
+        <span>{allDone ? 'Want more?' : 'Done for today?'}</span>
+        <Link href="/skills" style={{ color: 'var(--color-accent-700)' }}>Browse all skills</Link>
+        <Link href="/activities" style={{ color: 'var(--color-accent-700)' }}>Extra activities and things to make</Link>
+      </div>
+    </Shell>
   )
 }

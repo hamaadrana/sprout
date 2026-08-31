@@ -1,29 +1,26 @@
-<h1 class="font-display text-xl font-semibold text-ink mb-5">Sign in</h1>
+<h1 style="font-size:22px;margin-bottom:var(--space-4)">Sign in</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="space-y-4">
-    <div>
-      <%= f.label :email, class: "block text-sm font-medium text-ink-soft mb-1" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",
-            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+  <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
     </div>
-    <div>
-      <%= f.label :password, class: "block text-sm font-medium text-ink-soft mb-1" %>
-      <%= f.password_field :password, autocomplete: "current-password",
-            class: "w-full rounded-lg border border-sage-line bg-white px-3 py-2.5 text-ink focus:outline-none focus:ring-2 focus:ring-pine/40 focus:border-pine" %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
     </div>
     <% if devise_mapping.rememberable? %>
-      <label class="flex items-center gap-2 text-sm text-ink-soft">
-        <%= f.check_box :remember_me, class: "rounded border-sage-line text-pine focus:ring-pine/40" %>
+      <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--color-neutral-700)">
+        <%= f.check_box :remember_me %>
         Remember me
       </label>
     <% end %>
-    <%= f.submit "Sign in",
-          class: "w-full rounded-xl bg-pine text-paper font-bold py-3 hover:bg-pine-deep transition-colors cursor-pointer" %>
+    <%= f.submit "Sign in", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
 
-<div class="mt-5 pt-4 border-t border-sage-line text-sm text-ink-soft space-y-1">
-  <p>New here? <%= link_to "Create an account", new_registration_path(resource_name), class: "text-pine font-bold hover:underline" %></p>
-  <p><%= link_to "Forgot your password?", new_password_path(resource_name), class: "hover:underline" %></p>
+<div style="margin-top:var(--space-4);padding-top:var(--space-3);border-top:1px solid var(--color-divider);font-size:14px;color:var(--color-neutral-700)">
+  <p style="margin:0 0 var(--space-1)">New here? <%= link_to "Create an account", new_registration_path(resource_name) %></p>
+  <p style="margin:0"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
 </div>

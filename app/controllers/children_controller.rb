@@ -1,7 +1,7 @@
 class ChildrenController < ApplicationController
   def new
-    redirect_to root_path if current_child.present?
-    render inertia: "Children/New"
+    redirect_to today_path if current_child.present?
+    render inertia: "Onboarding"
   end
 
   def create
@@ -13,14 +13,14 @@ class ChildrenController < ApplicationController
       Domain.find_each { |domain| child.child_domains.create!(domain: domain) }
     end
 
-    redirect_to root_path
+    redirect_to today_path
   rescue ActiveRecord::RecordInvalid
-    redirect_to new_child_path, inertia: { errors: child.errors.to_hash(true) }
+    redirect_to onboarding_path, inertia: { errors: child.errors.to_hash(true) }
   end
 
   private
 
   def child_params
-    params.require(:child).permit(:name, :date_of_birth)
+    params.require(:child).permit(:name, :date_of_birth, :framing, :target_school_start_on)
   end
 end

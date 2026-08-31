@@ -18,7 +18,9 @@ class PortfolioItemsController < ApplicationController
       domain.skills.order(:position).map { |s| { id: s.id, title: s.title } }
     end
 
-    render inertia: "Portfolio/Index", props: { months: months, skills: skills }
+    render inertia: "Portfolio/Index", props: {
+      months: months, skills: skills, total_count: items.length
+    }
   end
 
   def create
@@ -55,6 +57,7 @@ class PortfolioItemsController < ApplicationController
       caption: item.caption,
       taken_on: item.taken_on.iso8601,
       skill_title: item.skill&.title,
+      skill_code: item.skill&.code&.split(".")&.first(2)&.join("."),
       thumb_url: item.image.attached? ? rails_representation_path(item.image.variant(THUMB), only_path: true) : nil,
       full_url: item.image.attached? ? rails_blob_path(item.image, disposition: "inline", only_path: true) : nil
     }

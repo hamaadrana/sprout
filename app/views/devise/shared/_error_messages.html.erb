@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
-  <div class="mb-4 rounded-lg bg-clay-soft border border-clay/30 px-4 py-3 text-sm text-clay">
-    <ul class="list-disc list-inside space-y-1">
+  <div style="margin-bottom:var(--space-3);padding:var(--space-3);background:var(--color-accent-2-100);border-radius:var(--radius-md);font-size:13px;color:var(--color-accent-2-800)">
+    <ul style="margin:0;padding-left:18px">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

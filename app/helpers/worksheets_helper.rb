@@ -12,4 +12,31 @@ module WorksheetsHelper
     inner = SHAPES.fetch(name, SHAPES["ball"])
     raw(%(<svg viewBox="0 0 24 24" width="#{size_mm}mm" height="#{size_mm}mm" xmlns="http://www.w3.org/2000/svg">#{inner}</svg>))
   end
+
+  GEOMETRY = {
+    "circle" => '<circle cx="12" cy="12" r="10"/>',
+    "square" => '<rect x="2.5" y="2.5" width="19" height="19"/>',
+    "triangle" => '<path d="M12 3L21.5 21H2.5z"/>',
+    "rectangle" => '<rect x="1.5" y="6" width="21" height="12"/>',
+    "oval" => '<ellipse cx="12" cy="12" rx="10.5" ry="7"/>'
+  }.freeze
+
+  PATTERN_FILLS = {
+    "circle" => "#2b5540",
+    "square" => "#e9a83a",
+    "triangle" => "#bf5b3d"
+  }.freeze
+
+  # Dashed grey outline for tracing.
+  def worksheet_traceable(name, size_mm: 22)
+    inner = GEOMETRY.fetch(name, GEOMETRY["circle"])
+    raw(%(<svg viewBox="0 0 24 24" width="#{size_mm}mm" height="#{size_mm}mm" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#9a9a9a" stroke-width="0.9" stroke-dasharray="2.2 1.8">#{inner}</g></svg>))
+  end
+
+  # Solid filled geometry, coloured per shape so patterns read clearly.
+  def worksheet_solid(name, size_mm: 10)
+    inner = GEOMETRY.fetch(name, GEOMETRY["circle"])
+    fill = PATTERN_FILLS.fetch(name, "#2b5540")
+    raw(%(<svg viewBox="0 0 24 24" width="#{size_mm}mm" height="#{size_mm}mm" xmlns="http://www.w3.org/2000/svg"><g fill="#{fill}" stroke="#22301f" stroke-width="0.8">#{inner}</g></svg>))
+  end
 end

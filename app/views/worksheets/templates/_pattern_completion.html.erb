@@ -1,0 +1,27 @@
+<style>
+  .pc-hint { font-size: 10pt; color: #5c6657; margin-bottom: 5mm; }
+  .pc-row {
+    display: flex; gap: 4mm; align-items: center; flex-wrap: wrap;
+    padding: 5mm 3mm; border-bottom: 1.5px dashed #b9b9b9; margin-bottom: 4mm;
+  }
+  .pc-blank {
+    width: 11mm; height: 11mm;
+    border: 1.5px dashed #8a8a8a; border-radius: 2mm;
+  }
+</style>
+
+<p class="pc-hint">
+  Say each pattern out loud, then draw the shapes that come next in the
+  empty boxes.
+</p>
+
+<% worksheet[:rows].each do |row| %>
+  <div class="pc-row">
+    <% row[:sequence].each do |shape| %>
+      <%= worksheet_solid(shape, size_mm: 10) %>
+    <% end %>
+    <% row[:blanks].times do %>
+      <div class="pc-blank"></div>
+    <% end %>
+  </div>
+<% end %>

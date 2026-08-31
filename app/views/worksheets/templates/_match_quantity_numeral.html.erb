@@ -1,0 +1,44 @@
+<style>
+  .mq-hint { font-size: 10pt; color: #5c6657; margin-bottom: 5mm; }
+  .mq-grid { display: flex; justify-content: space-between; }
+  .mq-col { display: flex; flex-direction: column; gap: 7mm; }
+  .mq-group {
+    display: flex; flex-wrap: wrap; gap: 2.5mm; align-items: center;
+    max-width: 78mm; min-height: 14mm;
+    border: 1.2px solid #c9c9c9; border-radius: 3mm; padding: 3mm;
+  }
+  .mq-dot { width: 3mm; height: 3mm; border-radius: 50%; background: #22301f; align-self: center; }
+  .mq-num {
+    font-family: "Karla", sans-serif; font-weight: 700; font-size: 30pt;
+    border: 1.2px solid #c9c9c9; border-radius: 3mm;
+    width: 22mm; min-height: 14mm; display: flex; align-items: center; justify-content: center;
+  }
+  .mq-pair { display: flex; align-items: center; gap: 3mm; }
+</style>
+
+<p class="mq-hint">
+  Count each group, then draw a line from the group to its number.
+</p>
+
+<div class="mq-grid">
+  <div class="mq-col">
+    <% worksheet[:left].each do |group| %>
+      <div class="mq-pair">
+        <div class="mq-group">
+          <% group[:count].times do %>
+            <%= worksheet_shape(group[:object], size_mm: 7) %>
+          <% end %>
+        </div>
+        <div class="mq-dot"></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mq-col">
+    <% worksheet[:right].each do |number| %>
+      <div class="mq-pair">
+        <div class="mq-dot"></div>
+        <div class="mq-num"><%= number %></div>
+      </div>
+    <% end %>
+  </div>
+</div>

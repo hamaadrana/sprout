@@ -1,0 +1,29 @@
+<style>
+  .ml-hint { font-size: 10pt; color: #5c6657; margin-bottom: 5mm; }
+  .ml-pair { display: flex; gap: 6mm; align-items: stretch; margin-bottom: 5mm; }
+  .ml-box {
+    flex: 1; border: 1.5px solid #22301f; border-radius: 4mm; padding: 4mm;
+    display: flex; flex-wrap: wrap; gap: 3mm; align-content: flex-start; min-height: 24mm;
+  }
+  .ml-vs { align-self: center; font-weight: 700; color: #5c6657; }
+</style>
+
+<p class="ml-hint">
+  Count both sides, then circle the box that has <strong>more</strong>.
+</p>
+
+<% worksheet[:pairs].each do |pair| %>
+  <div class="ml-pair">
+    <div class="ml-box">
+      <% pair[:left].times do %>
+        <%= worksheet_shape(pair[:object], size_mm: 8) %>
+      <% end %>
+    </div>
+    <span class="ml-vs">or</span>
+    <div class="ml-box">
+      <% pair[:right].times do %>
+        <%= worksheet_shape(pair[:object], size_mm: 8) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

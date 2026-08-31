@@ -1,0 +1,26 @@
+<style>
+  .tf-hint { font-size: 10pt; color: #5c6657; margin-bottom: 5mm; }
+  .tf-block { display: flex; align-items: center; gap: 10mm; margin-bottom: 9mm; }
+  .tf-number {
+    font-family: "Karla", sans-serif; font-weight: 700; font-size: 40pt;
+    min-width: 18mm; text-align: center;
+  }
+  .tf-grid { display: grid; grid-template-columns: repeat(5, 16mm); }
+  .tf-cell { width: 16mm; height: 16mm; border: 1.2px solid #22301f; }
+</style>
+
+<p class="tf-hint">
+  Colour in one box for each — show the number in the frame. Then say how many
+  empty boxes are left to make 10.
+</p>
+
+<% worksheet[:numbers].each do |number| %>
+  <div class="tf-block">
+    <span class="tf-number"><%= number %></span>
+    <div class="tf-grid">
+      <% 10.times do %>
+        <div class="tf-cell"></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

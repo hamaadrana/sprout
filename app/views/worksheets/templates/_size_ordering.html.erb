@@ -1,0 +1,23 @@
+<style>
+  .so-hint { font-size: 10pt; color: #5c6657; margin-bottom: 8mm; }
+  .so-row { display: flex; gap: 12mm; align-items: flex-end; justify-content: center; margin-top: 10mm; }
+  .so-item { display: flex; flex-direction: column; align-items: center; gap: 5mm; }
+  .so-answer {
+    width: 12mm; height: 12mm;
+    border: 1.5px dashed #8a8a8a; border-radius: 2mm;
+  }
+</style>
+
+<p class="so-hint">
+  Which is smallest? Which is biggest? Write 1 under the smallest, then 2, 3…
+  up to the biggest.
+</p>
+
+<div class="so-row">
+  <% worksheet[:sizes_mm].each do |size| %>
+    <div class="so-item">
+      <%= worksheet_solid(worksheet[:shape], size_mm: size) %>
+      <div class="so-answer"></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<style>
+  .cc-hint { font-size: 11pt; color: #5c6657; margin-bottom: 5mm; }
+  .cc-hint strong { color: #22301f; font-size: 13pt; }
+  .cc-row {
+    display: flex; flex-wrap: wrap; gap: 4mm; align-items: center;
+    padding: 6mm 3mm; border: 1.5px solid #22301f; border-radius: 4mm;
+    margin-bottom: 5mm;
+  }
+</style>
+
+<p class="cc-hint">
+  Circle exactly <strong><%= worksheet[:target] %></strong> pictures in each box.
+</p>
+
+<% worksheet[:rows].each do |row| %>
+  <div class="cc-row">
+    <% row[:count].times do %>
+      <%= worksheet_shape(row[:object], size_mm: 10) %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<style>
+  .st-hint { font-size: 10pt; color: #5c6657; margin-bottom: 5mm; }
+  .st-row {
+    display: flex; gap: 12mm; align-items: center;
+    padding: 6mm 0; border-bottom: 1.5px dashed #b9b9b9;
+  }
+  .st-label {
+    min-width: 30mm; font-weight: 700; font-size: 14pt; text-transform: capitalize;
+  }
+</style>
+
+<p class="st-hint">
+  Trace each shape with your finger first, then with a crayon. Say its name
+  as you trace.
+</p>
+
+<% worksheet[:shapes].each do |shape| %>
+  <div class="st-row">
+    <span class="st-label"><%= shape %></span>
+    <% 3.times do %>
+      <%= worksheet_traceable(shape, size_mm: 24) %>
+    <% end %>
+  </div>
+<% end %>

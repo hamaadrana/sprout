@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   resources :portfolio_items, only: [ :index, :create, :destroy ], path: "portfolio"
 
+  post "__design_drop/:name", to: "dev_drop#create", constraints: ->(_) { Rails.env.development? }
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

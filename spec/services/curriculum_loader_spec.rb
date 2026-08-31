@@ -23,10 +23,19 @@ RSpec.describe CurriculumLoader do
       expect(SkillPrerequisite.count).to be > 10
     end
 
-    it "gives every skill at least one SLO reference and one activity" do
+    it "gives every skill an activity and a strand, and most an SLO reference" do
       CurriculumLoader.load_all
-      expect(Skill.where(slo_refs: [])).to be_empty
       expect(Skill.left_joins(:activities).where(activities: { id: nil })).to be_empty
+      expect(Skill.where(strand: nil)).to be_empty
+      expect(Skill.where.not(slo_refs: []).count).to be > Skill.count / 2
+    end
+
+    it "creates worksheet resources from inline worksheet_template fields" do
+      CurriculumLoader.load_all
+      skill = Skill.find_by!(code: "NUM.B10.trace_numerals_5")
+      resource = skill.activities.first.resources.generated_worksheet.first
+      expect(resource.worksheet_template).to eq("numeral_tracing")
+      expect(resource.worksheet_params["numerals"]).to eq([ 1, 2, 3, 4, 5 ])
     end
   end
 

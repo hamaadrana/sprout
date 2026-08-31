@@ -15,19 +15,43 @@
   }
 </style>
 
-<p class="count-hint">
-  Touch and count each picture, then write how many in the box.
-</p>
-
-<div class="count-grid">
-  <% worksheet[:items].each do |item| %>
-    <div class="count-cell">
-      <div class="count-objects">
-        <% item[:count].times do %>
-          <%= worksheet_shape(item[:object]) %>
-        <% end %>
-      </div>
-      <div class="count-answer"></div>
+<% if worksheet[:mode] == "missing_number" %>
+  <style>
+    .mn-line {
+      display: flex; gap: 3mm; align-items: center;
+      padding: 5mm 0; border-bottom: 1.5px dashed #b9b9b9;
+    }
+    .mn-cell {
+      width: 13mm; height: 13mm; display: grid; place-items: center;
+      font: 700 18pt "Karla", sans-serif; border-radius: 2mm;
+    }
+    .mn-gap { border: 1.5px dashed #8a8a8a; }
+  </style>
+  <p class="count-hint">
+    Say the numbers in order and write the missing ones in the empty boxes.
+  </p>
+  <% worksheet[:lines].each do |line| %>
+    <div class="mn-line">
+      <% line[:numbers].each do |n| %>
+        <div class="mn-cell <%= 'mn-gap' if n.nil? %>"><%= n %></div>
+      <% end %>
     </div>
   <% end %>
-</div>
+<% else %>
+  <p class="count-hint">
+    Touch and count each picture, then write how many in the box.
+  </p>
+
+  <div class="count-grid">
+    <% worksheet[:items].each do |item| %>
+      <div class="count-cell">
+        <div class="count-objects">
+          <% item[:count].times do %>
+            <%= worksheet_shape(item[:object]) %>
+          <% end %>
+        </div>
+        <div class="count-answer"></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

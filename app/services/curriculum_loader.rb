@@ -6,6 +6,15 @@ class CurriculumLoader
   class CycleError < StandardError; end
   class UnknownPrerequisiteError < StandardError; end
 
+  # Track letter in the skill code (NUM.B04...) → display strand.
+  STRANDS = {
+    "A" => "Foundations",
+    "B" => "Counting",
+    "C" => "Operations",
+    "D" => "Shape and space",
+    "E" => "Measurement and time"
+  }.freeze
+
   def self.load_all(dir = Rails.root.join("db/curriculum"))
     files = Dir.glob(dir.join("*.yml")).sort
     loaders = files.map { |f| new(f) }
@@ -61,11 +70,13 @@ class CurriculumLoader
     )
 
     @data.fetch("skills", []).each do |skill_attrs|
-      skill = Skill.find_or_initialize_by(code: skill_attrs.fetch("code"))
+      code = skill_attrs.fetch("code")
+      skill = Skill.find_or_initialize_by(code: code)
       skill.update!(
         domain: domain,
         position: skill_attrs.fetch("position"),
         title: skill_attrs.fetch("title"),
+        strand: strand_for(code),
         mastery_descriptor: skill_attrs.fetch("mastery_descriptor"),
         age_min_months: skill_attrs.fetch("age_min_months"),
         age_max_months: skill_attrs.fetch("age_max_months"),
@@ -79,7 +90,8 @@ class CurriculumLoader
   def load_prerequisites
     @data.fetch("skills", []).each do |skill_attrs|
       skill = Skill.find_by!(code: skill_attrs.fetch("code"))
-      prereq_ids = skill_attrs.fetch("prerequisites", []).map do |code|
+      codes = skill_attrs["prereqs"] || skill_attrs["prerequisites"] || []
+      prereq_ids = codes.map do |code|
         Skill.find_by(code: code)&.id ||
           raise(UnknownPrerequisiteError, "#{skill.code} references unknown prerequisite #{code}")
       end
@@ -92,6 +104,11 @@ class CurriculumLoader
   end
 
   private
+
+  def strand_for(code)
+    track = code.split(".")[1].to_s[0]
+    STRANDS[track]
+  end
 
   # Activities have no stable code; they are keyed on (skill, position).
   # Activities dropped from YAML are destroyed unless plan items reference them.
@@ -107,20 +124,31 @@ class CurriculumLoader
         materials: attrs.fetch("materials", []),
         duration_minutes: attrs.fetch("duration_minutes")
       )
-      load_resources(activity, attrs.fetch("resources", []))
+      load_resources(activity, attrs)
     end
 
     skill.activities.where.not(position: positions).find_each(&:destroy)
   end
 
-  def load_resources(activity, resources_attrs)
+  # New format: worksheet_template/worksheet_params live directly on the
+  # activity. Old format: a nested `resources` list. Support both.
+  def load_resources(activity, attrs)
     activity.resources.destroy_all
-    resources_attrs.each do |attrs|
+
+    if attrs["worksheet_template"].present?
       activity.resources.create!(
-        kind: attrs.fetch("kind"),
-        url: attrs["url"],
+        kind: :generated_worksheet,
         worksheet_template: attrs["worksheet_template"],
         worksheet_params: attrs.fetch("worksheet_params", {})
+      )
+    end
+
+    attrs.fetch("resources", []).each do |r|
+      activity.resources.create!(
+        kind: r.fetch("kind"),
+        url: r["url"],
+        worksheet_template: r["worksheet_template"],
+        worksheet_params: r.fetch("worksheet_params", {})
       )
     end
   end

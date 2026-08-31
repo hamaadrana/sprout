@@ -1,0 +1,859 @@
+# Make-It Projects
+#
+# Hands-on projects that produce a physical object. Distinct from
+# activity_library.yml: those are things you DO, these are things you MAKE.
+#
+# Every project ends with an artefact, so the UI should prompt a portfolio photo
+# on completion. This is the highest-value source of portfolio content — it's
+# what gets forwarded into family WhatsApp groups, and it's what makes a parent
+# reluctant to leave after six months.
+#
+# Fields:
+#   category      paper | planting | recycled | festive | kitchen | toy | textile
+#   mess_level    low | medium | high   (surface this — it decides whether she
+#                                        starts the project today or at all)
+#   adult_prep    what the parent must do BEFORE calling the child over.
+#                 Half of failed craft sessions are failures of prep.
+#   occasion      optional; drives seasonal surfacing in the UI
+#   develops      what it actually builds, for the progress record
+#
+# SAFETY: `supervision: required` on anything with scissors, needles, heat,
+# small parts or soil. Do not strip these flags.
+#
+# Materials are deliberately household or cheap-bazaar. Nothing here should
+# require an order. If a project needs something bought, it's the wrong project
+# for this market.
+
+meta:
+  categories: [paper, planting, recycled, festive, kitchen, toy, textile]
+  mess_levels: [low, medium, high]
+  occasions:
+    - ramadan
+    - eid_ul_fitr
+    - eid_ul_adha
+    - independence_day     # 14 August
+    - pakistan_day         # 23 March
+    - spring
+    - winter
+    - monsoon
+    - birthday
+    - mothers_day
+    - fathers_day
+
+projects:
+
+  # ===============================================================
+  # PAPER AND CARDS
+  # ===============================================================
+
+  - code: MAKE.P01
+    title: Handprint greeting card
+    category: paper
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: medium
+    supervision: required
+    develops: [fine motor, colour recognition, giving]
+    portfolio: true
+    materials: ["card or thick paper", "poster paint", "a plate", "marker"]
+    adult_prep: >
+      Fold the card in advance. Pour a little paint onto a flat plate. Have a
+      wet cloth ready before you start, not after.
+    steps:
+      - "Press her palm flat into the paint on the plate."
+      - "Press the hand firmly onto the front of the folded card and lift straight up."
+      - "Wash hands immediately, then let the print dry for ten minutes."
+      - "Turn the handprint into something — fingers as flower petals, or as a peacock's tail."
+      - "Write the message inside while she tells you what to say."
+
+  - code: MAKE.P02
+    title: Torn paper mosaic
+    category: paper
+    age_band: "3-4"
+    duration_minutes: 25
+    mess_level: low
+    develops: [fine motor, colour sorting, patience]
+    portfolio: true
+    materials: ["old magazines or coloured paper", "glue stick", "paper"]
+    adult_prep: "Draw a simple bold outline — a fish, a flower, a house."
+    steps:
+      - "Tear the coloured paper into small pieces by hand. No scissors."
+      - "Sort the pieces into colour piles."
+      - "Glue them inside the outline, one colour area at a time."
+      - "Leave to dry flat."
+
+  - code: MAKE.P03
+    title: Pop-up card
+    category: paper
+    age_band: "5-6"
+    duration_minutes: 30
+    mess_level: low
+    supervision: required
+    develops: [fine motor, spatial reasoning, following steps]
+    portfolio: true
+    materials: ["card", "scissors", "glue", "colours"]
+    adult_prep: "Practise the pop-up fold once yourself first. It's not obvious."
+    steps:
+      - "Fold the card in half."
+      - "Cut two short parallel slits into the folded edge, about 3cm apart."
+      - "Push the strip between the slits inwards so it forms a step."
+      - "Glue a drawn figure onto the front face of the step."
+      - "Decorate the rest and write the message."
+
+  - code: MAKE.P04
+    title: Paper plate mask
+    category: paper
+    age_band: "4-5"
+    duration_minutes: 30
+    mess_level: medium
+    supervision: required
+    develops: [fine motor, imagination, dramatic play]
+    portfolio: true
+    materials: ["paper plate or cut card circle", "colours", "wool or paper strips", "elastic or string"]
+    adult_prep: "Cut the eye holes yourself and punch the side holes for the string."
+    steps:
+      - "Decide together which animal it will be."
+      - "Colour the plate."
+      - "Glue on wool for a mane or paper strips for whiskers."
+      - "Thread the elastic through the side holes and tie."
+      - "Use it — act out a story wearing it. The mask isn't the point, the play is."
+
+  - code: MAKE.P05
+    title: Paper chain decoration
+    category: paper
+    age_band: "4-5"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    develops: [fine motor, patterning, counting]
+    skill_tags: ["NUM.D04.recognise_patterns"]
+    portfolio: true
+    materials: ["coloured paper", "scissors", "glue"]
+    adult_prep: "Cut a stack of strips roughly 3cm by 15cm, or let her cut if she's ready."
+    steps:
+      - "Decide the colour pattern first — red, green, red, green."
+      - "Loop one strip and glue the ends."
+      - "Thread the next strip through and glue, following the pattern."
+      - "Count the links as you go. Hang it up when done."
+
+  - code: MAKE.P06
+    title: Origami boat and hat
+    category: paper
+    age_band: "5-6"
+    duration_minutes: 20
+    mess_level: low
+    develops: [fine motor, precision, spatial reasoning]
+    portfolio: true
+    materials: ["newspaper or A4 paper"]
+    adult_prep: "Fold one yourself slowly while she watches, then start hers."
+    steps:
+      - "Fold the paper in half, then in half again, and unfold to mark the centre."
+      - "Fold the top two corners into the middle line."
+      - "Fold the bottom flaps up on both sides — that's the hat."
+      - "Open it out square, fold the corners in again, and open it out to get the boat."
+      - "Float the boat in a bucket. In monsoon, float it in the rainwater."
+
+  - code: MAKE.P07
+    title: My own storybook
+    category: paper
+    age_band: "5-6"
+    duration_minutes: 40
+    mess_level: low
+    supervision: required
+    develops: [writing, sequencing, storytelling]
+    portfolio: true
+    materials: ["4 sheets of paper", "stapler", "colours"]
+    adult_prep: "Fold and staple the pages into a booklet."
+    steps:
+      - "Decide the story out loud first, before touching the pencil. Beginning, middle, end."
+      - "Draw one picture per page."
+      - "Write one sentence under each. Accept invented spelling."
+      - "Make a cover with a title and 'by [her name]'."
+      - "She reads it aloud to the family."
+
+  # ===============================================================
+  # PLANTING AND GARDEN
+  # ===============================================================
+
+  - code: MAKE.G01
+    title: Bean sprout in a glass
+    category: planting
+    age_band: "3-4"
+    duration_minutes: 15
+    mess_level: low
+    develops: [observation, patience, daily routine]
+    portfolio: true
+    materials: ["chana or moong bean", "cotton wool", "a clear glass"]
+    adult_prep: "Soak the bean overnight."
+    steps:
+      - "Damp the cotton wool and press it into the glass."
+      - "Tuck the bean between the cotton and the glass wall so it stays visible."
+      - "Put it on a windowsill."
+      - "Check it every morning for two weeks and draw what you see each day."
+
+  - code: MAKE.G02
+    title: Bottle flower pot
+    category: planting
+    age_band: "4-5"
+    duration_minutes: 30
+    mess_level: high
+    supervision: required
+    develops: [fine motor, responsibility, recycling]
+    portfolio: true
+    materials: ["a 1.5L plastic bottle", "soil", "a seedling or seeds", "paint or markers"]
+    adult_prep: >
+      Cut the bottle in half and pierce drainage holes in the base yourself. Sand
+      or tape the cut edge — it's sharp.
+    steps:
+      - "Decorate the outside of the bottle half with paint. Let it dry."
+      - "Fill two-thirds with soil."
+      - "Make a hole with a finger, drop the seed in, cover it."
+      - "Water lightly and put it where it gets morning sun."
+      - "She waters it. Not you. That's the project."
+
+  - code: MAKE.G03
+    title: Painted clay pot
+    category: planting
+    age_band: "4-5"
+    duration_minutes: 40
+    mess_level: high
+    supervision: required
+    develops: [fine motor, pattern making, colour mixing]
+    portfolio: true
+    materials: ["a small clay pot from the bazaar", "poster or acrylic paint", "brushes", "a plant"]
+    adult_prep: "Wipe the pot clean and dry. Cover the work surface with newspaper."
+    steps:
+      - "Paint a base colour over the whole pot and let it dry fully."
+      - "Add a pattern on top — dots, stripes, zigzags. Talk about the repeat."
+      - "Let it dry for a few hours."
+      - "Fill with soil and plant something together."
+
+  - code: MAKE.G04
+    title: Egg shell seedlings
+    category: planting
+    age_band: "5-6"
+    duration_minutes: 25
+    mess_level: medium
+    supervision: required
+    develops: [careful handling, observation, science]
+    portfolio: true
+    materials: ["6 empty egg shell halves", "egg carton", "soil", "coriander or methi seeds"]
+    adult_prep: "Save and rinse the shells over a few days. Sharp edges — check them."
+    steps:
+      - "Sit each shell half in the egg carton."
+      - "Spoon soil into each one carefully."
+      - "Drop two or three seeds into each, cover lightly."
+      - "Label each one with the date."
+      - "Once they sprout, plant the whole shell into a pot — it breaks down."
+
+  - code: MAKE.G05
+    title: Regrow vegetables from scraps
+    category: planting
+    age_band: "5-6"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [science observation, prediction, recycling]
+    portfolio: true
+    materials: ["base of a spring onion, garlic clove, or carrot top", "shallow dish", "water"]
+    adult_prep: "Cut the vegetable base with about 3cm left."
+    steps:
+      - "Sit the cut base in a shallow dish with a little water."
+      - "Ask her to predict what will happen and draw it."
+      - "Change the water every second day — her job."
+      - "Measure the growth each week with a strip of paper."
+
+  - code: MAKE.G06
+    title: Bird feeder from a bottle
+    category: planting
+    age_band: "5-6"
+    duration_minutes: 30
+    mess_level: medium
+    supervision: required
+    develops: [building, care for animals, observation]
+    portfolio: true
+    materials: ["plastic bottle", "two wooden spoons or sticks", "string", "grain or bajra"]
+    adult_prep: "Cut the holes for the perches and the string yourself."
+    steps:
+      - "Push the spoons through the holes so the handles stick out as perches."
+      - "Fill with grain through the top."
+      - "Tie the string and hang it in a shaded spot outside."
+      - "Keep a count of which birds visit over a week."
+
+  # ===============================================================
+  # RECYCLED BUILDS
+  # ===============================================================
+
+  - code: MAKE.R01
+    title: Tissue roll binoculars
+    category: recycled
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [fine motor, imaginative play]
+    portfolio: true
+    materials: ["2 tissue rolls", "tape", "string", "colours"]
+    adult_prep: "Punch the string holes."
+    steps:
+      - "Colour both rolls."
+      - "Tape them side by side."
+      - "Thread and knot the string as a neck strap."
+      - "Go outside and use them to spot birds."
+
+  - code: MAKE.R02
+    title: Matchbox drawers
+    category: recycled
+    age_band: "4-5"
+    duration_minutes: 30
+    mess_level: low
+    supervision: required
+    develops: [fine motor, sorting, organisation]
+    portfolio: true
+    materials: ["5 empty matchboxes", "glue", "paper", "small beads or buttons"]
+    adult_prep: "Collect and empty the boxes. Check no matches remain."
+    steps:
+      - "Glue the boxes into a stack, sleeves aligned."
+      - "Cover the outside with coloured paper."
+      - "Glue a bead onto each drawer as a handle."
+      - "Sort small treasures into the drawers — one kind per drawer."
+
+  - code: MAKE.R03
+    title: Bottle cap mosaic
+    category: recycled
+    age_band: "4-5"
+    duration_minutes: 35
+    mess_level: medium
+    supervision: required
+    develops: [patterning, colour sorting, fine motor]
+    skill_tags: ["NUM.A01.sort_one_attribute", "NUM.D04.recognise_patterns"]
+    portfolio: true
+    materials: ["30+ bottle caps in mixed colours", "thick card", "strong glue"]
+    adult_prep: "Wash the caps. Draw a bold outline on the card."
+    steps:
+      - "Sort the caps by colour into piles."
+      - "Lay them out inside the outline WITHOUT glue first, until she likes it."
+      - "Then glue them down one at a time."
+      - "Leave flat overnight."
+
+  - code: MAKE.R04
+    title: Cardboard box car
+    category: recycled
+    age_band: "4-5"
+    duration_minutes: 45
+    mess_level: medium
+    supervision: required
+    develops: [building, planning, imaginative play]
+    portfolio: true
+    materials: ["a box big enough to sit in", "4 paper plates or card circles", "paint", "tape"]
+    adult_prep: "Cut the top open and cut down the front. Reinforce the corners with tape."
+    steps:
+      - "Decide the colour and paint the outside. Let it dry."
+      - "Tape the plates on as wheels."
+      - "Add a paper plate steering wheel inside."
+      - "Draw on headlights and a number plate — good excuse to write numerals."
+
+  - code: MAKE.R05
+    title: Tin can wind chime
+    category: recycled
+    age_band: "5-6"
+    duration_minutes: 40
+    mess_level: medium
+    supervision: required
+    develops: [building, sound exploration, patience]
+    portfolio: true
+    materials: ["3-4 clean tin cans of different sizes", "string", "a stick", "paint"]
+    adult_prep: >
+      File or tape every cut edge. Punch the hanging holes in the can bases
+      yourself. Do not skip this — tin edges cut badly.
+    steps:
+      - "Paint each can and let them dry."
+      - "Thread string through each base hole and knot inside."
+      - "Tie them to the stick at different lengths."
+      - "Hang it where the wind reaches. Listen for which can is deepest."
+
+  - code: MAKE.R06
+    title: Newspaper weaving mat
+    category: recycled
+    age_band: "5-6"
+    duration_minutes: 40
+    mess_level: low
+    supervision: required
+    develops: [fine motor, over-under patterning, persistence]
+    portfolio: true
+    materials: ["old newspaper", "scissors", "glue"]
+    adult_prep: "Cut a base sheet with parallel slits, stopping 3cm from each edge."
+    steps:
+      - "Cut long strips from other sheets, or use pre-cut ones."
+      - "Weave the first strip over-under across the slits."
+      - "The next strip starts under so the pattern alternates. This is the tricky bit."
+      - "Glue the ends down when the mat is full."
+
+  - code: MAKE.R07
+    title: Shoebox room
+    category: recycled
+    age_band: "5-6"
+    duration_minutes: 50
+    mess_level: medium
+    supervision: required
+    develops: [planning, scale, imaginative play, problem solving]
+    portfolio: true
+    materials: ["a shoebox", "scrap card", "cloth scraps", "matchboxes", "glue"]
+    adult_prep: "None. Let her lead this one."
+    steps:
+      - "Decide whose room it is — a doll's, an animal's — and plan it on paper first."
+      - "Stand the box on its side as the room."
+      - "Make furniture from matchboxes and scrap card."
+      - "Add a cloth scrap rug and paper on the walls."
+      - "Ask her to explain each choice when it's finished."
+
+  # ===============================================================
+  # FESTIVE AND OCCASION
+  # ===============================================================
+
+  - code: MAKE.F01
+    title: Ramadan good deeds chart
+    category: festive
+    age_band: "4-5"
+    duration_minutes: 30
+    mess_level: low
+    occasion: ramadan
+    develops: [counting, routine, kindness]
+    skill_tags: ["NUM.B18.rote_count_20"]
+    portfolio: true
+    materials: ["large paper or card", "colours", "star stickers or cut paper stars"]
+    adult_prep: "Rule the grid — 30 boxes, numbered."
+    steps:
+      - "Decorate the border together with lanterns and moons."
+      - "Agree what counts as a good deed — sharing, helping, praying."
+      - "Each evening she sticks a star in the day's box."
+      - "Count the stars at the end. Counting to 30 arrives by accident."
+
+  - code: MAKE.F02
+    title: Paper lantern (fanoos)
+    category: festive
+    age_band: "4-5"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    occasion: ramadan
+    develops: [fine motor, cutting, spatial reasoning]
+    portfolio: true
+    materials: ["coloured paper", "scissors", "glue", "string"]
+    adult_prep: "Fold the paper in half lengthways and rule the cut lines."
+    steps:
+      - "Cut along the lines from the fold, stopping short of the open edge."
+      - "Open the sheet out."
+      - "Roll it into a cylinder and glue the edges. It puffs into a lantern."
+      - "Add a paper handle and hang a row of them."
+
+  - code: MAKE.F03
+    title: Eid card with geometric pattern
+    category: festive
+    age_band: "5-6"
+    duration_minutes: 35
+    mess_level: low
+    supervision: required
+    occasion: eid_ul_fitr
+    develops: [pattern making, symmetry, shape recognition]
+    skill_tags: ["NUM.D01.name_2d_shapes", "NUM.D05.create_patterns"]
+    portfolio: true
+    materials: ["card", "colours", "a small round lid to trace"]
+    adult_prep: "Fold the cards. Show her Islamic geometric patterns to look at first."
+    steps:
+      - "Trace overlapping circles across the front using the lid."
+      - "Colour the shapes where the circles overlap in a repeating pattern."
+      - "Talk about how the same shapes repeat — that's the whole idea."
+      - "Write Eid Mubarak inside in her own handwriting."
+
+  - code: MAKE.F04
+    title: Eid gift envelopes (eidi lifafay)
+    category: festive
+    age_band: "5-6"
+    duration_minutes: 30
+    mess_level: low
+    supervision: required
+    occasion: eid_ul_fitr
+    develops: [folding precision, writing names, giving]
+    portfolio: true
+    materials: ["coloured paper", "glue", "markers", "a ready envelope to copy"]
+    adult_prep: "Open a spare envelope flat to use as a template."
+    steps:
+      - "Trace round the flattened envelope onto coloured paper and cut it out."
+      - "Fold along the same lines and glue the sides."
+      - "Decorate the front and write who it's for."
+      - "Make one for each family member."
+
+  - code: MAKE.F05
+    title: Green and white flag craft
+    category: festive
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: medium
+    occasion: independence_day
+    develops: [colour recognition, national awareness, fine motor]
+    portfolio: true
+    materials: ["white paper", "green paint or paper", "a straw or stick", "tape"]
+    adult_prep: "Rule the flag proportions lightly — the white band on the hoist side."
+    steps:
+      - "Paint or paste the green section, leaving the white band."
+      - "Add the crescent and star. A traced lid helps for the crescent."
+      - "Tape it to the straw."
+      - "Talk about what the green and white stand for."
+
+  - code: MAKE.F06
+    title: Independence Day bunting
+    category: festive
+    age_band: "4-5"
+    duration_minutes: 35
+    mess_level: low
+    supervision: required
+    occasion: independence_day
+    develops: [cutting, patterning, counting]
+    portfolio: true
+    materials: ["green and white paper", "string", "glue", "scissors"]
+    adult_prep: "Draw triangle outlines for cutting, or pre-cut for younger children."
+    steps:
+      - "Cut out the triangles."
+      - "Decide the order — green, white, green, white."
+      - "Fold the top of each over the string and glue."
+      - "Count the flags as you hang it. Hang it on the gate on the 14th."
+
+  - code: MAKE.F07
+    title: Birthday crown
+    category: festive
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    occasion: birthday
+    develops: [fine motor, decorating, numeral recognition]
+    portfolio: true
+    materials: ["card strip", "colours", "stickers or foil scraps", "tape"]
+    adult_prep: "Cut the zigzag top and measure the strip to the child's head."
+    steps:
+      - "Decorate the strip freely."
+      - "Write the new age big on the front — she writes the numeral herself."
+      - "Tape it into a ring, checking the fit."
+
+  - code: MAKE.F08
+    title: Thumbprint flower card for Ammi
+    category: festive
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: medium
+    supervision: required
+    occasion: mothers_day
+    develops: [fine motor, giving, colour]
+    portfolio: true
+    materials: ["card", "paint on a plate", "green marker"]
+    adult_prep: "Fold the card. Wet cloth ready."
+    steps:
+      - "Press her thumb in the paint and make a cluster of prints on the card."
+      - "Wash hands."
+      - "Once dry, draw green stems and leaves so the prints become flowers."
+      - "She dictates the message and you write it, or she writes it herself."
+
+  - code: MAKE.F09
+    title: Kite from paper
+    category: festive
+    age_band: "5-6"
+    duration_minutes: 40
+    mess_level: medium
+    supervision: required
+    occasion: spring
+    develops: [building, balance, cause and effect, patience]
+    portfolio: true
+    materials: ["thin paper", "two thin sticks or broom straws", "string", "glue", "tape"]
+    adult_prep: "Trim the sticks to length. Explain that a first kite often fails."
+    steps:
+      - "Cross the sticks and tie them at the join."
+      - "Glue the paper over the frame, leaving a small overlap."
+      - "Attach the bridle string at two points and tie the flying line."
+      - "Add a paper tail — talk about why it needs one."
+      - "Fly it in an open place, away from wires and roofs. Never on a rooftop, and never with anything but plain cotton string."
+
+  - code: MAKE.F10
+    title: Winter paper snowflakes
+    category: festive
+    age_band: "5-6"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    occasion: winter
+    develops: [folding, cutting precision, symmetry]
+    portfolio: true
+    materials: ["white paper", "scissors"]
+    adult_prep: "Fold one yourself first — the six-fold is fiddly."
+    steps:
+      - "Fold a paper square in half, then into thirds, then in half again."
+      - "Cut notches along both folded edges. Don't cut all the way across."
+      - "Unfold carefully and look at the symmetry."
+      - "Make several and compare — no two come out the same."
+
+  # ===============================================================
+  # KITCHEN
+  # ===============================================================
+
+  - code: MAKE.K01
+    title: Salt dough shapes
+    category: kitchen
+    age_band: "3-4"
+    duration_minutes: 40
+    mess_level: high
+    supervision: required
+    develops: [measuring, hand strength, shape making]
+    skill_tags: ["NUM.D01.name_2d_shapes"]
+    portfolio: true
+    materials: ["1 cup atta", "half cup salt", "half cup water", "cutters or a glass"]
+    adult_prep: "Measure the cups out. Cover the table."
+    steps:
+      - "Mix the flour and salt, add water slowly, knead until smooth."
+      - "Roll it flat and cut out shapes with cutters or a glass rim."
+      - "Press a hole in the top if they're to be hung."
+      - "Air dry for two days, or bake on the lowest oven setting."
+      - "Paint once fully hard."
+
+  - code: MAKE.K02
+    title: Fruit chaat together
+    category: kitchen
+    age_band: "4-5"
+    duration_minutes: 25
+    mess_level: medium
+    supervision: required
+    develops: [counting, following steps, healthy eating, cutting with a safe knife]
+    skill_tags: ["NUM.B13.make_sets_10"]
+    portfolio: true
+    materials: ["assorted fruit", "a blunt table knife", "a bowl"]
+    adult_prep: "Wash and peel. Give her only soft fruit and a blunt knife."
+    steps:
+      - "She counts out the fruit: four bananas, six grapes."
+      - "She cuts the soft pieces with the blunt knife on a board."
+      - "Everything goes in the bowl and gets mixed."
+      - "Talk about the colours on the plate."
+
+  - code: MAKE.K03
+    title: Roti shapes
+    category: kitchen
+    age_band: "4-5"
+    duration_minutes: 20
+    mess_level: high
+    supervision: required
+    develops: [hand strength, shape making, real participation]
+    materials: ["a portion of atta dough", "a rolling pin", "small cutters"]
+    adult_prep: >
+      Give her her own small portion away from the stove. She does not go near
+      the tawa.
+    steps:
+      - "She rolls her own small roti."
+      - "Cuts shapes from it — circle, square, triangle."
+      - "You cook them while she watches from a safe distance."
+      - "She eats her own shapes at the meal."
+
+  - code: MAKE.K04
+    title: Layered lemonade colours
+    category: kitchen
+    age_band: "5-6"
+    duration_minutes: 20
+    mess_level: medium
+    supervision: required
+    develops: [measuring, prediction, following a sequence]
+    portfolio: true
+    materials: ["clear glasses", "lemon", "sugar", "water", "ice"]
+    adult_prep: "Set out measuring spoons and a jug."
+    steps:
+      - "She measures the sugar and lemon juice by spoon, counting each one."
+      - "Stir and taste. Too sour? Add one more spoon and taste again."
+      - "Record how many spoons made it right, and use the same number next time."
+
+  - code: MAKE.K05
+    title: Yoghurt at home
+    category: kitchen
+    age_band: "5-6"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [science observation, patience, cause and effect]
+    materials: ["warm milk", "2 spoons of existing dahi", "a bowl", "a cloth"]
+    adult_prep: "Warm the milk and let it cool to just-warm. You handle the heat."
+    steps:
+      - "She stirs the two spoons of dahi into the warm milk."
+      - "Cover and leave in a warm place overnight."
+      - "Check it in the morning. Talk about what changed and why."
+
+  # ===============================================================
+  # TOYS THEY CAN PLAY WITH
+  # ===============================================================
+
+  - code: MAKE.T01
+    title: Sock puppet
+    category: toy
+    age_band: "3-4"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    develops: [fine motor, storytelling, dramatic play]
+    portfolio: true
+    materials: ["an odd sock", "buttons or paper circles", "wool", "glue"]
+    adult_prep: "Glue on buttons yourself if she's under four — choking risk."
+    steps:
+      - "Decide what the puppet is before decorating."
+      - "Glue on eyes and wool hair."
+      - "Let it dry fully."
+      - "Put on a short show for the family — the show matters more than the puppet."
+
+  - code: MAKE.T02
+    title: Tin can stilts
+    category: toy
+    age_band: "5-6"
+    duration_minutes: 30
+    mess_level: medium
+    supervision: required
+    develops: [balance, gross motor, building]
+    materials: ["2 large sturdy tins", "strong rope", "paint"]
+    adult_prep: >
+      Punch two holes near the top of each can and file the edges smooth. Test
+      your own weight on them before she stands on one.
+    steps:
+      - "Paint the cans and let them dry."
+      - "Thread the rope through and knot inside, long enough to hold at hip height."
+      - "Practise on grass or soft ground, holding a hand."
+
+  - code: MAKE.T03
+    title: Button snake threading toy
+    category: toy
+    age_band: "3-4"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [pincer grip, colour sorting, concentration]
+    materials: ["a shoelace or ribbon", "felt or thick cloth squares", "one large button"]
+    adult_prep: >
+      Cut the cloth squares and slit a hole in each. Sew the button firmly to one
+      end of the lace.
+    steps:
+      - "Push the button through the slit in each square."
+      - "Thread on square after square."
+      - "Sort by colour first, then thread in a pattern."
+
+  - code: MAKE.T04
+    title: Paper cup and ball catch game
+    category: toy
+    age_band: "4-5"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [hand-eye coordination, persistence]
+    materials: ["a paper or plastic cup", "string", "a foil ball or bottle cap"]
+    adult_prep: "Punch the hole in the cup."
+    steps:
+      - "Decorate the cup."
+      - "Tie one end of the string through the cup hole."
+      - "Tie the ball to the other end, about 30cm of string."
+      - "Swing and catch. Count her best run."
+
+  - code: MAKE.T05
+    title: Cardboard ludo or snakes and ladders board
+    category: toy
+    age_band: "5-6"
+    duration_minutes: 50
+    mess_level: low
+    supervision: required
+    develops: [counting, numeral writing, turn-taking, planning]
+    skill_tags: ["NUM.B19.numerals_to_20", "NUM.B04.one_to_one_10"]
+    portfolio: true
+    materials: ["thick card", "ruler", "markers", "a die", "buttons as counters"]
+    adult_prep: "Rule the grid, or let her rule it with a ruler if she's able."
+    steps:
+      - "Number every square. She writes all the numerals herself."
+      - "Draw the snakes and ladders and decide where each one starts and ends."
+      - "Decorate the board."
+      - "Play it. Counting squares one at a time is one-to-one correspondence in disguise."
+
+  - code: MAKE.T06
+    title: Spinning top from a bottle cap
+    category: toy
+    age_band: "5-6"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [building, colour mixing, cause and effect]
+    materials: ["bottle cap or card circle", "a matchstick or toothpick", "colours"]
+    adult_prep: "Pierce the centre hole."
+    steps:
+      - "Colour the circle in segments — try red and yellow next to each other."
+      - "Push the stick through the centre."
+      - "Spin it and watch what happens to the colours."
+      - "Try different colour combinations and compare."
+
+  # ===============================================================
+  # TEXTILE AND THREAD
+  # ===============================================================
+
+  - code: MAKE.X01
+    title: Lacing card
+    category: textile
+    age_band: "4-5"
+    duration_minutes: 20
+    mess_level: low
+    supervision: required
+    develops: [pincer grip, sequencing, hand-eye coordination]
+    portfolio: true
+    materials: ["thick card", "shoelace", "hole punch"]
+    adult_prep: "Draw a simple shape and punch holes around the outline."
+    steps:
+      - "Wrap tape round the lace end so it stays stiff."
+      - "Thread in and out of each hole in order around the shape."
+      - "Pull it out and do it again — this one improves with repetition."
+
+  - code: MAKE.X02
+    title: Wool wrapped letters
+    category: textile
+    age_band: "4-5"
+    duration_minutes: 30
+    mess_level: low
+    supervision: required
+    develops: [letter formation, fine motor, patience]
+    portfolio: true
+    materials: ["thick card", "wool", "glue"]
+    adult_prep: "Cut out the first letter of her name in card, nice and chunky."
+    steps:
+      - "Dab glue along one section of the letter."
+      - "Wind wool round and round, following the letter's shape."
+      - "Work section by section until covered."
+      - "Trace the finished letter with a finger — the texture helps the shape stick."
+
+  - code: MAKE.X03
+    title: First stitches on card
+    category: textile
+    age_band: "5-6"
+    duration_minutes: 30
+    mess_level: low
+    supervision: required
+    develops: [precision, patience, two-handed coordination]
+    portfolio: true
+    materials: ["a blunt plastic needle", "wool", "punched card"]
+    adult_prep: >
+      Punch the holes and thread the needle. Use a blunt plastic needle only.
+      Stay at the table the whole time.
+    steps:
+      - "Running stitch first — in through one hole, out through the next."
+      - "Work along the whole line."
+      - "Once she can do that, try going back the other way to fill the gaps."
+
+  - code: MAKE.X04
+    title: Tie-dye dupatta with turmeric
+    category: textile
+    age_band: "5-6"
+    duration_minutes: 45
+    mess_level: high
+    supervision: required
+    develops: [prediction, patterning, patience]
+    portfolio: true
+    materials: ["a plain white cloth", "rubber bands", "turmeric or beetroot", "hot water", "a bowl"]
+    adult_prep: "You handle all the hot water. She never touches the pot."
+    steps:
+      - "Twist and band the cloth in several places. Ask her to predict the pattern."
+      - "You dip it in the cooled dye bath and leave it to soak."
+      - "Once cool, she takes the bands off and opens it out."
+      - "Compare the result to her prediction."

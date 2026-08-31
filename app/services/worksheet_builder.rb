@@ -1,7 +1,12 @@
 # Turns a worksheet resource (template + params) into the data its ERB
 # template renders. All randomness flows from the given seed.
+#
+# Accepts both parameter spellings — the curriculum YAML's short names
+# (max, rows, range, pairs, count, types) and the original long names.
 class WorksheetBuilder
   OBJECTS = %w[star heart ball leaf fish].freeze
+  PATTERN_SHAPES = %w[circle square triangle].freeze
+  GUIDE_STYLES = { "dotted" => "dashed", "grey" => "faint", "gray" => "faint" }.freeze
 
   def self.build(template:, params:, seed:)
     rng = Random.new(seed)
@@ -9,25 +14,39 @@ class WorksheetBuilder
     case template
     when "numeral_tracing"
       numerals = params.fetch("numerals", [ 1, 2, 3, 4, 5 ])
+      style = params.fetch("guide_style", "dashed")
       {
         template: "numeral_tracing",
         rows: numerals.map do |numeral|
           { numeral: numeral, repetitions: params.fetch("repetitions", 4) }
         end,
-        guide_style: params.fetch("guide_style", "dashed")
+        guide_style: GUIDE_STYLES.fetch(style, style)
       }
     when "count_and_write"
-      max = params.fetch("max_count", 10)
-      item_count = params.fetch("item_count", 6)
-      {
-        template: "count_and_write",
-        items: Array.new(item_count) do
-          {
-            object: OBJECTS[rng.rand(OBJECTS.length)],
-            count: 1 + rng.rand(max)
-          }
-        end
-      }
+      max = params["max_count"] || params["max"] || 10
+      if params["mode"] == "missing_number"
+        rows = params["rows"] || 5
+        {
+          template: "count_and_write",
+          mode: "missing_number",
+          lines: Array.new(rows) do
+            gaps = (1..max).to_a.sample(2, random: rng)
+            { numbers: (1..max).map { |n| gaps.include?(n) ? nil : n } }
+          end
+        }
+      else
+        item_count = params["item_count"] || (params["rows"] ? params["rows"] * 2 : 6)
+        {
+          template: "count_and_write",
+          mode: "count",
+          items: Array.new(item_count) do
+            {
+              object: OBJECTS[rng.rand(OBJECTS.length)],
+              count: 1 + rng.rand(max)
+            }
+          end
+        }
+      end
     when "count_and_circle"
       target = params.fetch("target_number", 5)
       distractor_range = params.fetch("distractor_range", 4)
@@ -47,8 +66,8 @@ class WorksheetBuilder
         numbers: params.fetch("numbers", [ 3, 5, 7 ])
       }
     when "match_quantity_numeral"
-      low, high = params.fetch("number_range", [ 1, 10 ])
-      pair_count = params.fetch("pair_count", 5)
+      low, high = params["number_range"] || params["range"] || [ 1, 10 ]
+      pair_count = params["pair_count"] || params["pairs"] || 5
       numbers = (low..high).to_a.shuffle(random: rng).first(pair_count)
       {
         template: "match_quantity_numeral",
@@ -56,8 +75,8 @@ class WorksheetBuilder
         right: numbers.shuffle(random: rng)
       }
     when "more_or_less"
-      pair_count = params.fetch("pair_count", 5)
-      max = params.fetch("max_quantity", 5)
+      pair_count = params["pair_count"] || params["pairs"] || 5
+      max = params["max_quantity"] || params["max"] || 5
       {
         template: "more_or_less",
         pairs: Array.new(pair_count) do
@@ -69,11 +88,11 @@ class WorksheetBuilder
         end
       }
     when "pattern_completion"
-      type = params.fetch("pattern_type", "AB")
+      types = params["types"] || [ params["pattern_type"] || "AB" ] * 3
       length = params.fetch("length", 8)
       {
         template: "pattern_completion",
-        rows: Array.new(3) { pattern_row(type, length, rng) }
+        rows: types.map { |type| pattern_row(type, length, rng) }
       }
     when "shape_tracing"
       {
@@ -81,8 +100,8 @@ class WorksheetBuilder
         shapes: params.fetch("shapes", [ "circle", "square", "triangle" ])
       }
     when "size_ordering"
-      item_count = params.fetch("item_count", 4)
-      sizes = Array.new(item_count) { |i| 10 + i * 7 }.shuffle(random: rng)
+      item_count = params["item_count"] || params["count"] || 4
+      sizes = Array.new(item_count) { |i| 10 + i * 6 }.shuffle(random: rng)
       {
         template: "size_ordering",
         shape: params.fetch("shape", "circle"),
@@ -92,8 +111,6 @@ class WorksheetBuilder
       raise ArgumentError, "Unknown worksheet template: #{template}"
     end
   end
-
-  PATTERN_SHAPES = %w[circle square triangle].freeze
 
   def self.pattern_row(type, length, rng)
     unit = case type

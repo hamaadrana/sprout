@@ -1,0 +1,1219 @@
+# Activity Library
+#
+# Browsable, cross-domain activities organised by age band. Separate from the
+# skill sequence: these are NOT gated by prerequisites and are not required for
+# progression. The parent browses these when she wants extra, or when today's
+# skill activity doesn't suit the mood.
+#
+# Domains follow the National Curriculum of Pakistan 2022-23 (ECE):
+#   PSE — Personal, Social and Emotional Development
+#   LIT — Language and Literacy
+#   NUM — Basic Mathematical Concepts
+#   WAU — The World Around Us
+#   HHS — Health, Hygiene and Safety
+#   ART — Creative Arts
+#   PHY — Physical Development
+#
+# `skill_tags` optionally link an activity to skills in the sequence, so
+# completing it can log progress. Most have none — that's fine and expected.
+#
+# SAFETY: any activity with small objects, scissors, water or heat is marked
+# `supervision: required`. Surface that in the UI. Do not remove the flag.
+
+meta:
+  age_bands:
+    - code: "3-4"
+      months: [36, 48]
+    - code: "4-5"
+      months: [48, 60]
+    - code: "5-6"
+      months: [60, 72]
+
+activities:
+
+  # ===============================================================
+  # AGE 3-4
+  # ===============================================================
+
+  # --- Personal, Social and Emotional ---
+
+  - code: ACT.PSE.001
+    title: Feelings faces on the mirror
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["a mirror"]
+    instructions: >
+      Stand at the mirror together and make a happy face, a sad face, an angry
+      face, a scared face. Name each one as you make it. Then you make a face
+      and she guesses which it is.
+    variation: >
+      Later in the day, when she is actually upset, use the same words. That
+      transfer is the whole point.
+
+  - code: ACT.PSE.002
+    title: My family photo talk
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["family photographs"]
+    instructions: >
+      Look through photos together. Ask her to name each person and say how they
+      are related to her. Talk about who lives where.
+
+  - code: ACT.PSE.003
+    title: Courtesy words practice
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: []
+    instructions: >
+      Practise Assalam-o-Alaikum, shukriya, sorry and please through role play
+      with a toy as the visitor. Then use them for real when someone comes to
+      the door.
+
+  - code: ACT.PSE.004
+    title: My things, your things
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["a mix of her belongings and a sibling's or parent's"]
+    instructions: >
+      Sort a pile of items into "mine" and "not mine". Talk about asking before
+      taking something that belongs to someone else.
+
+  - code: ACT.PSE.005
+    title: Turn-taking with one toy
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["one desirable toy", "a timer or phone"]
+    instructions: >
+      Play with one toy between two people, swapping every minute when the timer
+      sounds. The timer does the arguing instead of you.
+
+  # --- Language and Literacy ---
+
+  - code: ACT.LIT.001
+    title: Story with a stop
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["any picture book"]
+    instructions: >
+      Read a familiar story and stop before the last word of a line she knows.
+      Let her fill it in. Works even better with rhyming books.
+
+  - code: ACT.LIT.002
+    title: Book handling
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["a picture book"]
+    instructions: >
+      Show her the front cover, the back, where the story starts. Let her turn
+      the pages herself, one at a time. Run your finger under the text as you
+      read so she sees which direction the words go.
+
+  - code: ACT.LIT.003
+    title: Sound of the day
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: []
+    instructions: >
+      Pick one letter sound, say "mmm". Through the day, point out things that
+      start with it — mummy, machli, mez. One sound per week, not per day.
+
+  - code: ACT.LIT.004
+    title: Rhyming pairs
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Say two words and ask if they sound the same at the end — cat and hat,
+      cat and dog. Then say a word and let her find one that rhymes, real or
+      nonsense. Nonsense counts.
+
+  - code: ACT.LIT.005
+    title: Tell me about your day
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      At dinner, ask her to tell everyone one thing that happened today. Don't
+      correct grammar. Ask one follow-up question so she has to add detail.
+
+  - code: ACT.LIT.006
+    title: Finger tracing in flour
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["a tray", "atta or fine sand"]
+    supervision: required
+    skill_tags: ["NUM.B10.trace_numerals_5"]
+    instructions: >
+      Spread a thin layer of flour on a tray. Trace lines, circles and zigzags
+      with a finger. Shake the tray to erase. Mistakes cost nothing here, which
+      is why it works better than paper at this age.
+
+  # --- Maths ---
+
+  - code: ACT.NUM.001
+    title: Counting stairs
+    domain: NUM
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: []
+    skill_tags: ["NUM.B01.rote_count_5", "NUM.B02.rote_count_10"]
+    instructions: >
+      Count each step aloud together, every time you go up or down. Daily
+      repetition in routine beats a sit-down session.
+
+  - code: ACT.NUM.002
+    title: Daal sorting
+    domain: NUM
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["two kinds of daal or beans", "two bowls"]
+    supervision: required
+    skill_tags: ["NUM.A01.sort_one_attribute"]
+    instructions: >
+      Mix a handful of two different daals and let her separate them into bowls.
+      Genuinely useful in the kitchen, which she'll notice.
+
+  - code: ACT.NUM.003
+    title: Shape hunt around the house
+    domain: NUM
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    skill_tags: ["NUM.D01.name_2d_shapes"]
+    instructions: >
+      Find circles, squares and triangles around the house — clock, window,
+      roti, tiles, samosa. Show tilted and stretched versions too, or she'll
+      only recognise the textbook ones.
+
+  - code: ACT.NUM.004
+    title: Big bucket, small bucket
+    domain: NUM
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["containers of different sizes", "water or dry rice"]
+    supervision: required
+    skill_tags: ["NUM.E01.size_language"]
+    instructions: >
+      Pour between containers. Which holds more? How many small cups fill the
+      big one? Do it outside or in the bathroom.
+
+  - code: ACT.NUM.005
+    title: Snack time sharing
+    domain: NUM
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: ["biscuits, grapes or chana"]
+    skill_tags: ["NUM.B12.more_less"]
+    instructions: >
+      Put different amounts on two plates. Which has more? Make them equal.
+      Fairness makes this one land instantly.
+
+  # --- The World Around Us ---
+
+  - code: ACT.WAU.001
+    title: Body parts song
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: []
+    instructions: >
+      Sing head-shoulders-knees-toes, touching each part. Then go slower and add
+      elbow, ankle, chin, eyebrow.
+
+  - code: ACT.WAU.002
+    title: Living or not living
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Walk around the house and garden pointing at things. Is it alive? How do
+      you know? Expect confusion about cars and clouds — that's the interesting
+      part of the conversation.
+
+  - code: ACT.WAU.003
+    title: Grow a seed in a glass
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["a chana or moong bean", "cotton wool", "a glass"]
+    instructions: >
+      Soak the bean overnight, sit it on damp cotton in a glass, keep it on the
+      windowsill. Check it every morning for a week. Takes two minutes daily and
+      it teaches patience alongside biology.
+
+  - code: ACT.WAU.004
+    title: What's that sound?
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Sit still with eyes closed for one minute and count the sounds you can
+      hear. Fan, horn, bird, azaan, someone in the kitchen. Then name them.
+
+  - code: ACT.WAU.005
+    title: Transport spotting
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      From the gate or balcony, name every vehicle that passes. Car, rickshaw,
+      motorcycle, cycle, van, truck. Count how many of each in five minutes.
+
+  # --- Health, Hygiene and Safety ---
+
+  - code: ACT.HHS.001
+    title: Twenty-second handwash
+    domain: HHS
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: ["soap"]
+    instructions: >
+      Teach the full sequence — palms, backs, between fingers, thumbs. Sing
+      something that lasts twenty seconds so the timing is automatic.
+
+  - code: ACT.HHS.002
+    title: Healthy and sometimes food
+    domain: HHS
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["old newspapers or food packets"]
+    instructions: >
+      Sort food pictures into "every day" and "sometimes". Avoid good and bad —
+      it's a more useful distinction and it doesn't build guilt around food.
+
+  - code: ACT.HHS.003
+    title: Hot and sharp things tour
+    domain: HHS
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    supervision: required
+    instructions: >
+      Walk through the kitchen naming what's hot, what's sharp, what she must
+      not touch without an adult. Stove, iron, knife, plug points, matches.
+
+  - code: ACT.HHS.004
+    title: My body belongs to me
+    domain: HHS
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Teach that the parts covered by underclothes are private, and only Ammi,
+      Abu or a doctor with a parent present may need to see them. Teach that she
+      can say no loudly and must tell you if anyone makes her uncomfortable, and
+      that she will never be in trouble for telling. Repeat calmly every few
+      months. Keep it matter-of-fact, not frightening.
+
+  # --- Creative Arts ---
+
+  - code: ACT.ART.001
+    title: Free colouring
+    domain: ART
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["paper", "crayons"]
+    instructions: >
+      Blank paper, no instructions. Ask her to tell you about it afterwards
+      rather than guessing what it is.
+
+  - code: ACT.ART.002
+    title: Vegetable printing
+    domain: ART
+    age_band: "3-4"
+    duration_minutes: 20
+    materials: ["cut okra, potato or onion", "poster paint", "paper"]
+    supervision: required
+    instructions: >
+      Dip cut vegetables in paint and press onto paper. Okra makes a flower
+      shape, onion makes rings. Cut the vegetables yourself.
+
+  - code: ACT.ART.003
+    title: Atta dough modelling
+    domain: ART
+    age_band: "3-4"
+    duration_minutes: 20
+    materials: ["atta", "water", "salt", "food colour if available"]
+    instructions: >
+      Make dough together, then roll snakes, balls and flat circles. Rolling and
+      pinching builds the hand strength she'll need for a pencil.
+
+  - code: ACT.ART.004
+    title: Tearing and pasting collage
+    domain: ART
+    age_band: "3-4"
+    duration_minutes: 20
+    materials: ["old magazines or newspaper", "glue", "paper"]
+    instructions: >
+      Tear paper into pieces by hand — no scissors yet — and paste them to fill
+      a shape you've drawn. Tearing is a two-hand skill worth practising.
+
+  - code: ACT.ART.005
+    title: Nursery rhymes with actions
+    domain: ART
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Sing three or four rhymes with hand movements. Mix Urdu and English ones.
+      Repetition is what she wants, so sing the same ones for weeks.
+
+  # --- Physical Development ---
+
+  - code: ACT.PHY.001
+    title: Walk the line
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: ["chalk or a dupatta laid on the floor"]
+    instructions: >
+      Walk heel-to-toe along a straight line without stepping off. Then walk it
+      carrying a spoon, then a glass with a little water in it.
+
+  - code: ACT.PHY.002
+    title: Ball throw and catch
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["a soft ball"]
+    instructions: >
+      Start close and roll it, then throw underarm from two steps apart. Move
+      back a step each time she catches three in a row.
+
+  - code: ACT.PHY.003
+    title: Animal walks
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Move across the room like a frog, a crab, a snake, an elephant. Good
+      indoor activity when it's too hot to be outside.
+
+  - code: ACT.PHY.004
+    title: Tongs transfer
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["kitchen tongs or a large spoon", "cotton balls or bottle caps", "two bowls"]
+    supervision: required
+    instructions: >
+      Move objects from one bowl to the other using tongs. Builds the exact grip
+      muscles used for writing.
+
+  - code: ACT.PHY.005
+    title: Threading beads
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["large beads or cut straws", "string or shoelace"]
+    supervision: required
+    instructions: >
+      Thread beads onto a lace. Use cut drinking straws if you have no beads.
+      Small pieces are a choking risk — stay with her.
+
+  # ===============================================================
+  # AGE 4-5
+  # ===============================================================
+
+  # --- Personal, Social and Emotional ---
+
+  - code: ACT.PSE.101
+    title: What would you do?
+    domain: PSE
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Pose small problems. Your friend took your toy. Someone fell down. You
+      spilled water. Ask what she would do, then ask if there's another way.
+
+  - code: ACT.PSE.102
+    title: Helper of the day
+    domain: PSE
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Give her one real household responsibility for the whole day — watering
+      plants, laying the table, folding napkins. Same job for a week, then
+      change.
+
+  - code: ACT.PSE.103
+    title: Pakistan things
+    domain: PSE
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["paper", "crayons"]
+    instructions: >
+      Talk about the flag, the national game, the national flower and animal.
+      Draw the flag together. Talk about the languages spoken in your family.
+
+  - code: ACT.PSE.104
+    title: First Kalma and short duas
+    domain: PSE
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      For families who want it: recite the first Kalma together, and the duas
+      for eating, sleeping and leaving the house. Say what each one is for, not
+      just the words.
+
+  - code: ACT.PSE.105
+    title: How does he feel?
+    domain: PSE
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["a picture book"]
+    instructions: >
+      While reading, stop and ask how a character feels and why. Then ask what
+      she would do to help them.
+
+  # --- Language and Literacy ---
+
+  - code: ACT.LIT.101
+    title: First sound sorting
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["small household objects", "two boxes"]
+    instructions: >
+      Pick two sounds, say "s" and "b". Sort objects into two boxes by their
+      first sound. Say each word slowly, stretching the first sound.
+
+  - code: ACT.LIT.102
+    title: Letter of the week hunt
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["old newspaper", "a marker"]
+    instructions: >
+      Give her a newspaper page and one letter. She circles every one she can
+      find. Recognising a letter in messy real text is harder and more useful
+      than recognising it on a flashcard.
+
+  - code: ACT.LIT.103
+    title: Urdu qaida — first letters
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["a qaida", "tray of flour"]
+    instructions: >
+      Introduce alif, be, pe, te one at a time. Say the sound, trace the shape
+      in flour, then find it in the qaida. Remember Urdu reads right to left —
+      say so out loud and run your finger the right way.
+
+  - code: ACT.LIT.104
+    title: Clap the syllables
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Clap out the beats in names and words. Am-mi is two claps, mo-tor-cy-cle
+      is four. Do everyone's name in the family.
+
+  - code: ACT.LIT.105
+    title: Retell the story in order
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["a familiar story book"]
+    instructions: >
+      After reading, ask her to tell it back. Prompt with what happened first,
+      then what, and how it ended. Correct sequence matters more than detail.
+
+  - code: ACT.LIT.106
+    title: Writing her own name
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["paper", "pencil"]
+    instructions: >
+      Write her name in large letters for her to trace, then copy underneath.
+      Capital first letter, small letters after — teach it correctly the first
+      time, since all-capitals is hard to undo later.
+
+  # --- Maths ---
+
+  - code: ACT.NUM.101
+    title: Setting the table
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["plates, cups, spoons"]
+    skill_tags: ["NUM.B13.make_sets_10"]
+    instructions: >
+      "Bring six spoons." Real task, real feedback. Change the number daily.
+
+  - code: ACT.NUM.102
+    title: Number line pegging
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["numeral cards 1-10", "string and clothes pegs"]
+    skill_tags: ["NUM.B17.order_numbers_10"]
+    instructions: >
+      Shuffle the cards and let her peg them in order along the string.
+      Re-orderable, so fixing a mistake is easy.
+
+  - code: ACT.NUM.103
+    title: Pattern trains
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["blocks or bottle caps in two or three colours"]
+    skill_tags: ["NUM.D04.recognise_patterns"]
+    instructions: >
+      Build red-blue-red-blue and ask what's next. Then AAB, then ABC. Say the
+      pattern out loud as a rhythm — hearing helps as much as seeing.
+
+  - code: ACT.NUM.104
+    title: How many hands long?
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["identical objects — spoons, blocks, matchboxes"]
+    skill_tags: ["NUM.E03.nonstandard_measure"]
+    instructions: >
+      Measure the table in handspans, then in spoons. Ask why the two numbers
+      are different. That question is the whole lesson.
+
+  - code: ACT.NUM.105
+    title: Shop with real coins
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["coins", "household items with paper price tags"]
+    supervision: required
+    instructions: >
+      Set up a shop with items priced 1 to 10 rupees. She pays by counting out
+      coins. Swap roles so she also has to count what she's given.
+
+  - code: ACT.NUM.106
+    title: One more, one less under a cloth
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["10 small objects", "a cloth"]
+    skill_tags: ["NUM.C01.add_remove_one"]
+    instructions: >
+      Count five objects, cover them, secretly add one, uncover and ask how many
+      now. Later, ask her to answer before you uncover.
+
+  # --- The World Around Us ---
+
+  - code: ACT.WAU.101
+    title: Sink or float
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["a bucket of water", "assorted small objects"]
+    supervision: required
+    instructions: >
+      Before each object goes in, she predicts sink or float. Then test. Keep a
+      tally of right guesses. The predicting is the science, not the splashing.
+
+  - code: ACT.WAU.102
+    title: Animals and their homes
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["paper", "crayons"]
+    instructions: >
+      Talk about which animals live in water, on land, in nests, in burrows.
+      Draw three animals and their homes. Look for a real nest outside.
+
+  - code: ACT.WAU.103
+    title: Weather chart for a week
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 5
+    materials: ["a chart on the wall", "crayons"]
+    instructions: >
+      Each morning, draw the weather in that day's box — sunny, cloudy, rainy,
+      windy. At the end of the week, count how many of each. Two minutes a day.
+
+  - code: ACT.WAU.104
+    title: Who does what job?
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Talk about the doctor, teacher, sweeper, mechanic, tailor, farmer. What
+      tools does each use? Point them out when you're out of the house.
+
+  - code: ACT.WAU.105
+    title: Five senses tray
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["a tray", "items with different smells, textures and tastes"]
+    supervision: required
+    instructions: >
+      Blindfold her and let her identify things by smell, touch or taste.
+      Cardamom, lemon, cotton, a stone, a piece of ice. Name the sense each time.
+
+  # --- Health, Hygiene and Safety ---
+
+  - code: ACT.HHS.101
+    title: Brushing routine chart
+    domain: HHS
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["a chart", "stickers or a marker"]
+    instructions: >
+      Make a morning and night chart she marks herself. She owns the marking —
+      that's what makes it a routine rather than a chore you enforce.
+
+  - code: ACT.HHS.102
+    title: Traffic lights and crossing
+    domain: HHS
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["red, yellow and green paper circles"]
+    supervision: required
+    instructions: >
+      Play stop-slow-go with the coloured circles indoors. Then practise for
+      real: always hold an adult's hand, look both ways, cross only with an
+      adult.
+
+  - code: ACT.HHS.103
+    title: Safe and unsafe strangers
+    domain: HHS
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Teach the rules calmly: don't go anywhere with someone without telling
+      Ammi or Abu, don't open the gate to anyone, don't take food or gifts from
+      strangers. Agree on which adults she may go with. Emphasise that she can
+      always tell you anything without getting in trouble.
+
+  - code: ACT.HHS.104
+    title: Dressing independently
+    domain: HHS
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["her own clothes", "a shirt with buttons"]
+    instructions: >
+      Practise buttons, zips and putting shoes on the right feet, when you're
+      not in a hurry. Doing it under morning time pressure teaches nothing.
+
+  # --- Creative Arts ---
+
+  - code: ACT.ART.101
+    title: Scissors practice
+    domain: ART
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["child-safe scissors", "old paper"]
+    supervision: required
+    instructions: >
+      Draw thick straight lines, then wavy, then a circle, and let her cut along
+      them. Start with strips narrow enough to cut in one snip.
+
+  - code: ACT.ART.102
+    title: Truck art colours
+    domain: ART
+    age_band: "4-5"
+    duration_minutes: 25
+    materials: ["paper", "bright paints or markers"]
+    instructions: >
+      Look at pictures of Pakistani truck art together, then make a bright
+      pattern-filled design of her own. Notice the repeating patterns and the
+      symmetry.
+
+  - code: ACT.ART.103
+    title: Paper folding shapes
+    domain: ART
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["square paper"]
+    instructions: >
+      Fold a square into triangles and rectangles. Make a simple boat or hat.
+      Folding on a line is precise motor work and it links to shape names.
+
+  - code: ACT.ART.104
+    title: Waste material model
+    domain: ART
+    age_band: "4-5"
+    duration_minutes: 30
+    materials: ["boxes, bottle caps, tissue rolls", "glue or tape"]
+    supervision: required
+    instructions: >
+      Build something from clean waste — a car, a robot, a house. Let her decide
+      what it is before starting, then talk about what she'd change next time.
+
+  - code: ACT.ART.105
+    title: Sound shakers
+    domain: ART
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["small bottles with lids", "rice, daal, coins"]
+    supervision: required
+    instructions: >
+      Fill bottles with different contents and seal them tightly. Compare the
+      sounds — which is loud, soft, sharp. Use them to keep a beat with a rhyme.
+
+  # --- Physical Development ---
+
+  - code: ACT.PHY.101
+    title: Hopscotch
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["chalk", "a stone"]
+    skill_tags: ["NUM.B07.numeral_recognition_10"]
+    instructions: >
+      Draw a numbered grid and play properly. Balance, hopping and numeral
+      recognition in one game.
+
+  - code: ACT.PHY.102
+    title: Obstacle course
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 25
+    materials: ["cushions, chairs, a rope, boxes"]
+    supervision: required
+    instructions: >
+      Build a course to go under, over, around and through. Use the position
+      words out loud as she goes. Let her design the next one.
+
+  - code: ACT.PHY.103
+    title: Balloon keepy-uppy
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["a balloon"]
+    supervision: required
+    instructions: >
+      Keep the balloon off the floor. Count the hits. Burst balloon pieces are a
+      choking hazard, so pick them up straight away.
+
+  - code: ACT.PHY.104
+    title: Peg the clothes
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["clothes pegs", "a line", "small cloths"]
+    instructions: >
+      Hanging small items with pegs is strong pincer-grip work and a real chore
+      at the same time.
+
+  - code: ACT.PHY.105
+    title: Statue and freeze
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["music or clapping"]
+    instructions: >
+      Dance while the sound plays, freeze when it stops, hold the pose for five
+      seconds. Stopping on cue is self-control practice as much as balance.
+
+  # ===============================================================
+  # AGE 5-6
+  # ===============================================================
+
+  # --- Personal, Social and Emotional ---
+
+  - code: ACT.PSE.201
+    title: Solving it together
+    domain: PSE
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      When two children argue, sit them down and ask each to say what happened
+      and what they want. Let them propose the solution. Step in only if they
+      stall.
+
+  - code: ACT.PSE.202
+    title: My week plan
+    domain: PSE
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["a chart"]
+    instructions: >
+      Plan the week's activities together on a chart and let her choose two of
+      them. Then hold her to the plan. Choosing and committing is the skill.
+
+  - code: ACT.PSE.203
+    title: Different families
+    domain: PSE
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Talk about how families differ — some large, some small, some with
+      grandparents at home, some who speak a different language or pray
+      differently. Everyone deserves the same respect.
+
+  - code: ACT.PSE.204
+    title: Group project with a sibling or cousin
+    domain: PSE
+    age_band: "5-6"
+    duration_minutes: 30
+    materials: ["craft materials"]
+    supervision: required
+    instructions: >
+      Give two children one shared task with one set of materials. They have to
+      divide the work themselves. Resist fixing it for them.
+
+  # --- Language and Literacy ---
+
+  - code: ACT.LIT.201
+    title: Blending CVC words
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["letter cards"]
+    instructions: >
+      Lay out c-a-t. Say each sound, then slide them together and say it fast.
+      Then swap the first letter to make bat, hat, mat. Same rime, new onset.
+
+  - code: ACT.LIT.202
+    title: Sight word wall
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 10
+    materials: ["cards", "tape"]
+    instructions: >
+      Put five common words on the wall — the, and, is, it, my. Read them
+      together daily. Add one a week. These don't sound out, so they have to be
+      recognised whole.
+
+  - code: ACT.LIT.203
+    title: Writing a sentence
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "pencil"]
+    instructions: >
+      She draws a picture and writes one sentence about it. Accept invented
+      spelling — "I lyk mango" is a success at this stage, not an error to fix.
+
+  - code: ACT.LIT.204
+    title: Urdu joining letters
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["qaida", "notebook"]
+    instructions: >
+      Practise how letters change shape when joined at the start, middle and end
+      of a word. Start with two-letter words she already recognises by sound.
+
+  - code: ACT.LIT.205
+    title: Make a book
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 30
+    materials: ["folded paper", "stapler", "crayons"]
+    supervision: required
+    instructions: >
+      Fold and staple four pages into a book. She draws and writes a short story
+      across them, then reads it to the family. Add it to the portfolio.
+
+  - code: ACT.LIT.206
+    title: Rhyming word families
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["paper", "pencil"]
+    instructions: >
+      Pick an ending like -at or -an and list every word you can both make.
+      Nonsense words count and usually get the biggest laugh.
+
+  # --- Maths ---
+
+  - code: ACT.NUM.201
+    title: Story problems with real objects
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["counters or snacks"]
+    skill_tags: ["NUM.C03.add_subtract_10_concrete"]
+    instructions: >
+      Use real people and real food in the stories. Four mangoes, Nani gives
+      three more. Let her move the objects to work it out.
+
+  - code: ACT.NUM.202
+    title: Calendar every morning
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 5
+    materials: ["a wall calendar"]
+    skill_tags: ["NUM.E05.days_of_week"]
+    instructions: >
+      Mark the day, say the days of the week in order, count how many days until
+      something she's looking forward to.
+
+  - code: ACT.NUM.203
+    title: Counting to 50 in tens
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 10
+    materials: ["50 bottle caps", "5 small bowls"]
+    instructions: >
+      Group the caps into bowls of ten. Count the bowls, then count on inside
+      the last one. This is where place value quietly begins.
+
+  - code: ACT.NUM.204
+    title: 3D shapes in the kitchen
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["tins, boxes, balls, ice cream cones"]
+    instructions: >
+      Find a sphere, cube, cuboid, cylinder and cone. Feel which faces are flat
+      and which are curved. Which ones roll and which stack?
+
+  - code: ACT.NUM.205
+    title: Shopping list and total
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "pencil", "coins"]
+    supervision: required
+    instructions: >
+      She writes a short shopping list with prices and adds up the total with
+      coins. Then check it at the shop.
+
+  - code: ACT.NUM.206
+    title: Ordinal race commentary
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["toy cars or siblings"]
+    skill_tags: ["NUM.B20.ordinals_3"]
+    instructions: >
+      Race and then report who came first, second, third, fourth, fifth. Extend
+      up to tenth with a line of toys.
+
+  # --- The World Around Us ---
+
+  - code: ACT.WAU.201
+    title: Seasons and clothes
+    domain: WAU
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "crayons", "old magazines"]
+    instructions: >
+      Talk about how food, clothes and daily life change between summer,
+      monsoon and winter here. Draw or cut out what you'd wear in each.
+
+  - code: ACT.WAU.202
+    title: Where does our water go?
+    domain: WAU
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: []
+    supervision: required
+    instructions: >
+      Follow the water — tap, tank, drain. Talk about how much is wasted while
+      brushing, and try to measure it with a mug. Then agree one saving rule.
+
+  - code: ACT.WAU.203
+    title: Landforms of Pakistan
+    domain: WAU
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["a map or pictures", "atta dough"]
+    instructions: >
+      Talk about mountains in the north, desert in Thar, the rivers, the sea at
+      Karachi. Build a mountain and a river valley out of dough.
+
+  - code: ACT.WAU.204
+    title: Rubbish sorting
+    domain: WAU
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["clean waste items", "boxes"]
+    supervision: required
+    instructions: >
+      Sort clean waste into paper, plastic and food waste. Talk about what could
+      be reused. Then actually reuse two of the items for a craft.
+
+  - code: ACT.WAU.205
+    title: Safe use of a phone or tablet
+    domain: WAU
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["a phone or tablet"]
+    supervision: required
+    instructions: >
+      Talk about what devices are good for and what they cost us in time. Agree
+      a daily limit together and set a timer. Teach her to ask before opening
+      anything and to tell you if something on screen upsets her.
+
+  # --- Health, Hygiene and Safety ---
+
+  - code: ACT.HHS.201
+    title: Emergency information
+    domain: HHS
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "pencil"]
+    instructions: >
+      Teach her full name, parents' names, address and one phone number until
+      she can say them from memory. Practise what to do if she gets separated
+      from you in a market: stay put, find a shopkeeper or a mother with
+      children.
+
+  - code: ACT.HHS.202
+    title: Good touch, bad touch revisited
+    domain: HHS
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Revisit the rules at this age with more words. Private parts stay private.
+      No adult should ask her to keep a secret from you. If anyone makes her
+      uncomfortable, she tells you, and she is never in trouble for telling.
+      Calm, brief, repeated.
+
+  - code: ACT.HHS.203
+    title: Simple first aid
+    domain: HHS
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["plasters, cotton, antiseptic"]
+    supervision: required
+    instructions: >
+      Show what to do for a small cut or graze — wash it, tell an adult. Talk
+      about which injuries need a doctor and who to call for help.
+
+  - code: ACT.HHS.204
+    title: Plan a balanced plate
+    domain: HHS
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "crayons"]
+    instructions: >
+      Draw a plate and fill it with a meal that has vegetables, a grain,
+      something with protein and some fruit. Then actually cook one part of it
+      together.
+
+  # --- Creative Arts ---
+
+  - code: ACT.ART.201
+    title: Draw and describe
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 25
+    materials: ["paper", "colours"]
+    instructions: >
+      She draws something from memory — the house, a market, Eid at Nani's —
+      then explains her choices. Ask why she used that colour there.
+
+  - code: ACT.ART.202
+    title: Clay sculpture
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 30
+    materials: ["clay or dough"]
+    instructions: >
+      Model something in three dimensions that stands up on its own. Talk about
+      what has to be thick at the bottom for it to balance.
+
+  - code: ACT.ART.203
+    title: Act out a story
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 30
+    materials: ["dupattas and household props"]
+    instructions: >
+      Pick a familiar folk tale, assign parts, use dupattas as costumes, perform
+      it for the family. She should be involved in deciding who plays what.
+
+  - code: ACT.ART.204
+    title: Learn a national song
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: []
+    instructions: >
+      Learn a milli naghma or a folk song by heart and sing it solo, then
+      together. Talk about what the words mean.
+
+  - code: ACT.ART.205
+    title: Symmetry painting
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["paper", "paint"]
+    instructions: >
+      Blob paint on one half of a folded sheet, fold and press, open it up. Talk
+      about the two halves matching. Links straight to shape work.
+
+  # --- Physical Development ---
+
+  - code: ACT.PHY.201
+    title: Skipping rope
+    domain: PHY
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["a skipping rope"]
+    supervision: required
+    instructions: >
+      Start with the rope still on the ground to jump over, then swinging it
+      slowly, then full skipping. Count the jumps.
+
+  - code: ACT.PHY.202
+    title: Cricket with a soft ball
+    domain: PHY
+    age_band: "5-6"
+    duration_minutes: 30
+    materials: ["a soft ball", "a bat or flat stick"]
+    supervision: required
+    instructions: >
+      Underarm throws, focus on watching the ball and swinging through. Keep
+      score together so it doubles as counting practice.
+
+  - code: ACT.PHY.203
+    title: Balance beam on a wall edge
+    domain: PHY
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["a low kerb or a plank on the ground"]
+    supervision: required
+    instructions: >
+      Walk along holding your hand, then unaided, then carrying something.
+      Keep it low to the ground.
+
+  - code: ACT.PHY.204
+    title: Cutting complex shapes
+    domain: PHY
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["scissors", "printed shapes"]
+    supervision: required
+    instructions: >
+      Cut out circles, then shapes with corners, then a spiral. Turning the
+      paper rather than the scissors is the technique to teach.
+
+  - code: ACT.PHY.205
+    title: Tie the laces
+    domain: PHY
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["a shoe with laces"]
+    instructions: >
+      Practise on a shoe held in her lap rather than on her foot, which is much
+      easier to see. Expect this to take weeks, not one session.

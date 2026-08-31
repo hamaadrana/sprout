@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_31_104001) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_31_180000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -88,6 +88,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_31_104001) do
     t.index ["code"], name: "index_domains_on_code", unique: true
   end
 
+  create_table "library_activities", force: :cascade do |t|
+    t.string "age_band", null: false
+    t.string "code", null: false
+    t.datetime "created_at", null: false
+    t.string "domain_code", null: false
+    t.integer "duration_minutes", default: 10, null: false
+    t.text "instructions", null: false
+    t.string "materials", default: [], null: false, array: true
+    t.string "skill_tags", default: [], null: false, array: true
+    t.boolean "supervision", default: false, null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.text "variation"
+    t.index ["age_band", "domain_code"], name: "index_library_activities_on_age_band_and_domain_code"
+    t.index ["code"], name: "index_library_activities_on_code", unique: true
+  end
+
   create_table "log_entries", force: :cascade do |t|
     t.bigint "child_id", null: false
     t.datetime "created_at", null: false
@@ -102,6 +119,27 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_31_104001) do
     t.index ["child_id"], name: "index_log_entries_on_child_id"
     t.index ["plan_item_id"], name: "index_log_entries_on_plan_item_id"
     t.index ["skill_id"], name: "index_log_entries_on_skill_id"
+  end
+
+  create_table "make_projects", force: :cascade do |t|
+    t.text "adult_prep"
+    t.string "age_band", null: false
+    t.string "category", null: false
+    t.string "code", null: false
+    t.datetime "created_at", null: false
+    t.string "develops", default: [], null: false, array: true
+    t.integer "duration_minutes", default: 20, null: false
+    t.string "materials", default: [], null: false, array: true
+    t.string "mess_level", default: "low", null: false
+    t.string "occasion"
+    t.boolean "portfolio", default: false, null: false
+    t.string "skill_tags", default: [], null: false, array: true
+    t.string "steps", default: [], null: false, array: true
+    t.boolean "supervision", default: false, null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["age_band", "category"], name: "index_make_projects_on_age_band_and_category"
+    t.index ["code"], name: "index_make_projects_on_code", unique: true
   end
 
   create_table "plan_items", force: :cascade do |t|
@@ -177,6 +215,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_31_104001) do
     t.integer "position", default: 0, null: false
     t.boolean "school_readiness", default: false, null: false
     t.string "slo_refs", default: [], null: false, array: true
+    t.string "strand"
     t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_skills_on_code", unique: true

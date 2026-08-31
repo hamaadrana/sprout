@@ -1,4 +1,4 @@
-import { router, usePage } from '@inertiajs/react'
+import { Link, router, usePage } from '@inertiajs/react'
 import { useState } from 'react'
 
 const KIND_LABELS = {
@@ -98,7 +98,7 @@ function PlanItemCard({ item, index }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 px-6 pb-5">
+      <div className="grid grid-cols-2 gap-3 px-6 pb-3">
         <button
           onClick={() => logOutcome('got_it')}
           disabled={busy !== null}
@@ -113,6 +113,15 @@ function PlanItemCard({ item, index }) {
         >
           {busy === 'needs_practice' ? 'Saving…' : 'Needs practice'}
         </button>
+      </div>
+
+      <div className="px-6 pb-4 text-center">
+        <Link
+          href={`/skills?swap=${item.id}`}
+          className="text-xs text-ink-soft hover:text-pine underline decoration-sage-line underline-offset-2"
+        >
+          Teach something else instead
+        </Link>
       </div>
     </article>
   )
@@ -129,6 +138,10 @@ export default function Today({ date, plan_items, all_done, nothing_left }) {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink-soft">
             {formatDate(date)}
           </p>
+          <nav className="flex items-center gap-4">
+          <Link href="/skills" className="text-xs font-bold text-pine hover:underline">
+            Skill library
+          </Link>
           <form method="post" action="/users/sign_out">
             <input type="hidden" name="_method" value="delete" />
             <input
@@ -140,6 +153,7 @@ export default function Today({ date, plan_items, all_done, nothing_left }) {
               Sign out
             </button>
           </form>
+          </nav>
         </div>
         <h1 className="font-display text-4xl font-bold text-pine-deep mt-1">
           Today{childName ? ` with ${childName}` : ''}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Worksheet" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { background: #e8e4da; }
+      body { font-family: "Karla", sans-serif; color: #22301f; }
+
+      .toolbar {
+        max-width: 210mm; margin: 0 auto; padding: 16px 8px;
+        display: flex; gap: 12px; align-items: center;
+      }
+      .toolbar a, .toolbar button {
+        font: inherit; font-weight: 700; font-size: 14px; cursor: pointer;
+        border-radius: 10px; padding: 10px 18px; text-decoration: none;
+      }
+      .toolbar .print { background: #2b5540; color: #faf6ee; border: none; }
+      .toolbar .regen { background: #fff; color: #2b5540; border: 1.5px solid #2b5540; }
+      .toolbar .back { color: #5c6657; margin-left: auto; }
+
+      .sheet {
+        width: 210mm; min-height: 297mm; margin: 0 auto 24px;
+        background: #fff; padding: 18mm 16mm 14mm;
+        display: flex; flex-direction: column;
+        box-shadow: 0 2px 14px rgba(0,0,0,.12);
+      }
+      .sheet-header { border-bottom: 2px solid #22301f; padding-bottom: 4mm; margin-bottom: 8mm; }
+      .sheet-header h1 { font-family: "Fraunces", Georgia, serif; font-size: 22pt; }
+      .sheet-header p { font-size: 11pt; color: #5c6657; margin-top: 1mm; }
+      .sheet-body { flex: 1; }
+      .sheet-footer {
+        margin-top: 8mm; padding-top: 3mm; border-top: 1px solid #c9c9c9;
+        display: flex; justify-content: space-between; font-size: 10pt; color: #5c6657;
+      }
+
+      @media print {
+        html { background: #fff; }
+        .toolbar { display: none; }
+        .sheet { width: auto; min-height: auto; margin: 0; padding: 0; box-shadow: none; }
+        @page { size: A4 portrait; margin: 14mm 12mm; }
+      }
+
+      @media (max-width: 210mm) {
+        .sheet { width: 100%; padding: 8mm 6mm; min-height: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

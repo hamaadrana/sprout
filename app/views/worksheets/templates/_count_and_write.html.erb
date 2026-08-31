@@ -1,0 +1,33 @@
+<style>
+  .count-hint { font-size: 10pt; color: #5c6657; margin-bottom: 4mm; }
+  .count-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm;
+  }
+  .count-cell {
+    border: 1.5px solid #22301f; border-radius: 4mm;
+    padding: 5mm; min-height: 52mm;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .count-objects { display: flex; flex-wrap: wrap; gap: 3mm; align-content: flex-start; }
+  .count-answer {
+    align-self: flex-end; width: 16mm; height: 16mm;
+    border: 1.5px dashed #8a8a8a; border-radius: 2mm;
+  }
+</style>
+
+<p class="count-hint">
+  Touch and count each picture, then write how many in the box.
+</p>
+
+<div class="count-grid">
+  <% worksheet[:items].each do |item| %>
+    <div class="count-cell">
+      <div class="count-objects">
+        <% item[:count].times do %>
+          <%= worksheet_shape(item[:object]) %>
+        <% end %>
+      </div>
+      <div class="count-answer"></div>
+    </div>
+  <% end %>
+</div>

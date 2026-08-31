@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resource :child, only: [ :new, :create ]
   post "plan_items/:plan_item_id/log", to: "logs#create", as: :plan_item_log
   patch "plan_items/:id/swap", to: "plan_items#swap", as: :plan_item_swap
+  get "plan_items/:plan_item_id/worksheet", to: "worksheets#show", as: :plan_item_worksheet
 
   resources :skills, only: [ :index ] do
     post :master, on: :member

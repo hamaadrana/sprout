@@ -31,6 +31,7 @@ class TodayController < ApplicationController
         materials: item.activity.materials,
         duration_minutes: item.activity.duration_minutes
       },
+      has_worksheet: item.activity.resources.any?(&:generated_worksheet?),
       outcome: item.log_entries.last&.outcome
     }
   end

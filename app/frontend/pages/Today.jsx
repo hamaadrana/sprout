@@ -96,6 +96,17 @@ function PlanItemCard({ item, index }) {
           </p>
           <p className="text-sm leading-relaxed text-ink">{item.skill.mastery_descriptor}</p>
         </div>
+
+        {item.has_worksheet && (
+          <a
+            href={`/plan_items/${item.id}/worksheet`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-pine bg-white px-4 py-2.5 text-sm font-bold text-pine hover:bg-sage transition-colors"
+          >
+            🖨 Open the worksheet
+          </a>
+        )}
       </div>
 
       <div className="grid grid-cols-2 gap-3 px-6 pb-3">

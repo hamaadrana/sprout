@@ -1,0 +1,33 @@
+<style>
+  .trace-row {
+    display: flex; align-items: baseline; gap: 8mm;
+    padding: 5mm 0 3mm; border-bottom: 1.5px dashed #b9b9b9;
+  }
+  .trace-row .model {
+    font-family: "Karla", sans-serif; font-weight: 700; font-size: 46pt;
+    color: #22301f; min-width: 16mm; text-align: center;
+  }
+  .trace-row .guide {
+    font-family: "Karla", sans-serif; font-weight: 700; font-size: 46pt;
+    min-width: 16mm; text-align: center;
+  }
+  .guide-dashed { color: #cfcfcf; }
+  .guide-faint { color: #e3e3e3; }
+  .trace-hint { font-size: 10pt; color: #5c6657; margin-bottom: 2mm; }
+</style>
+
+<p class="trace-hint">
+  Trace each grey number, starting from the dark one. Then try one on your own
+  at the end of the line.
+</p>
+
+<% guide_class = worksheet[:guide_style] == "faint" ? "guide-faint" : "guide-dashed" %>
+<% worksheet[:rows].each do |row| %>
+  <div class="trace-row">
+    <span class="model"><%= row[:numeral] %></span>
+    <% row[:repetitions].times do %>
+      <span class="guide <%= guide_class %>"><%= row[:numeral] %></span>
+    <% end %>
+    <span class="guide" style="color: transparent;"><%= row[:numeral] %></span>
+  </div>
+<% end %>

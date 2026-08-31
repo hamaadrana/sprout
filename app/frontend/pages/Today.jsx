@@ -153,6 +153,9 @@ export default function Today({ date, plan_items, all_done, nothing_left }) {
           <Link href="/skills" className="text-xs font-bold text-pine hover:underline">
             Skill library
           </Link>
+          <Link href="/portfolio" className="text-xs font-bold text-pine hover:underline">
+            Portfolio
+          </Link>
           <form method="post" action="/users/sign_out">
             <input type="hidden" name="_method" value="delete" />
             <input

@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     post :master, on: :member
   end
 
+  resources :portfolio_items, only: [ :index, :create, :destroy ], path: "portfolio"
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

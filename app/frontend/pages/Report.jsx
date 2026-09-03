@@ -1,7 +1,7 @@
 import { Link, usePage } from '@inertiajs/react'
 import { useState } from 'react'
 import Shell from '../components/Shell'
-import { DOMAIN_EMOJI, STRAND_EMOJI } from '../lib/flair'
+import { DOMAIN_COLOR, DOMAIN_EMOJI, STRAND_EMOJI } from '../lib/flair'
 
 const READINESS_TAGS = {
   met: { label: '✓ met', className: 'tag tag-neutral' },
@@ -140,7 +140,7 @@ export default function Report(props) {
                       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {STRAND_EMOJI[s.name]} {s.name}
                       </span>
-                      <Bar value={s.mastered} max={s.total} color={domain.code === 'NUM' ? 'var(--color-sky)' : 'var(--color-accent-2)'} />
+                      <Bar value={s.mastered} max={s.total} color={DOMAIN_COLOR[domain.code] || 'var(--color-accent-2)'} />
                       <span style={{ color: 'var(--color-neutral-500)', fontWeight: 700, textAlign: 'right' }}>{s.mastered}/{s.total}</span>
                     </div>
                   ))}

@@ -33,6 +33,12 @@ module WorksheetsHelper
     raw(%(<svg viewBox="0 0 24 24" width="#{size_mm}mm" height="#{size_mm}mm" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#9a9a9a" stroke-width="0.9" stroke-dasharray="2.2 1.8">#{inner}</g></svg>))
   end
 
+  # Empty black outline — for colour-it-in sheets.
+  def worksheet_outline_shape(name)
+    inner = GEOMETRY.fetch(name, GEOMETRY["circle"])
+    raw(%(<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#33291f" stroke-width="1.3">#{inner}</g></svg>))
+  end
+
   # Solid filled geometry, coloured per shape so patterns read clearly.
   def worksheet_solid(name, size_mm: 10)
     inner = GEOMETRY.fetch(name, GEOMETRY["circle"])

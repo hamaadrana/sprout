@@ -472,6 +472,8 @@ skills:
           Face-down memory: a pair is a capital and its small letter. Start
           with eight pairs, not the whole alphabet. She'll beat you within a
           week and that's the plan.
+        worksheet_template: letter_case_match
+        worksheet_params: { pairs: 6 }
 
   - code: LIT.C06.sight_words
     position: 250
@@ -629,6 +631,8 @@ skills:
           Every drawing she makes now gets signed by the artist. Write it
           first for tracing, then copying, then from memory. Teach
           capital-then-small from the start — all-capitals is hard to undo.
+        worksheet_template: word_tracing
+        worksheet_params: { use_name: true, repetitions: 3 }
 
   - code: LIT.D06.letters_from_memory
     position: 350
@@ -672,3 +676,5 @@ skills:
           She writes labels and sticks them where they belong: bed, mat,
           cup, tap. Sound each word out slowly together. Leave the labels
           up — the house becomes her first book.
+        worksheet_template: word_tracing
+        worksheet_params: { words: ["cat", "sun", "mat", "cup"], repetitions: 2 }

@@ -765,3 +765,99 @@ skills:
         instructions: >
           Every morning, mark the day on the calendar and say the days in order
           up to today. Two minutes daily beats a long session weekly.
+
+  # ---------------------------------------------------------------
+  # Appended 2026-09 — new codes only, nothing renumbered
+  # ---------------------------------------------------------------
+
+  - code: NUM.B21.rote_count_50
+    position: 225
+    title: Count to 50
+    age_min_months: 60
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-C1-01"]
+    prereqs: [NUM.B18.rote_count_20]
+    mastery_descriptor: >
+      Counts aloud past 20 and on to 50, hearing the pattern — twenty-one,
+      twenty-two — rather than memorising, and can carry on from any
+      decade you start.
+    activities:
+      - title: Count the caps into tens
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["50 bottle caps or beans", "5 small bowls"]
+        instructions: >
+          Fill bowls with ten caps each, counting all the way. Five full
+          bowls is fifty! Then count on from a bowl boundary: "we have
+          thirty... thirty-one, thirty-two." The tens pattern is place
+          value knocking politely at the door.
+
+  - code: NUM.B22.order_numbers_20
+    position: 226
+    title: Put numbers to 20 in order
+    age_min_months: 58
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-C1-02"]
+    prereqs: [NUM.B19.numerals_to_20, NUM.B17.order_numbers_10]
+    mastery_descriptor: >
+      Arranges shuffled numeral cards from 1 to 20 in order, and slots a
+      missing card back into the right gap without recounting from 1.
+    activities:
+      - title: The twenty-card line-up
+        kind: worksheet
+        duration_minutes: 10
+        materials: ["printed sheet", "pencil"]
+        instructions: >
+          Number lines to 20 with holes in them — she says the sequence out
+          loud and writes the missing ones in. The teens are the wobbly
+          bridge; cross it a few times.
+        worksheet_template: count_and_write
+        worksheet_params: { max: 20, rows: 5, mode: "missing_number" }
+
+  - code: NUM.C04.fair_shares
+    position: 255
+    title: Share things out fairly
+    age_min_months: 56
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-C2-03", "ECE-00-C1-04"]
+    prereqs: [NUM.B13.make_sets_10]
+    mastery_descriptor: >
+      Deals a pile of objects out one-by-one between two or three people so
+      everyone gets the same, checks by counting, and says when a fair share
+      is impossible ("one left over!").
+    activities:
+      - title: One for you, one for me
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["a plate of grapes, biscuits or chana"]
+        instructions: >
+          She is the official snack sharer: deal them out one-for-you,
+          one-for-me until the plate is empty, then count each share to
+          check. Sneak in an odd number sometimes — the leftover one is the
+          most interesting grape in mathematics.
+
+  - code: NUM.E06.calendar_months
+    position: 355
+    title: Know the months and special days
+    age_min_months: 60
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-C3-08", "ECE-00-C3-06"]
+    prereqs: [NUM.E05.days_of_week]
+    mastery_descriptor: >
+      Says the months in order with support, knows her birthday month and
+      the big occasions' months, and uses the calendar to count down to
+      something she's excited about.
+    activities:
+      - title: The countdown chain
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["paper strips", "glue", "a wall calendar"]
+        instructions: >
+          Pick something coming — a birthday, Eid, a trip — count the days
+          on the calendar and make a paper chain with one link per day.
+          Snip a link each morning. The shrinking chain is time made
+          touchable.

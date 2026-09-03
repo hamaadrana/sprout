@@ -18,6 +18,11 @@ const HEAD_START = [
   { key: 'knows_some_letters', emoji: '🅰️', label: 'Knows some ABC letters' },
   { key: 'knows_most_letters', emoji: '🔤', label: 'Knows most of the alphabet' },
   { key: 'holds_pencil', emoji: '✏️', label: 'Holds a pencil nicely' },
+  { key: 'knows_colours', emoji: '🌈', label: 'Knows the main colours' },
+  { key: 'knows_body_parts', emoji: '🙆', label: 'Names body parts' },
+  { key: 'says_name_age', emoji: '🎤', label: 'Says their name and age' },
+  { key: 'dresses_self', emoji: '👕', label: 'Gets dressed alone' },
+  { key: 'uses_scissors', emoji: '✂️', label: 'Cuts with child scissors' },
 ]
 
 const GOALS = [

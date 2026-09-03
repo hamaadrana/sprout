@@ -1217,3 +1217,192 @@ activities:
     instructions: >
       Practise on a shoe held in her lap rather than on her foot, which is much
       easier to see. Expect this to take weeks, not one session.
+
+  # ===============================================================
+  # APPENDED 2026-09 — new codes only (9xx range)
+  # ===============================================================
+
+  - code: ACT.LIT.901
+    title: Sound treasure basket
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["a basket", "objects starting with one sound"]
+    instructions: >
+      Choose one sound — "b" — and hunt the house together filling a basket
+      with things that start with it: ball, book, banana, brush. Tip it out
+      and name everything, stretching the first sound long and slow.
+
+  - code: ACT.LIT.902
+    title: Alphabet stepping stones
+    domain: LIT
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["paper letter cards", "tape"]
+    skill_tags: ["LIT.C04.knows_letters"]
+    instructions: >
+      Tape letter cards across the floor. Call a letter or a sound; she
+      jumps to it. Then spell her way across the room — jumping her own
+      name is the grand finale.
+
+  - code: ACT.LIT.903
+    title: Story dice
+    domain: LIT
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["a die", "six pictures numbered 1-6 (animal, place, food, vehicle, person, weather)"]
+    instructions: >
+      Roll the die three times to collect three pictures, then tell a story
+      that uses all three. A lion, a rickshaw and a rainy day? Perfect.
+      Take turns — your stories teach story-shape, hers build confidence.
+
+  - code: ACT.LIT.904
+    title: Whisper telephone
+    domain: LIT
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Whisper a short message in her ear — "the cat is on the roof" — and
+      she carries it across the room to deliver to someone else, word for
+      word. Listening, remembering, repeating: three skills in one giggle.
+
+  - code: ACT.NUM.901
+    title: Number plate bingo
+    domain: NUM
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["paper with digits 0-9 written on it", "a pencil"]
+    skill_tags: ["NUM.B07.numeral_recognition_10"]
+    instructions: >
+      On any drive or walk, hunt number plates for the digits on your card,
+      crossing each off when spotted. First card full shouts BINGO. Traffic
+      jams become the best part of the trip.
+
+  - code: ACT.NUM.902
+    title: Kitchen measuring day
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 20
+    materials: ["measuring cups and spoons", "flour or rice", "a bowl"]
+    supervision: required
+    skill_tags: ["NUM.E03.nonstandard_measure"]
+    instructions: >
+      She is the measurer for one recipe: two cups of atta, one spoon of
+      salt. Level the cups, count them in out loud. Cooking is maths with
+      a delicious ending.
+
+  - code: ACT.NUM.903
+    title: Dice race to twenty
+    domain: NUM
+    age_band: "5-6"
+    duration_minutes: 15
+    materials: ["a die", "20 buttons each"]
+    skill_tags: ["NUM.C01.add_remove_one", "NUM.B18.rote_count_20"]
+    instructions: >
+      Roll, take that many buttons, count your growing pile each turn.
+      First to twenty wins. Then play in reverse — giving buttons back —
+      and subtraction sneaks in the back door.
+
+  - code: ACT.WAU.901
+    title: Shadow chasing
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["a sunny morning or evening"]
+    instructions: >
+      Find your shadows. Can she stamp on yours? Make them tall, tiny, and
+      wave. Check again at midday — where did it go? No explanation needed;
+      the wondering is the science.
+
+  - code: ACT.WAU.902
+    title: Ice cube rescue
+    domain: WAU
+    age_band: "4-5"
+    duration_minutes: 20
+    materials: ["small toys frozen in an ice tray or bowl overnight", "warm water", "a spoon"]
+    supervision: required
+    instructions: >
+      Freeze little toys in ice overnight. She rescues them — warm water,
+      spoon taps, sunshine. Which melts ice fastest? Prediction first,
+      rescue second, dripping triumph third.
+
+  - code: ACT.WAU.903
+    title: Nature colour match
+    domain: WAU
+    age_band: "3-4"
+    duration_minutes: 15
+    materials: ["crayons or colour cards"]
+    instructions: >
+      Take five colour cards outside and find something in nature to match
+      each one — a leaf for green, a wall for brown, a flower for pink.
+      Autumn and spring change the answers; play it every season.
+
+  - code: ACT.PSE.901
+    title: The compliment circle
+    domain: PSE
+    age_band: "5-6"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      At dinner, everyone says one kind true thing about the person on
+      their left. Teach the receiving too: look at the person, say thank
+      you, let it land. Harder and more valuable than it sounds.
+
+  - code: ACT.PSE.902
+    title: Calm-down bubbles
+    domain: PSE
+    age_band: "3-4"
+    duration_minutes: 5
+    materials: []
+    instructions: >
+      Practise "bubble breaths" when everyone is calm: breathe in through
+      the nose, then blow out slowly like inflating the world's biggest
+      soap bubble. Five bubbles. Now it's there when the storm comes.
+
+  - code: ACT.PHY.901
+    title: Animal yoga
+    domain: PHY
+    age_band: "3-4"
+    duration_minutes: 10
+    materials: []
+    instructions: >
+      Hold animal poses: proud cobra, tall giraffe, balancing flamingo,
+      curled-up mouse. Count to five in each. Balance, strength and a
+      giggle — and it burns off exactly the energy bedtime needs gone.
+
+  - code: ACT.PHY.902
+    title: The floor is lava
+    domain: PHY
+    age_band: "4-5"
+    duration_minutes: 15
+    materials: ["cushions and folded towels"]
+    supervision: required
+    instructions: >
+      Scatter cushion "rocks" across the lava floor and cross the room
+      without touching the ground. Jumping, balancing, planning the route —
+      then let her design a harder crossing for you.
+
+  - code: ACT.ART.901
+    title: Rangoli with rice
+    domain: ART
+    age_band: "5-6"
+    duration_minutes: 25
+    materials: ["dry rice coloured with food colouring", "chalk", "a tray or floor corner"]
+    supervision: required
+    instructions: >
+      Draw a big chalk pattern, then fill the sections with coloured rice,
+      pinch by pinch. Symmetry, patience and pincer grip in one beautiful,
+      sweepable artwork. Photograph it before the broom comes.
+
+  - code: ACT.HHS.901
+    title: Germ glitter hands
+    domain: HHS
+    age_band: "4-5"
+    duration_minutes: 10
+    materials: ["a pinch of glitter or atta", "soap", "water"]
+    skill_tags: ["GRW.C01.super_handwashing"]
+    instructions: >
+      Sprinkle "germs" (glitter or flour) on her palms, shake hands, touch
+      a doorknob — look how they spread! Now wash properly with soap until
+      every sparkle is gone. Nobody forgets this demonstration.

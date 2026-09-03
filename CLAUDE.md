@@ -49,9 +49,14 @@ she/her in new chrome copy.
 
 - `db/curriculum/numeracy.yml` — 35 skills, NUM.A01…NUM.E05 (strand map is
   the loader's fallback STRANDS constant).
-- `db/curriculum/literacy.yml` — 26 English/phonics skills, LIT.A…D, with a
-  `strands:` map in the domain header (the pattern new files should follow).
-  DailyPlan round-robins across domains so a day mixes numeracy and English.
+- `db/curriculum/literacy.yml` — English/phonics skills, LIT.A…D, with a
+  `strands:` map in the domain header (the pattern all newer files follow).
+- Four more domains from the same NCP ECE document: my_world.yml (WLD,
+  Domain D), movement.yml (MOV, Domain G), little_me.yml (GRW, Domains
+  A+E), creativity.yml (ART, Domain F). ~110 skills total. Cross-domain
+  prereqs are allowed (loader resolves after all files).
+  DailyPlan round-robins across domains, rotating the starting domain by
+  date so all six get plan slots across a week.
 - Onboarding "head start" answers pre-master skills via
   ChildrenController::HEAD_START (update it when curriculum codes change).
 - `db/library/` — activity_library.yml (106 cross-domain activities) and

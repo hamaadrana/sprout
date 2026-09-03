@@ -1,0 +1,188 @@
+# Movement — ages 3 to 6
+#
+# From the National Curriculum of Pakistan 2022-23 (ECE), Domain G:
+# Physical Development (G1 gross motor, G2 fine motor), plus fastener
+# independence every school-readiness checklist asks for. Strong hands and
+# steady feet are what pencils and playgrounds are built on.
+
+domain:
+  code: MOV
+  name: Movement
+  position: 4
+  strands:
+    A: "Big moves"
+    B: "Clever hands"
+
+skills:
+
+  - code: MOV.A01.balance_walk
+    position: 10
+    title: Walk a line without wobbling off
+    age_min_months: 36
+    age_max_months: 52
+    school_readiness: false
+    slo_refs: ["ECE-00-G1-03", "ECE-00-G1-04"]
+    prereqs: []
+    mastery_descriptor: >
+      Walks heel-to-toe along a straight line keeping her balance, and can
+      hold a one-leg "statue" pose for a few seconds.
+    activities:
+      - title: The tightrope circus
+        kind: game
+        duration_minutes: 10
+        materials: ["chalk, tape, or a dupatta laid flat"]
+        instructions: >
+          Lay a line on the floor: it's a tightrope over a crocodile river.
+          Walk it heel-to-toe, then backwards, then carrying a spoon. Finish
+          with statue poses — who can balance on one leg longest?
+
+  - code: MOV.A02.jump_and_hop
+    position: 20
+    title: Jump, hop and land like a champ
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-G1-02", "ECE-00-G1-06"]
+    prereqs: [MOV.A01.balance_walk]
+    mastery_descriptor: >
+      Jumps forward with two feet landing together, hops a few times on one
+      foot, and jumps down from a low step landing on both feet.
+    activities:
+      - title: Lily pad leaping
+        kind: game
+        duration_minutes: 10
+        materials: ["cushions or paper circles on the floor"]
+        instructions: >
+          Scatter "lily pads" across the room and leap frog-to-pad without
+          touching the "water". Two-foot jumps first, then hops. Move the
+          pads further apart as she gets bolder.
+
+  - code: MOV.A03.throw_at_target
+    position: 30
+    title: Throw at a target
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-G1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Throws a soft ball overhand roughly where she means it to go, hitting
+      a big target from a few steps away more often than not.
+    activities:
+      - title: Sock-ball basket
+        kind: game
+        duration_minutes: 10
+        materials: ["rolled sock balls", "a laundry basket or bucket"]
+        instructions: >
+          Rolled socks into the laundry basket: three throws each, keep
+          score. Step back one tile every time she scores. Overhand throws —
+          reach back past the ear, step, throw.
+
+  - code: MOV.A04.catch_a_ball
+    position: 40
+    title: Catch a ball
+    age_min_months: 46
+    age_max_months: 66
+    school_readiness: false
+    slo_refs: ["ECE-00-G1-06"]
+    prereqs: [MOV.A03.throw_at_target]
+    mastery_descriptor: >
+      Catches a soft ball thrown gently from a couple of steps away using
+      hands (not trapping it against the chest), three times in a row.
+    activities:
+      - title: Three-in-a-row catch
+        kind: game
+        duration_minutes: 10
+        materials: ["a soft ball or balloon"]
+        instructions: >
+          Start with a balloon — it floats slowly and builds confidence —
+          then a soft ball from two steps. Every three catches in a row, take
+          one step back. Hands ready like a crocodile mouth, snap shut!
+
+  - code: MOV.A05.stairs_and_climbing
+    position: 50
+    title: Take the stairs like a big kid
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-G1-05"]
+    prereqs: []
+    mastery_descriptor: >
+      Walks up and down stairs with alternating feet — one foot per step —
+      without holding a hand, and hops off the bottom step landing on both
+      feet.
+    activities:
+      - title: One foot, one step
+        kind: hands_on
+        duration_minutes: 5
+        materials: ["stairs"]
+        instructions: >
+          Every stair trip is practice: "one foot each step, like a soldier."
+          Stay close but keep your hands free unless needed. The bottom-step
+          two-foot jump is the reward at the end.
+
+  - code: MOV.B01.small_object_ninja
+    position: 100
+    title: Pick up and place tiny things
+    age_min_months: 38
+    age_max_months: 54
+    school_readiness: false
+    slo_refs: ["ECE-00-G2-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Picks up small objects with a finger-thumb pincer and places them
+      exactly — threads big beads, drops beans into a bottle mouth, moves
+      things with tongs or a spoon without spilling.
+    activities:
+      - title: Bean-in-the-bottle challenge
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["dry beans", "an empty bottle", "kitchen tongs"]
+        instructions: >
+          Drop beans one by one through the bottle mouth — first with
+          fingers, then with tongs, then with the other hand. Count them in.
+          Small parts are a choking risk, so this is a together game.
+
+  - code: MOV.B02.tear_fold_paste
+    position: 110
+    title: Tear, fold and paste paper
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-G2-04"]
+    prereqs: []
+    mastery_descriptor: >
+      Tears paper roughly along a line using both hands, folds a sheet in
+      half matching the corners, and pastes pieces where she wants them.
+    activities:
+      - title: Torn paper pictures
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["old newspaper or coloured paper", "glue stick", "a sheet with a big outline drawn on it"]
+        instructions: >
+          No scissors today — hands only. Tear little pieces, sort them into
+          colour piles, and paste them inside a big drawn shape until it's
+          filled. Tearing is two-hand teamwork and it's exactly what
+          scissor-hands are made of.
+
+  - code: MOV.B03.scissor_skills
+    position: 120
+    title: Cut with scissors
+    age_min_months: 46
+    age_max_months: 66
+    school_readiness: true
+    slo_refs: ["ECE-00-G2-01", "ECE-00-F1-02"]
+    prereqs: [MOV.B02.tear_fold_paste]
+    mastery_descriptor: >
+      Holds child scissors correctly (thumb up), snips across a strip, then
+      cuts along a straight line and a gentle curve, turning the paper —
+      not the scissors — to steer.
+    activities:
+      - title: The snipping barber shop
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["child-safe scissors", "paper strips with thick drawn lines"]
+        instructions: >
+          Draw thick straight "hair" lines on paper strips and let her give
+          them a haircut — one snip each. Then longer lines, then wavy ones.
+          Thumb up like a shark fin. Scissors sit down when we walk.

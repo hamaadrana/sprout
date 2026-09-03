@@ -857,3 +857,77 @@ projects:
       - "You dip it in the cooled dye bath and leave it to soak."
       - "Once cool, she takes the bands off and opens it out."
       - "Compare the result to her prediction."
+
+  # ===============================================================
+  # APPENDED 2026-09 — new codes only (9x range)
+  # ===============================================================
+
+  - code: MAKE.P91
+    title: Colour wheel spinner
+    category: paper
+    age_band: "4-5"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    develops: [colour recognition, fine motor, cause and effect]
+    skill_tags: ["ART.A02.rainbow_colours"]
+    portfolio: true
+    materials: ["card circle", "crayons", "a sharpened pencil"]
+    adult_prep: "Cut the circle and divide it into six pie slices in pencil. You pierce the centre."
+    steps:
+      - "Colour each slice a different colour, naming each one."
+      - "Push the pencil through the centre to make a spinning top."
+      - "Spin it — where did the colours go? Talk about the blur."
+      - "Spin and stop: whichever colour lands nearest her wins that round."
+
+  - code: MAKE.P92
+    title: My body poster
+    category: paper
+    age_band: "3-4"
+    duration_minutes: 30
+    mess_level: medium
+    supervision: required
+    develops: [body awareness, vocabulary, drawing]
+    skill_tags: ["WLD.A01.body_parts"]
+    portfolio: true
+    materials: ["a big sheet of paper (newspaper sheets taped together work)", "crayons"]
+    adult_prep: "Tape sheets together big enough for her to lie on."
+    steps:
+      - "She lies on the paper; you trace around her whole body."
+      - "She draws in the face, then you label parts together as she points: elbow! knee! shoulder!"
+      - "She colours the clothes and hair however she likes."
+      - "Hang it on her door at her height — it is exactly her size."
+
+  - code: MAKE.P93
+    title: Feelings faces flip cards
+    category: paper
+    age_band: "4-5"
+    duration_minutes: 25
+    mess_level: low
+    supervision: required
+    develops: [naming emotions, drawing, empathy]
+    skill_tags: ["GRW.B01.name_that_feeling"]
+    portfolio: true
+    materials: ["4-6 card squares", "crayons", "a ring or string (optional)"]
+    adult_prep: "Cut the cards. Draw one example face yourself first."
+    steps:
+      - "Draw one feeling face per card: happy, sad, angry, scared, surprised, sleepy."
+      - "Name each one as it's drawn and make the face together in the mirror."
+      - "Play with them: hold up a card, everyone makes that face."
+      - "Keep them on the shelf — on big-feeling days, she can show you the card."
+
+  - code: MAKE.P94
+    title: Traffic light snack plate
+    category: kitchen
+    age_band: "3-4"
+    duration_minutes: 15
+    mess_level: low
+    supervision: required
+    develops: [colour recognition, healthy eating, safety rules]
+    skill_tags: ["ART.A01.first_colours", "GRW.C03.safety_smart"]
+    materials: ["red, yellow and green fruit or veg (apple, banana, cucumber)", "a plate"]
+    adult_prep: "Wash and cut everything; she assembles."
+    steps:
+      - "Build a traffic light on the plate: red on top, yellow in the middle, green below."
+      - "Say the rule as you build: red stop, yellow wait, green go."
+      - "Eat it light by light — red first, of course. Rules are rules."

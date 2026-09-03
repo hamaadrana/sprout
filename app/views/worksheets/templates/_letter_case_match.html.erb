@@ -1,0 +1,26 @@
+<style>
+  .lcm-wrap { display: flex; justify-content: space-around; margin-top: 8mm; }
+  .lcm-col { display: flex; flex-direction: column; gap: 9mm; }
+  .lcm-cell {
+    width: 20mm; height: 20mm; display: grid; place-items: center;
+    font: 700 26pt "Karla", sans-serif; border: 2px solid #33291f;
+    border-radius: 4mm;
+  }
+</style>
+
+<p class="count-hint">
+  Draw a line from each BIG letter to its small letter. Say the sound as you go.
+</p>
+
+<div class="lcm-wrap">
+  <div class="lcm-col">
+    <% worksheet[:left].each do |letter| %>
+      <div class="lcm-cell"><%= letter %></div>
+    <% end %>
+  </div>
+  <div class="lcm-col">
+    <% worksheet[:right].each do |letter| %>
+      <div class="lcm-cell"><%= letter %></div>
+    <% end %>
+  </div>
+</div>

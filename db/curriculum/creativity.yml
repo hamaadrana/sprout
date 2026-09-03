@@ -1,0 +1,248 @@
+# Creativity — ages 3 to 6
+#
+# From the National Curriculum of Pakistan 2022-23 (ECE), Domain F:
+# Creative Arts (drawing & colouring, art & craft, music, drama), plus
+# colour recognition and draw-a-person — two classics on every
+# school-readiness checklist.
+
+domain:
+  code: ART
+  name: Creativity
+  position: 6
+  strands:
+    A: "Colours"
+    B: "Making & drawing"
+    C: "Music & pretend"
+
+skills:
+
+  - code: ART.A01.first_colours
+    position: 10
+    title: Know red, blue, yellow and green
+    age_min_months: 36
+    age_max_months: 50
+    school_readiness: true
+    slo_refs: ["ECE-00-F1-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Names red, blue, yellow and green when shown, and fetches "the red
+      one" from a mixed pile every time — colours named, not guessed.
+    activities:
+      - title: Colour of the day
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Crown one colour each day. Hunt it everywhere: red shirt, red bus,
+          red apple, red toothbrush. Ten sightings wins. One colour at a
+          time beats four at once — let each one own a whole day.
+      - title: Colour the shapes
+        kind: worksheet
+        duration_minutes: 10
+        materials: ["printed sheet", "crayons"]
+        instructions: >
+          Every shape has its colour — the key at the top says which. She
+          reads the key, picks the crayon, and colours away. Naming the
+          colour out loud with every pick is the practice hiding inside the
+          colouring.
+        worksheet_template: colour_by_shape
+        worksheet_params: { shapes: ["circle", "square", "triangle"], colours: ["red", "blue", "yellow"], grid_count: 15 }
+
+  - code: ART.A02.rainbow_colours
+    position: 20
+    title: Know lots of colours
+    age_min_months: 42
+    age_max_months: 60
+    school_readiness: true
+    slo_refs: ["ECE-00-F1-03"]
+    prereqs: [ART.A01.first_colours]
+    mastery_descriptor: >
+      Names eight or more colours including orange, purple, pink, brown,
+      black and white, and sorts a big pile of mixed things by colour
+      without help.
+    activities:
+      - title: The great colour sort
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["a pile of mixed toys, caps, blocks and crayons"]
+        instructions: >
+          Tip everything into one glorious pile and sort it into colour
+          families. Tricky customers — is teal blue or green? — get a family
+          vote. Then rebuild the pile and race the sort again.
+
+  - code: ART.A03.colour_mixing
+    position: 30
+    title: Mix colours and predict what happens
+    age_min_months: 50
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-F1-04"]
+    prereqs: [ART.A02.rainbow_colours]
+    mastery_descriptor: >
+      Predicts and then proves what mixing makes — blue and yellow make
+      green, red and yellow make orange, red and blue make purple.
+    activities:
+      - title: The potion lab
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["poster paint or food colour", "water", "clear cups", "a dropper or spoon"]
+        instructions: >
+          Two colours of "potion", one empty cup, one prediction: "what will
+          blue and yellow make?" Mix and gasp accordingly. Write the recipe
+          down like proper scientists. Aprons on — this one earns its mess.
+
+  - code: ART.B01.crayon_confidence
+    position: 100
+    title: Draw with confident tools
+    age_min_months: 36
+    age_max_months: 52
+    school_readiness: false
+    slo_refs: ["ECE-00-F1-01", "ECE-00-F1-04"]
+    prereqs: []
+    mastery_descriptor: >
+      Holds crayons, pencils and brushes with a working grip and fills a
+      page with deliberate lines, circles and colour on purpose — then tells
+      you what it is.
+    activities:
+      - title: Big paper, no rules
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["the biggest paper you can find", "crayons or paint"]
+        instructions: >
+          Tape big paper to the floor and let her go — no instructions, no
+          "what is it?" while she works. Afterwards ask her to tell you about
+          it, and write her words on the corner. Date it; the drawings will
+          grow up in front of you.
+
+  - code: ART.B02.cut_and_stick_art
+    position: 110
+    title: Make a collage with cutting and pasting
+    age_min_months: 48
+    age_max_months: 68
+    school_readiness: false
+    slo_refs: ["ECE-00-F1-02", "ECE-00-F2-01"]
+    prereqs: [MOV.B03.scissor_skills]
+    mastery_descriptor: >
+      Plans and makes a picture from cut and torn pieces — chooses papers,
+      cuts shapes, arranges before gluing, and can say what she made.
+    activities:
+      - title: The everything collage
+        kind: hands_on
+        duration_minutes: 20
+        materials: ["old magazines and coloured paper", "child scissors", "glue", "a base sheet"]
+        instructions: >
+          Choose a theme she loves — food, animals, vehicles — and hunt
+          through old pages, cutting out treasures. Arrange everything first,
+          glue second. Hang the result where guests will be made to admire
+          it. Photograph it for the portfolio.
+
+  - code: ART.B03.draw_a_person
+    position: 120
+    title: Draw a person with body parts
+    age_min_months: 48
+    age_max_months: 68
+    school_readiness: true
+    slo_refs: ["ECE-00-F1-04", "ECE-00-D1-01"]
+    prereqs: [ART.B01.crayon_confidence, WLD.A01.body_parts]
+    mastery_descriptor: >
+      Draws a person with six or more parts — head, body, eyes, nose,
+      mouth, arms, legs — that a stranger could recognise as a person.
+      Schools genuinely ask for this one.
+    activities:
+      - title: Draw your family
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["paper", "crayons"]
+        instructions: >
+          She draws the family, one person at a time. As she draws, chat the
+          parts in: "does Baba have ears? where do his arms go?" Never draw
+          it for her — questions grow more limbs than corrections do. Count
+          the parts together at the end, then frame it.
+
+  - code: ART.B04.dough_sculptor
+    position: 130
+    title: Model shapes and things from dough
+    age_min_months: 40
+    age_max_months: 62
+    school_readiness: false
+    slo_refs: ["ECE-00-F2-03", "ECE-00-G2-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Rolls balls and snakes, flattens rotis, and joins pieces into things
+      she planned — a cat, a cup, a birthday cake with candle-sticks.
+    activities:
+      - title: The atta bakery
+        kind: hands_on
+        duration_minutes: 20
+        materials: ["atta dough (flour, salt, water, food colour if you like)"]
+        instructions: >
+          Make dough together — she measures and kneads. Open the bakery:
+          rotis, samosas, laddoos, a snake that ate a laddoo. Rolling and
+          pinching are secretly the hand gym for writing. Bake nothing;
+          admire everything.
+
+  - code: ART.C01.sing_and_move
+    position: 200
+    title: Perform rhymes with actions
+    age_min_months: 36
+    age_max_months: 54
+    school_readiness: true
+    slo_refs: ["ECE-00-F3-01", "ECE-00-F3-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Performs three or four rhymes from memory with the actions — solo,
+      loud enough to hear, in front of at least the family. Schools love a
+      child who'll sing when asked.
+    activities:
+      - title: The family concert
+        kind: game
+        duration_minutes: 10
+        materials: ["a hairbrush microphone", "an audience of any size"]
+        instructions: >
+          Rehearse two favourites with full actions, then hold a concert —
+          announce her name, wild applause, maybe an encore. Do it weekly;
+          the shy first show becomes a swagger by the fourth.
+
+  - code: ART.C02.feel_the_beat
+    position: 210
+    title: Keep a beat
+    age_min_months: 42
+    age_max_months: 62
+    school_readiness: false
+    slo_refs: ["ECE-00-F3-03"]
+    prereqs: [ART.C01.sing_and_move]
+    mastery_descriptor: >
+      Claps or drums along in time with a song or a steady beat, and copies
+      a simple clapping pattern back to you — clap-clap-pause, clap-clap.
+    activities:
+      - title: The kitchen band
+        kind: game
+        duration_minutes: 10
+        materials: ["pots, spoons, a tin with rice sealed inside"]
+        instructions: >
+          Drums are pots, shakers are tins — it's a band. Copy-cat rhythms
+          first: you clap a pattern, she echoes it. Then drum along to a song
+          she loves. Loud, yes. Worth it, also yes.
+
+  - code: ART.C03.pretend_play
+    position: 220
+    title: Act out stories and roles
+    age_min_months: 40
+    age_max_months: 62
+    school_readiness: false
+    slo_refs: ["ECE-00-F4-01", "ECE-00-F4-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Takes a role and stays in it — shopkeeper, doctor, lion — talking and
+      acting as the character, and re-enacts a familiar story with a
+      beginning and an end.
+    activities:
+      - title: The dupatta theatre
+        kind: game
+        duration_minutes: 15
+        materials: ["dupattas and household props"]
+        instructions: >
+          A dupatta is a cape, a river, a shop counter. Pick a story she
+          knows, hand out parts (toys can act too), and perform it for
+          whoever's home. She directs the second showing — directors learn
+          the most.

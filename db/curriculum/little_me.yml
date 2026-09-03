@@ -1,0 +1,266 @@
+# Little Me — ages 3 to 6
+#
+# From the National Curriculum of Pakistan 2022-23 (ECE), Domain A:
+# Personal, Social and Emotional Development, and Domain E: Health,
+# Hygiene and Safety. The self-help and people skills that admission
+# interviews quietly test and classrooms absolutely require.
+
+domain:
+  code: GRW
+  name: Little Me
+  position: 5
+  strands:
+    A: "All about me"
+    B: "Feelings & friends"
+    C: "Healthy & safe"
+
+skills:
+
+  - code: GRW.A01.who_am_i
+    position: 10
+    title: Say who she is
+    age_min_months: 36
+    age_max_months: 50
+    school_readiness: true
+    slo_refs: ["ECE-00-A1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Says her own name and age clearly when asked, holds up the right
+      number of fingers for her age, and answers simple "about you"
+      questions without hiding behind you.
+    activities:
+      - title: Hello, my name is...
+        kind: game
+        duration_minutes: 5
+        materials: ["a toy as the visitor"]
+        instructions: >
+          A toy comes to visit and asks: "What's your name? How old are you?"
+          She answers loud and proud, fingers up for her age. Practise with
+          different toy voices until real visitors get the same confident
+          answer.
+
+  - code: GRW.A02.my_belongings
+    position: 20
+    title: Know and mind her own things
+    age_min_months: 38
+    age_max_months: 54
+    school_readiness: true
+    slo_refs: ["ECE-00-A1-05"]
+    prereqs: []
+    mastery_descriptor: >
+      Recognises her own bag, bottle, shoes and clothes, keeps track of
+      them, and puts them back in their place without being chased.
+    activities:
+      - title: Everything has a home
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["her bag, bottle, shoes", "a shelf or hook that is hers"]
+        instructions: >
+          Give her things one proud home — a hook she can reach, a shelf with
+          her name on it. Play "everything goes home" after outings: bag on
+          hook, bottle to kitchen, shoes in line. In school, the kid who
+          finds her own bag is queen of the cloakroom.
+
+  - code: GRW.A03.dress_myself
+    position: 30
+    title: Get dressed by herself
+    age_min_months: 44
+    age_max_months: 64
+    school_readiness: true
+    slo_refs: ["ECE-00-E1-03", "ECE-00-G2-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Puts on shirt, trousers and shoes on the right feet by herself, and
+      manages buttons, zips and velcro — slowly is fine, alone is the point.
+    activities:
+      - title: The getting-dressed race (that isn't a race)
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["her own clothes", "a shirt with big buttons"]
+        instructions: >
+          Practise when nobody's late — weekend mornings, not school
+          mornings. Buttons on a shirt laid flat first, then worn. Shoes: the
+          two shoes "kiss" when they're on the right feet. Cheer the trying,
+          not just the finishing.
+
+  - code: GRW.B01.name_that_feeling
+    position: 100
+    title: Name feelings — hers and others'
+    age_min_months: 38
+    age_max_months: 56
+    school_readiness: true
+    slo_refs: ["ECE-00-A1-02", "ECE-00-A1-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Says "I'm happy / sad / angry / scared" about herself instead of only
+      showing it, and reads those feelings on faces in books and real life.
+    activities:
+      - title: Mirror faces
+        kind: game
+        duration_minutes: 10
+        materials: ["a mirror"]
+        instructions: >
+          Make happy, sad, angry and scared faces in the mirror together and
+          name each one. Then guess each other's faces. The real magic
+          happens later: mid-meltdown, the words "you look really angry"
+          land, because the word exists now.
+
+  - code: GRW.B02.wait_and_share
+    position: 110
+    title: Take turns and share
+    age_min_months: 40
+    age_max_months: 60
+    school_readiness: true
+    slo_refs: ["ECE-00-A2-04"]
+    prereqs: [GRW.B01.name_that_feeling]
+    mastery_descriptor: >
+      Waits for her turn in a game without grabbing, shares materials when
+      playing alongside another child, and survives losing a round without
+      the board flying.
+    activities:
+      - title: One toy, two players
+        kind: game
+        duration_minutes: 10
+        materials: ["one desirable toy", "a phone timer"]
+        instructions: >
+          One toy, turns of one minute, and the timer is the referee — the
+          beep does the arguing so you don't have to. Then play a simple
+          taking-turns game. Losing gracefully is a skill; model a cheerful
+          "oh well, next time!" and watch it get copied.
+
+  - code: GRW.B03.magic_words
+    position: 120
+    title: Use the magic words
+    age_min_months: 38
+    age_max_months: 54
+    school_readiness: true
+    slo_refs: ["ECE-00-A2-05"]
+    prereqs: []
+    mastery_descriptor: >
+      Says salaam when greeting, please when asking, thank you when given,
+      and sorry when it's needed — mostly unprompted, in the right moments.
+    activities:
+      - title: The magic words shop
+        kind: game
+        duration_minutes: 10
+        materials: ["toys set up as a pretend shop"]
+        instructions: >
+          Run a shop where things can only be bought with magic words — a
+          "please" gets the item, a "thank you" gets the change. Swap roles.
+          Then catch her using them for real and be visibly delighted; that's
+          the whole reinforcement plan.
+
+  - code: GRW.B04.kind_hands_kind_words
+    position: 130
+    title: Notice and help others
+    age_min_months: 44
+    age_max_months: 64
+    school_readiness: false
+    slo_refs: ["ECE-00-A2-01", "ECE-00-A2-03"]
+    prereqs: [GRW.B01.name_that_feeling]
+    mastery_descriptor: >
+      Notices when someone is sad or struggling and does something kind
+      about it — fetches help, offers a toy, pats a shoulder — without being
+      told to.
+    activities:
+      - title: Kindness spotting
+        kind: conversation
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          At bedtime, each of you tells one kind thing you saw or did today.
+          In books, pause at sad characters: "how does he feel? what could we
+          do?" Keep a family "kindness jar" — a bean for every spotted act,
+          a treat when it's full.
+
+  - code: GRW.C01.super_handwashing
+    position: 200
+    title: Wash hands properly, at the right times
+    age_min_months: 36
+    age_max_months: 52
+    school_readiness: true
+    slo_refs: ["ECE-00-E1-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Washes hands with soap — palms, backs, between fingers, thumbs —
+      before eating and after the toilet, without being reminded every time.
+    activities:
+      - title: The twenty-second bubble concert
+        kind: hands_on
+        duration_minutes: 5
+        materials: ["soap"]
+        instructions: >
+          Pick a song chorus that lasts twenty seconds and it becomes the
+          handwashing anthem — scrub until the song ends. Palms, backs,
+          between fingers, thumbs get their own solo. The song does the
+          timing forever after.
+
+  - code: GRW.C02.everyday_healthy
+    position: 210
+    title: Know everyday food from sometimes food
+    age_min_months: 44
+    age_max_months: 64
+    school_readiness: false
+    slo_refs: ["ECE-00-E1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Sorts foods into "everyday" (fruit, roti, daal, milk) and "sometimes"
+      (toffees, chips, cola) and can say why we move our bodies and drink
+      clean water.
+    activities:
+      - title: Everyday or sometimes?
+        kind: game
+        duration_minutes: 10
+        materials: ["food packets and fruit from the kitchen"]
+        instructions: >
+          Two baskets: everyday and sometimes. Sort real items from the
+          kitchen — no "good food/bad food" talk, just how often. Let her
+          catch you reaching for a "sometimes" at the wrong time; enforcement
+          is her favourite part.
+
+  - code: GRW.C03.safety_smart
+    position: 220
+    title: Know the big safety rules
+    age_min_months: 46
+    age_max_months: 68
+    school_readiness: true
+    slo_refs: ["ECE-00-E2-04", "ECE-00-E2-05", "ECE-00-E2-06"]
+    prereqs: []
+    mastery_descriptor: >
+      Recites the family safety rules and follows them: hot and sharp things
+      are grown-up things, roads are crossed holding a hand, we never go
+      anywhere with anyone without telling Ammi or Baba.
+    activities:
+      - title: The safety tour
+        kind: conversation
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          Walk the house naming what's hot, sharp or not-for-touching —
+          stove, iron, knives, plugs. Outside, practise the road ritual:
+          stop, hold a hand, look both ways, walk. Quiz gently for weeks; the
+          rules should come out of her mouth, not just yours.
+
+  - code: GRW.C04.my_body_is_mine
+    position: 230
+    title: Know her body belongs to her
+    age_min_months: 46
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-E2-02", "ECE-00-E2-03", "ECE-00-E2-01"]
+    prereqs: [GRW.B01.name_that_feeling]
+    mastery_descriptor: >
+      Knows the parts under her underclothes are private, can say NO loudly
+      if a touch feels wrong, and knows she must tell you and will never be
+      in trouble for telling.
+    activities:
+      - title: The calm five-minute talk
+        kind: conversation
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Matter-of-fact, not scary: private parts are private; only Ammi,
+          Baba or a doctor with a parent there, and only for a reason. She
+          can shout NO and must always tell you — no secrets about bodies,
+          and telling never gets her in trouble. Repeat calmly every few
+          months, like brushing teeth for the heart.

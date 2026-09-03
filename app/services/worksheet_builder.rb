@@ -32,6 +32,34 @@ class WorksheetBuilder
         end,
         guide_style: GUIDE_STYLES.fetch(style, style)
       }
+    when "letter_case_match"
+      pair_count = params["pairs"] || params["pair_count"] || 6
+      letters = ("a".."z").to_a.shuffle(random: rng).first(pair_count)
+      {
+        template: "letter_case_match",
+        left: letters.map(&:upcase),
+        right: letters.shuffle(random: rng)
+      }
+    when "word_tracing"
+      words =
+        if params["use_name"] && params["child_name"].present?
+          [ params["child_name"] ]
+        else
+          params.fetch("words", %w[cat sun mat])
+        end
+      {
+        template: "word_tracing",
+        rows: words.map { |w| { word: w, repetitions: params.fetch("repetitions", 3) } }
+      }
+    when "colour_by_shape"
+      shapes = params.fetch("shapes", %w[circle square triangle])
+      colours = params.fetch("colours", %w[red blue yellow])
+      grid_count = params.fetch("grid_count", 15)
+      {
+        template: "colour_by_shape",
+        legend: shapes.each_with_index.map { |s, i| { shape: s, colour: colours[i % colours.length] } },
+        grid: Array.new(grid_count) { shapes[rng.rand(shapes.length)] }
+      }
     when "count_and_write"
       max = params["max_count"] || params["max"] || 10
       if params["mode"] == "missing_number"

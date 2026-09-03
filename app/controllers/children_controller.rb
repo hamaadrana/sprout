@@ -10,7 +10,12 @@ class ChildrenController < ApplicationController
     "full_sentences" => %w[LIT.A03.speaks_in_sentences],
     "knows_some_letters" => %w[LIT.C03.name_letters],
     "knows_most_letters" => %w[LIT.C03.name_letters LIT.C04.knows_letters],
-    "holds_pencil" => %w[LIT.D01.pencil_grip]
+    "holds_pencil" => %w[LIT.D01.pencil_grip],
+    "knows_colours" => %w[ART.A01.first_colours],
+    "knows_body_parts" => %w[WLD.A01.body_parts],
+    "dresses_self" => %w[GRW.A03.dress_myself],
+    "uses_scissors" => %w[MOV.B02.tear_fold_paste MOV.B03.scissor_skills],
+    "says_name_age" => %w[GRW.A01.who_am_i]
   }.freeze
 
   def new

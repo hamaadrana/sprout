@@ -26,18 +26,37 @@
 
       .sheet {
         width: 210mm; min-height: 297mm; margin: 0 auto 24px;
-        background: #fff; padding: 18mm 16mm 14mm;
+        background: #fff; padding: 14mm 14mm 12mm;
         display: flex; flex-direction: column;
         box-shadow: 0 2px 14px rgba(0,0,0,.12);
       }
-      .sheet-header { border-bottom: 2px solid #22301f; padding-bottom: 4mm; margin-bottom: 8mm; }
-      .sheet-header h1 { font-family: "Baloo 2", sans-serif; font-size: 22pt; }
-      .sheet-header p { font-size: 11pt; color: #5c6657; margin-top: 1mm; }
+      .sheet-header {
+        border: 2.5px solid #33291f; border-radius: 6mm;
+        padding: 4mm 6mm; margin-bottom: 7mm;
+        display: flex; align-items: center; gap: 5mm;
+        background: #fff4d6;
+      }
+      .sheet-header .mascot { font-size: 26pt; line-height: 1; }
+      .sheet-header h1 { font-family: "Baloo 2", sans-serif; font-size: 20pt; line-height: 1.1; }
+      .sheet-header p { font-size: 10.5pt; color: #675a46; margin-top: 1mm; }
+      .sheet-name-row {
+        display: flex; gap: 6mm; align-items: baseline; margin-bottom: 6mm;
+        font: 700 11pt "Karla", sans-serif; color: #675a46;
+      }
+      .sheet-name-row .fill {
+        flex: 1; border-bottom: 2px solid #33291f;
+        font-family: "Baloo 2", sans-serif; font-size: 13pt; color: #33291f;
+        padding: 0 2mm;
+      }
       .sheet-body { flex: 1; }
       .sheet-footer {
-        margin-top: 8mm; padding-top: 3mm; border-top: 1px solid #c9c9c9;
-        display: flex; justify-content: space-between; font-size: 10pt; color: #5c6657;
+        margin-top: 7mm; padding: 3mm 5mm;
+        border: 2px dashed #cbbba1; border-radius: 4mm;
+        display: flex; justify-content: space-between; align-items: center;
+        font: 700 10pt "Karla", sans-serif; color: #675a46;
       }
+      .sheet-footer .stars { display: flex; gap: 2mm; align-items: center; }
+      .sheet-footer .stars svg { width: 8mm; height: 8mm; }
 
       @media print {
         html { background: #fff; }

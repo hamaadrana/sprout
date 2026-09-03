@@ -3,7 +3,8 @@ class WorksheetsController < ApplicationController
 
   OVERRIDABLE = {
     "numeral_tracing" => %w[numerals repetitions guide_style],
-    "letter_tracing" => %w[letters repetitions guide_style]
+    "letter_tracing" => %w[letters repetitions guide_style],
+    "word_tracing" => %w[words repetitions]
   }.freeze
 
   # All printable worksheets across the child's domains, grouped by strand.
@@ -16,6 +17,7 @@ class WorksheetsController < ApplicationController
         skill_id: skill.id,
         title: adapt(skill.title),
         domain: skill.domain.name,
+        domain_code: skill.domain.code,
         strand: skill.strand,
         template: resource.worksheet_template,
         state: progress_by_skill[skill.id]&.state || "not_started"
@@ -23,8 +25,8 @@ class WorksheetsController < ApplicationController
     end
 
     render inertia: "Worksheets/Index", props: {
-      rows: rows.group_by { |r| "#{r[:domain]} · #{r[:strand]}" }
-                .map { |label, list| { strand: label, rows: list } }
+      groups: rows.group_by { |r| [ r[:domain_code], r[:domain] ] }
+                  .map { |(code, name), list| { domain_code: code, domain: name, rows: list } }
     }
   end
 
@@ -35,7 +37,7 @@ class WorksheetsController < ApplicationController
     resource = worksheet_resource(skill)
 
     render inertia: "Worksheets/Studio", props: {
-      skill: { id: skill.id, title: skill.title },
+      skill: { id: skill.id, title: adapt(skill.title) },
       template: resource.worksheet_template,
       defaults: resource.worksheet_params,
       variant: params.fetch(:variant, 0).to_i,
@@ -76,13 +78,17 @@ class WorksheetsController < ApplicationController
     )
     @child = current_child
     @skill = skill
+    @skill_title = adapt(skill.title)
+    @activity_title = adapt(resource.activity.title)
     @activity = resource.activity
     @regen_url = sheet_worksheet_path(@skill.id, variant: @variant + 1, **override_params(resource))
     render :show, layout: "worksheet"
   end
 
   def effective_params(resource)
-    resource.worksheet_params.merge(override_params(resource))
+    resource.worksheet_params
+            .merge(override_params(resource))
+            .merge("child_name" => current_child.name)
   end
 
   def override_params(resource)
@@ -95,6 +101,7 @@ class WorksheetsController < ApplicationController
         case key
         when "numerals" then value.to_s.split(",").map(&:to_i).reject(&:zero?).first(10)
         when "letters" then value.to_s.split(",").map { |l| l.strip[0, 2] }.reject(&:blank?).first(10)
+        when "words" then value.to_s.split(",").map { |w| w.strip.gsub(/[^[:alpha:]'-]/, "")[0, 12] }.reject(&:blank?).first(6)
         when "repetitions" then value.to_i.clamp(2, 8)
         else value.to_s
         end

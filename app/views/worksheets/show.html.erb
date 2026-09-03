@@ -1,4 +1,4 @@
-<% content_for :title, "#{@skill.title} — worksheet" %>
+<% content_for :title, "#{@skill_title} — worksheet" %>
 
 <% unless @bare %>
   <div class="toolbar">
@@ -10,17 +10,29 @@
 
 <div class="sheet">
   <header class="sheet-header">
-    <h1><%= @skill.title %></h1>
-    <p><%= @activity.title %></p>
+    <span class="mascot">🌱</span>
+    <div>
+      <h1><%= @skill_title %></h1>
+      <p><%= @activity_title %></p>
+    </div>
   </header>
+
+  <div class="sheet-name-row">
+    <span>My name:</span>
+    <span class="fill"><%= @child.name %></span>
+    <span>Date: <%= Date.current.strftime("%-d %b %Y") %></span>
+  </div>
 
   <div class="sheet-body">
     <%= render "worksheets/templates/#{@worksheet[:template]}", worksheet: @worksheet %>
   </div>
 
   <footer class="sheet-footer">
-    <span>Name: <strong><%= @child.name %></strong></span>
-    <span><%= @skill.title %></span>
-    <span><%= Date.current.strftime("%-d %B %Y") %></span>
+    <span>How did it go? Colour a star for every try! →</span>
+    <span class="stars">
+      <% 3.times do %>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2l-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8z" fill="none" stroke="#33291f" stroke-width="1.4"/></svg>
+      <% end %>
+    </span>
   </footer>
 </div>

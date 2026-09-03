@@ -1,4 +1,4 @@
-import { router, useForm } from '@inertiajs/react'
+import { router, useForm, usePage } from '@inertiajs/react'
 import { useRef, useState } from 'react'
 import Shell from '../../components/Shell'
 
@@ -106,6 +106,7 @@ function Piece({ item }) {
 }
 
 export default function PortfolioIndex({ months, skills, total_count, errors }) {
+  const { child } = usePage().props
   const [uploading, setUploading] = useState(false)
 
   return (
@@ -113,7 +114,7 @@ export default function PortfolioIndex({ months, skills, total_count, errors }) 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
         <div>
           <div className="n">Portfolio · {total_count} piece{total_count === 1 ? '' : 's'}</div>
-          <h1 style={{ fontSize: 34, margin: 'var(--space-2) 0 0' }}>Her work</h1>
+          <h1 style={{ fontSize: 34, margin: 'var(--space-2) 0 0' }}>{child?.name}’s work</h1>
         </div>
         <button className="btn btn-primary" onClick={() => setUploading(!uploading)}>
           {uploading ? 'Close' : 'Add photos'}

@@ -1,0 +1,27 @@
+<style>
+  .wt-row {
+    padding: 6mm 0; border-bottom: 1.5px dashed #b9b9b9;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10mm;
+    font-family: "Karla", sans-serif; font-size: 30pt; font-weight: 700;
+  }
+  .wt-model { color: #33291f; }
+  .wt-trace { color: #c9c2b4; }
+  .wt-free {
+    display: inline-block; min-width: 42mm; border-bottom: 2px solid #8a8a8a;
+    height: 1em;
+  }
+</style>
+
+<p class="count-hint">
+  Trace each grey word slowly, saying it out loud. Then write it yourself on the line.
+</p>
+
+<% worksheet[:rows].each do |row| %>
+  <div class="wt-row">
+    <span class="wt-model"><%= row[:word] %></span>
+    <% row[:repetitions].times do %>
+      <span class="wt-trace"><%= row[:word] %></span>
+    <% end %>
+    <span class="wt-free"></span>
+  </div>
+<% end %>

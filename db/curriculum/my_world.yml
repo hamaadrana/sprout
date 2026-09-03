@@ -1,0 +1,301 @@
+# My World — ages 3 to 6
+#
+# From the National Curriculum of Pakistan 2022-23 (ECE), Domain D: The
+# World Around Us (strands D1-D6). Science, nature and community for the
+# kitchen-table classroom. Text is authored she/her; the app adapts.
+
+domain:
+  code: WLD
+  name: My World
+  position: 3
+  strands:
+    A: "Me & my senses"
+    B: "Living things"
+    C: "Weather & seasons"
+    D: "My community & planet"
+
+skills:
+
+  - code: WLD.A01.body_parts
+    position: 10
+    title: Name the parts of the body
+    age_min_months: 36
+    age_max_months: 50
+    school_readiness: true
+    slo_refs: ["ECE-00-D1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Points to and names head, nose, tongue, shoulders, ears, eyes, arms,
+      hands, fingers, legs, feet and toes — on herself and on a doll or
+      drawing.
+    activities:
+      - title: Simon says, touch your...
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Play Simon Says with body parts, getting faster as she gets surer.
+          Sneak in the less-famous ones — shoulders, ankles, eyebrows. Then
+          swap: she gives the orders and catches you making mistakes.
+
+  - code: WLD.A02.five_senses
+    position: 20
+    title: Know the five senses
+    age_min_months: 42
+    age_max_months: 60
+    school_readiness: false
+    slo_refs: ["ECE-00-D1-09", "ECE-00-D1-10", "ECE-00-D1-11", "ECE-00-D1-12"]
+    prereqs: [WLD.A01.body_parts]
+    mastery_descriptor: >
+      Matches each sense to its body part and uses sense words correctly —
+      sorts things by smell (good/bad), taste (sweet/salty/sour), sound
+      (loud/soft) and touch (hot/cold, rough/smooth).
+    activities:
+      - title: The mystery tray
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["a tray", "cardamom, lemon, a stone, cotton, a spoon of sugar"]
+        instructions: >
+          Eyes closed, she identifies each thing by smell, touch or taste,
+          and says which sense told her. Name the sense every time — "your
+          nose knew it!" Swap items each round.
+
+  - code: WLD.A03.my_family_and_address
+    position: 30
+    title: Know her family and where she lives
+    age_min_months: 48
+    age_max_months: 66
+    school_readiness: true
+    slo_refs: ["ECE-00-D1-02", "ECE-00-A1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Says her full name, her parents' names, and her home area or address
+      from memory, and talks about who is in her family and what they do.
+    activities:
+      - title: The interview game
+        kind: conversation
+        duration_minutes: 10
+        materials: ["a spoon as a microphone"]
+        instructions: >
+          Interview her like a TV reporter: "What is your full name? Who is
+          in your family? Where do you live?" Practise until the answers come
+          easily — schools ask exactly these questions, and so do kind
+          strangers if she's ever lost.
+
+  - code: WLD.A04.transport
+    position: 40
+    title: Know the ways people travel
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-D1-13", "ECE-00-D1-14"]
+    prereqs: []
+    mastery_descriptor: >
+      Names common vehicles — car, bus, rickshaw, motorcycle, cycle, train,
+      boat, plane — and sorts them by where they go: road, rail, water, sky.
+    activities:
+      - title: Balcony traffic count
+        kind: game
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          From the gate or balcony, spot and name every vehicle for five
+          minutes and tally them. Which one won today? Ask the sorting
+          question: which of these could go on water? In the sky?
+
+  - code: WLD.B01.living_nonliving
+    position: 100
+    title: Tell living from non-living
+    age_min_months: 42
+    age_max_months: 60
+    school_readiness: true
+    slo_refs: ["ECE-00-D2-01", "ECE-00-D2-02", "ECE-00-D2-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Sorts things around her into living and non-living and gives a reason —
+      it grows, it eats, it moves on its own. Expect glorious arguments about
+      cars and clouds; the reasoning is the skill.
+    activities:
+      - title: Alive or not alive?
+        kind: conversation
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          Walk the house and garden pointing at things: alive or not? How do
+          you know? A cat, a plant, a fan, a cloud, a toy dog. When she's
+          sure, let her test you with tricky ones.
+
+  - code: WLD.B02.plants_grow
+    position: 110
+    title: Know what plants need to grow
+    age_min_months: 44
+    age_max_months: 64
+    school_readiness: false
+    slo_refs: ["ECE-00-D3-03", "ECE-00-D3-04", "ECE-00-D3-05"]
+    prereqs: [WLD.B01.living_nonliving]
+    mastery_descriptor: >
+      Says that plants are living things that need sunlight and water, and
+      has grown something herself — checked it daily and described what
+      changed.
+    activities:
+      - title: The windowsill scientist
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["a chana or moong bean", "cotton wool", "a clear glass"]
+        instructions: >
+          Soak a bean overnight, tuck it against the glass on damp cotton,
+          and check it every morning for two weeks. She draws what she sees
+          each day. Watering it is her job — that's the lesson inside the
+          lesson.
+
+  - code: WLD.B03.animals
+    position: 120
+    title: Name and group animals
+    age_min_months: 40
+    age_max_months: 58
+    school_readiness: true
+    slo_refs: ["ECE-00-D4-01", "ECE-00-D4-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Names a good spread of animals — pets, farm animals, wild animals,
+      birds, fish — and groups them by where they live or how they move.
+    activities:
+      - title: Animal sorting safari
+        kind: game
+        duration_minutes: 10
+        materials: ["animal toys or pictures cut from packets"]
+        instructions: >
+          Pile up every animal in the house — toys, pictures, biscuit-tin
+          lions. Sort them: farm or wild? Walks, flies or swims? Make the
+          sounds as you go; nobody sorts a buffalo quietly.
+
+  - code: WLD.B04.animal_homes
+    position: 130
+    title: Match animals to their homes
+    age_min_months: 48
+    age_max_months: 66
+    school_readiness: false
+    slo_refs: ["ECE-00-D4-02", "ECE-00-D4-03"]
+    prereqs: [WLD.B03.animals]
+    mastery_descriptor: >
+      Matches animals to homes — bird/nest, fish/water, hen/coop, bee/hive —
+      and talks about why animals need looking after.
+    activities:
+      - title: Who lives where?
+        kind: conversation
+        duration_minutes: 10
+        materials: ["paper", "crayons"]
+        instructions: >
+          Draw three animals and draw each one's home around it. Then go
+          hunting for a real nest, an ant hole or a spider's web outside.
+          Rule of the hunt: we look, we don't touch.
+
+  - code: WLD.C01.weather_watch
+    position: 200
+    title: Describe today's weather
+    age_min_months: 38
+    age_max_months: 54
+    school_readiness: false
+    slo_refs: ["ECE-00-D5-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Looks outside and describes the weather in her own words — sunny,
+      cloudy, rainy, windy, hot, cold — most days without help.
+    activities:
+      - title: The weather reporter
+        kind: conversation
+        duration_minutes: 5
+        materials: ["a paper chart on the wall", "crayons"]
+        instructions: >
+          Every morning she checks the sky and draws today's weather in the
+          chart — sun, cloud, rain drops. On Friday, count the week: how many
+          sunny days won? Two minutes a day, and it quietly teaches tallying
+          too.
+
+  - code: WLD.C02.seasons
+    position: 210
+    title: Know the seasons
+    age_min_months: 48
+    age_max_months: 68
+    school_readiness: false
+    slo_refs: ["ECE-00-D5-02", "ECE-00-D5-03"]
+    prereqs: [WLD.C01.weather_watch]
+    mastery_descriptor: >
+      Names the seasons she lives through — summer, monsoon, winter, spring —
+      and says how each changes what we wear, eat and do.
+    activities:
+      - title: Dress the season
+        kind: game
+        duration_minutes: 10
+        materials: ["her own clothes"]
+        instructions: >
+          Call out a season; she runs and fetches something you'd wear in it.
+          A sweater for winter, a sun hat for summer, an umbrella for
+          monsoon. Talk about mangoes-in-summer and oranges-in-winter — food
+          is the calendar she already knows.
+
+  - code: WLD.D01.community_helpers
+    position: 300
+    title: Know who does what job
+    age_min_months: 44
+    age_max_months: 62
+    school_readiness: true
+    slo_refs: ["ECE-00-D1-06"]
+    prereqs: []
+    mastery_descriptor: >
+      Names common jobs — doctor, teacher, tailor, mechanic, farmer,
+      shopkeeper — and matches each to what they do and one tool they use.
+    activities:
+      - title: Guess my job
+        kind: game
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          Mime a job — stethoscope, steering wheel, rolling pin — and she
+          guesses. Swap turns. Out of the house, point out real helpers at
+          work and ask what tools they're using.
+
+  - code: WLD.D02.care_for_earth
+    position: 310
+    title: Look after our little patch of Earth
+    age_min_months: 52
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-D5-05", "ECE-00-D5-06", "ECE-00-D5-08"]
+    prereqs: []
+    mastery_descriptor: >
+      Names things that hurt our surroundings — litter, wasted water, loud
+      noise — and does something about them herself: closes taps, puts
+      rubbish in the bin, reuses paper for drawing.
+    activities:
+      - title: The tap detective
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["a mug"]
+        instructions: >
+          Catch the water that runs while brushing teeth — a whole mug of it!
+          Agree one family water rule she gets to enforce. Detectives who
+          catch grown-ups wasting water get to blow an imaginary whistle.
+
+  - code: WLD.D03.screens_and_tech
+    position: 320
+    title: Use screens and gadgets sensibly
+    age_min_months: 52
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-D6-01", "ECE-00-D6-02", "ECE-00-D6-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Names what phones, TVs and tablets are good for, follows an agreed
+      time limit without a battle, and knows to tell you if anything on a
+      screen upsets her.
+    activities:
+      - title: The screen deal
+        kind: conversation
+        duration_minutes: 10
+        materials: ["a phone or tablet", "a timer"]
+        instructions: >
+          Make the deal together: what we watch, for how long, and the timer
+          is the boss — not you, not her. Practise the hard part once: timer
+          rings, screen goes off, high five. Agree she always tells you if
+          something on screen feels yucky or scary.

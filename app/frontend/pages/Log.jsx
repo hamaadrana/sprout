@@ -1,10 +1,11 @@
-import { Link, useForm } from '@inertiajs/react'
+import { Link, useForm, usePage } from '@inertiajs/react'
 import { useRef } from 'react'
 import Shell from '../components/Shell'
 
 const MINUTE_OPTIONS = ['5', '10', '15', '20+']
 
 export default function Log({ plan_item }) {
+  const { child } = usePage().props
   const fileRef = useRef(null)
   const { data, setData, post, processing } = useForm({
     outcome: null,
@@ -90,7 +91,7 @@ export default function Log({ plan_item }) {
                 textTransform: 'uppercase', letterSpacing: '0.06em',
               }}
             >
-              {data.photo ? `Photo attached: ${data.photo.name}` : 'Add a photo of her work → portfolio'}
+              {data.photo ? `Photo attached: ${data.photo.name}` : `Add a photo of ${child?.name}’s work → portfolio`}
               <input
                 ref={fileRef}
                 type="file"

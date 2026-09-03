@@ -1,4 +1,4 @@
-import { router } from '@inertiajs/react'
+import { router, usePage } from '@inertiajs/react'
 import { useState } from 'react'
 import Shell from '../../components/Shell'
 
@@ -17,7 +17,7 @@ function ActivityCard({ activity }) {
       </div>
       <div style={{ display: 'flex', gap: 6, margin: '6px 0', flexWrap: 'wrap' }}>
         <span className="tag tag-outline">{activity.domain}</span>
-        {activity.supervision && <span className="tag tag-accent-2">stay with her</span>}
+        {activity.supervision && <span className="tag tag-accent-2">👀 stay close</span>}
       </div>
       <p style={{ fontSize: 14, lineHeight: 1.5, color: 'var(--color-neutral-800)', margin: '0 0 var(--space-2)' }}>
         {activity.instructions}
@@ -36,7 +36,7 @@ function ActivityCard({ activity }) {
   )
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, pronounObj }) {
   return (
     <div style={{ background: 'var(--color-neutral-100)', borderRadius: 'var(--radius-md)', padding: 'var(--space-4)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', gap: 'var(--space-2)', alignItems: 'baseline' }}>
@@ -47,11 +47,11 @@ function ProjectCard({ project }) {
         <span className="tag tag-outline">{project.category}</span>
         <span className={MESS_TAGS[project.mess_level]}>{project.mess_level} mess</span>
         {project.occasion && <span className="tag tag-neutral">{project.occasion}</span>}
-        {project.supervision && <span className="tag tag-accent-2">stay with her</span>}
+        {project.supervision && <span className="tag tag-accent-2">👀 stay close</span>}
       </div>
       {project.adult_prep && (
         <p style={{ fontSize: 13, color: 'var(--color-neutral-800)', margin: '0 0 var(--space-2)' }}>
-          <strong>Before you call her over:</strong> {project.adult_prep}
+          <strong>Before you call {pronounObj} over:</strong> {project.adult_prep}
         </p>
       )}
       <details style={{ fontSize: 14 }}>
@@ -75,6 +75,8 @@ function ProjectCard({ project }) {
 }
 
 export default function ExtrasIndex({ age_band, age_bands, activities, projects }) {
+  const { child } = usePage().props
+  const pronounObj = child?.pronouns?.object || 'them'
   const [tab, setTab] = useState('activities')
   const byDomain = activities.reduce((acc, a) => {
     ;(acc[a.domain] ||= []).push(a)
@@ -126,12 +128,12 @@ export default function ExtrasIndex({ age_band, age_bands, activities, projects 
         ))
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 'var(--space-4)' }}>
-          {projects.map((p) => <ProjectCard key={p.code} project={p} />)}
+          {projects.map((p) => <ProjectCard key={p.code} project={p} pronounObj={pronounObj} />)}
         </div>
       )}
 
       <p style={{ fontSize: 13, color: 'var(--color-neutral-600)', marginTop: 'var(--space-4)' }}>
-        “Stay with her” marks activities with small parts, scissors, water or heat.
+        “Stay close” marks activities with small parts, scissors, water or heat.
       </p>
     </Shell>
   )

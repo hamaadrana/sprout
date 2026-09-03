@@ -32,7 +32,7 @@ function SignOut() {
 }
 
 export default function Shell({ active, children }) {
-  const { child, app_name } = usePage().props
+  const { child, app_name, auth } = usePage().props
 
   return (
     <>
@@ -57,6 +57,18 @@ export default function Shell({ active, children }) {
           </nav>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', fontSize: 13.5, fontWeight: 700, color: 'var(--color-neutral-700)', flex: 'none' }}>
+          {auth?.admin && (
+            <Link
+              href="/superadmin/users"
+              style={{
+                fontSize: 12.5, color: 'var(--color-accent-2-600)',
+                background: 'var(--color-accent-2-100)', padding: '4px 10px',
+                borderRadius: 999, textDecoration: 'none',
+              }}
+            >
+              🛠️ Superadmin
+            </Link>
+          )}
           {child && (
             <Link
               href="/settings"

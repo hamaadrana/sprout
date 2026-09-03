@@ -67,6 +67,30 @@ she/her in new chrome copy.
   make_it_projects.yml (45 projects), loaded by `rake curriculum:load_library`,
   keyed on stable codes. Supervision flags must always surface in the UI.
 
+## Billing (manual, no payment gateway)
+
+Every user gets a 3-day trial (`User#trial_ends_at`, set on create). After
+that, `ApplicationController#enforce_billing` renders `Billing/Locked` in
+place of EVERY page (not a redirect — no other route escapes it) until a
+human admin marks them paid. `User#access_status` is one of :admin, :locked,
+:trial, :paid, :expired; `User.grant_access!(months:)` extends
+`access_granted_until` and clears any manual lock. `locked_by_admin` lets the
+superadmin force the paywall on anyone at will, independent of trial/payment.
+Payment itself is fully manual: parent pays via NayaPay (number in
+`config.x.nayapay_number`), sends a screenshot on WhatsApp
+(`config.x.whatsapp_number`, wa.me link), admin checks it and clicks
+"Mark paid" in `/superadmin/users`. No automated verification — by design.
+
+**inertia_share ordering matters**: it registers itself as a `before_action`
+in declaration order. It MUST be declared before `enforce_billing` (or any
+before_action that can `render`-and-halt), or halted requests render with
+shared props (app_name, auth, child) silently missing. Caught by
+`billing_gate_spec.rb`'s regression test — don't reorder without re-running it.
+
+`/superadmin/users` (Superadmin::BaseController) 404s for non-admins.
+`bin/rails "admin:grant[email]"` grants admin. Only hamad@yopmail.com is
+admin in production as of this writing.
+
 ## Gotchas
 
 - `@inertiajs/react` is pinned to v2 — inertia_rails 3.x serves the v2 page

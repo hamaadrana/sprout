@@ -27,6 +27,12 @@ module PreschoolTracker
     config.x.app_name = "Sprout"
     config.x.app_tagline = "Little lessons. Big starts."
 
+    # Manual billing: parents pay by NayaPay transfer and confirm via
+    # WhatsApp; a human (the superadmin) checks the screenshot and marks
+    # the account paid. No payment gateway in v1.
+    config.x.nayapay_number = "0316 4777337"
+    config.x.whatsapp_number = "923164777337" # international format, no + or leading 0, for wa.me links
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.

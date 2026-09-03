@@ -31,5 +31,15 @@ Rails.application.routes.draw do
 
   get "activities", to: "extras#index"
 
+  namespace :superadmin do
+    resources :users, only: [ :index ] do
+      member do
+        post :lock
+        post :unlock
+        post :mark_paid
+      end
+    end
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

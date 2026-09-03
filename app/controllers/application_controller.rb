@@ -2,15 +2,16 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :authenticate_user!, unless: :devise_controller?
-  layout :layout_by_context
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  around_action :use_user_time_zone, if: :user_signed_in?
 
+  # inertia_share registers its own before_action, so it must be declared
+  # before any before_action that might render-and-halt the chain (like
+  # enforce_billing) — otherwise a halted request never gets shared props
+  # and the Inertia page renders with app_name/auth/child all missing.
   inertia_share do
     {
       app_name: Rails.configuration.x.app_name,
       tagline: Rails.configuration.x.app_tagline,
-      auth: current_user && { name: current_user.name, email: current_user.email },
+      auth: current_user && { name: current_user.name, email: current_user.email, admin: current_user.admin? },
       child: current_child && {
         id: current_child.id,
         name: current_child.name,
@@ -24,7 +25,28 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  before_action :enforce_billing, unless: :devise_controller?
+  layout :layout_by_context
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  around_action :use_user_time_zone, if: :user_signed_in?
+
   private
+
+  # Full-page, non-dismissable paywall for any signed-in, non-admin user
+  # whose trial has ended and who hasn't been marked paid. Renders instead
+  # of the requested page (not a redirect, so there's no other route to
+  # reach) on EVERY action in the app except sign-in/out and the
+  # superadmin panel itself.
+  def enforce_billing
+    return unless user_signed_in?
+    return if current_user.access_active?
+
+    render inertia: "Billing/Locked", props: {
+      whatsapp_number: Rails.configuration.x.whatsapp_number,
+      nayapay_number: Rails.configuration.x.nayapay_number,
+      monthly_price: User::MONTHLY_PRICE_PKR
+    }
+  end
 
   # Adapts she/her-authored content text to the current child's pronouns.
   def adapt(text)

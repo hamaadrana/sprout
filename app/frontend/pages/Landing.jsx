@@ -71,8 +71,11 @@ export default function Landing() {
             <a href="/users/sign_up" className="btn btn-primary" style={{ fontSize: 18, padding: '14px 34px' }}>
               Start free — it takes a minute
             </a>
-            <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-neutral-600)' }}>No card. No ads. {tagline}</span>
+            <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-neutral-600)' }}>No card needed. {tagline}</span>
           </div>
+          <p style={{ fontSize: 13.5, fontWeight: 700, color: 'var(--color-neutral-500)', marginTop: 'var(--space-3)' }}>
+            🎁 Free for 3 days. Loved it? It's just Rs 100/month after — pay only if you keep using it.
+          </p>
         </div>
 
         {/* how it works */}

@@ -23,6 +23,41 @@ class ChildrenController < ApplicationController
     render inertia: "Onboarding"
   end
 
+  def edit
+    return redirect_to onboarding_path if current_child.nil?
+
+    render inertia: "Settings", props: {
+      child_form: {
+        name: current_child.name,
+        date_of_birth: current_child.date_of_birth.iso8601,
+        gender: current_child.gender,
+        framing: current_child.framing,
+        target_school_start_on: current_child.target_school_start_on&.iso8601,
+        personality: current_child.traits["personality"],
+        loves: current_child.traits["loves"],
+        goals: current_child.goals
+      }
+    }
+  end
+
+  def update
+    return redirect_to onboarding_path if current_child.nil?
+
+    attrs = params.require(:child).permit(
+      :name, :date_of_birth, :gender, :framing, :target_school_start_on,
+      traits: [ :personality, :loves ], goals: []
+    )
+    attrs[:goals] = Array(attrs[:goals]).reject(&:blank?) if attrs.key?(:goals)
+    incoming_traits = (attrs[:traits] || {}).to_h.transform_values(&:presence)
+    attrs[:traits] = current_child.traits.merge(incoming_traits).compact
+    attrs[:target_school_start_on] = nil if attrs[:framing] == "coverage"
+    current_child.update!(attrs)
+
+    redirect_to settings_path
+  rescue ActiveRecord::RecordInvalid
+    redirect_to settings_path, inertia: { errors: current_child.errors.to_hash(true) }
+  end
+
   def create
     child = current_user.children.build(child_params)
     head_start = Array(params.dig(:child, :head_start)) & HEAD_START.keys

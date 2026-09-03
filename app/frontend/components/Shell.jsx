@@ -58,16 +58,20 @@ export default function Shell({ active, children }) {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', fontSize: 13.5, fontWeight: 700, color: 'var(--color-neutral-700)', flex: 'none' }}>
           {child && (
-            <span
+            <Link
+              href="/settings"
+              title={`Edit ${child.name}’s details`}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 6,
                 background: '#fff', border: '2px solid var(--color-neutral-200)',
                 borderRadius: 999, padding: '4px 12px 4px 6px',
+                color: 'inherit', textDecoration: 'none',
               }}
             >
               <span style={{ fontSize: 18 }}>{childEmoji(child)}</span>
               {child.name} · {child.age_label}
-            </span>
+              <span aria-hidden="true" style={{ fontSize: 13 }}>⚙️</span>
+            </Link>
           )}
           <SignOut />
         </div>

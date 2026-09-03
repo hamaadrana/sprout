@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get "today", to: "today#show"
   get "onboarding", to: "children#new"
-  resource :child, only: [ :create ]
+  get "settings", to: "children#edit"
+  resource :child, only: [ :create, :update ]
 
   get "plan_items/:plan_item_id/log", to: "logs#new", as: :plan_item_log_form
   post "plan_items/:plan_item_id/log", to: "logs#create", as: :plan_item_log

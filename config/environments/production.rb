@@ -77,6 +77,6 @@ Rails.application.configure do
   config.active_record.attributes_for_inspect = [ :id ]
 
   # Allow the deployed hostname (and health checks from the platform).
-  config.hosts = [ ENV.fetch("APP_HOST", "localhost") ]
+  config.hosts = [ ENV.fetch("APP_HOST", "localhost"), /.*\.onrender\.com/ ]
   config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end

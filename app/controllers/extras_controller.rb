@@ -13,19 +13,19 @@ class ExtrasController < ApplicationController
       activities: LibraryActivity.for_age_band(band).order(:domain_code, :code).map do |a|
         {
           code: a.code,
-          title: a.title,
+          title: adapt(a.title),
           domain: a.domain_name,
           duration_minutes: a.duration_minutes,
           materials: a.materials,
-          instructions: a.instructions,
-          variation: a.variation,
+          instructions: adapt(a.instructions),
+          variation: adapt(a.variation),
           supervision: a.supervision
         }
       end,
       projects: MakeProject.for_age_band(band).order(:category, :code).map do |p|
         {
           code: p.code,
-          title: p.title,
+          title: adapt(p.title),
           category: p.category,
           duration_minutes: p.duration_minutes,
           mess_level: p.mess_level,
@@ -33,8 +33,8 @@ class ExtrasController < ApplicationController
           occasion: p.occasion&.humanize,
           develops: p.develops,
           materials: p.materials,
-          adult_prep: p.adult_prep,
-          steps: p.steps,
+          adult_prep: adapt(p.adult_prep),
+          steps: p.steps.map { |s| adapt(s) },
           portfolio: p.portfolio
         }
       end

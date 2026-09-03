@@ -2,7 +2,8 @@ class WorksheetsController < ApplicationController
   before_action :require_child!
 
   OVERRIDABLE = {
-    "numeral_tracing" => %w[numerals repetitions guide_style]
+    "numeral_tracing" => %w[numerals repetitions guide_style],
+    "letter_tracing" => %w[letters repetitions guide_style]
   }.freeze
 
   # All printable worksheets across the child's domains, grouped by strand.
@@ -13,7 +14,8 @@ class WorksheetsController < ApplicationController
       resource = worksheet_resource(skill)
       {
         skill_id: skill.id,
-        title: skill.title,
+        title: adapt(skill.title),
+        domain: skill.domain.name,
         strand: skill.strand,
         template: resource.worksheet_template,
         state: progress_by_skill[skill.id]&.state || "not_started"
@@ -21,7 +23,8 @@ class WorksheetsController < ApplicationController
     end
 
     render inertia: "Worksheets/Index", props: {
-      rows: rows.group_by { |r| r[:strand] }.map { |strand, list| { strand: strand, rows: list } }
+      rows: rows.group_by { |r| "#{r[:domain]} · #{r[:strand]}" }
+                .map { |label, list| { strand: label, rows: list } }
     }
   end
 
@@ -91,6 +94,7 @@ class WorksheetsController < ApplicationController
       overrides[key] =
         case key
         when "numerals" then value.to_s.split(",").map(&:to_i).reject(&:zero?).first(10)
+        when "letters" then value.to_s.split(",").map { |l| l.strip[0, 2] }.reject(&:blank?).first(10)
         when "repetitions" then value.to_i.clamp(2, 8)
         else value.to_s
         end

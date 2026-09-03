@@ -10,9 +10,9 @@ class LogsController < ApplicationController
         id: item.id,
         position: item.position,
         state: item.state,
-        skill_title: item.skill.title,
-        activity_title: item.activity.title,
-        mastery_descriptor: item.skill.mastery_descriptor
+        skill_title: adapt(item.skill.title),
+        activity_title: adapt(item.activity.title),
+        mastery_descriptor: adapt(item.skill.mastery_descriptor)
       }
     }
   end

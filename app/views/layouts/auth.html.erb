@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Preschool Tracker" %></title>
+    <title><%= content_for(:title) || Rails.configuration.x.app_name %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 
     <%= vite_client_tag %>
     <%= vite_stylesheet_tag "main" %>
@@ -18,9 +18,9 @@
     <main style="min-height:100vh;display:grid;place-items:center;padding:var(--space-4)">
       <div style="width:100%;max-width:400px">
         <div style="text-align:center;margin-bottom:var(--space-6)">
-          <div style="font-family:var(--font-heading);font-weight:600;font-size:26px">Tracker</div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:28px">🌱 <%= Rails.configuration.x.app_name %></div>
           <p style="margin:var(--space-1) 0 0;font-size:14px;color:var(--color-neutral-700)">
-            What to teach today, and the record to show for it.
+            <%= Rails.configuration.x.app_tagline %>
           </p>
         </div>
         <div class="elev-md" style="background:var(--color-neutral-100);border-radius:var(--radius-lg);padding:var(--space-6)">

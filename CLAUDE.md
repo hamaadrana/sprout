@@ -27,18 +27,33 @@ plan; its guardrails still apply:
 
 ## Design system
 
-The UI is "Broadsheet" — sober newsprint serif from the user's Claude Design
-wireframes (project f00c663a…, nine screens 1a–1i). Tokens and component
-classes (`.btn`, `.seg`, `.tag`, `.field`, `.input`, `.radio`, `.n`) live in
-`app/frontend/entrypoints/main.css`. Font is Source Serif 4. Accent #0088b0.
-**No Urdu anywhere in the UI** — explicit note in the design brief. Pages are
-React with inline styles referencing the CSS custom properties, matching the
-wireframe markup.
+The product is named **Sprout** (one place to change:
+`config.x.app_name` in config/application.rb). The UI is a playful "crayon"
+theme — Baloo 2 + Nunito, warm cream bg, coral #f4572e accent — replacing the
+earlier Broadsheet newsprint at the user's request ("more energy"). The class
+contract (`.btn`, `.seg`, `.tag`, `.field`, `.input`, `.radio`, `.n`, plus
+`.pick-card`, `.chip-toggle`, `.stat-tile`, `.emoji-badge`) lives in
+`app/frontend/entrypoints/main.css`; pages use inline styles over those CSS
+variables. **No Urdu anywhere in the UI.** Emoji maps live in
+`app/frontend/lib/flair.js`.
+
+## Pronouns
+
+Curriculum/library text is authored she/her. `Pronouns.adapt(text, gender)`
+rewrites it for boys at render time (controllers call `adapt(...)` on every
+content string sent to the client). Children have `gender` (girl/boy/nil);
+UI chrome uses `child.pronouns` from shared Inertia props. Never hardcode
+she/her in new chrome copy.
 
 ## Content data
 
-- `db/curriculum/numeracy.yml` — 35 skills, codes NUM.A01…NUM.E05; the track
-  letter maps to a display strand (CurriculumLoader::STRANDS).
+- `db/curriculum/numeracy.yml` — 35 skills, NUM.A01…NUM.E05 (strand map is
+  the loader's fallback STRANDS constant).
+- `db/curriculum/literacy.yml` — 26 English/phonics skills, LIT.A…D, with a
+  `strands:` map in the domain header (the pattern new files should follow).
+  DailyPlan round-robins across domains so a day mixes numeracy and English.
+- Onboarding "head start" answers pre-master skills via
+  ChildrenController::HEAD_START (update it when curriculum codes change).
 - `db/library/` — activity_library.yml (106 cross-domain activities) and
   make_it_projects.yml (45 projects), loaded by `rake curriculum:load_library`,
   keyed on stable codes. Supervision flags must always surface in the UI.

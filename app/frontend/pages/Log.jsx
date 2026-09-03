@@ -19,17 +19,19 @@ export default function Log({ plan_item }) {
     post(`/plan_items/${plan_item.id}/log`, { forceFormData: !!data.photo })
   }
 
-  const outcomeButton = (value, label) => {
+  const outcomeButton = (value, emoji, label, sub) => {
     const selected = data.outcome === value
     return (
       <button
         type="button"
         onClick={() => setData('outcome', value)}
-        className={`btn ${selected ? 'btn-primary' : 'btn-secondary'}`}
-        style={{ padding: 'var(--space-6) var(--space-4)', fontSize: 18 }}
+        className="pick-card"
         aria-pressed={selected}
+        style={{ textAlign: 'center', padding: 'var(--space-6) var(--space-4)' }}
       >
-        {label}
+        <span style={{ fontSize: 40, display: 'block' }}>{emoji}</span>
+        <span style={{ display: 'block', fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 20, marginTop: 6 }}>{label}</span>
+        <span style={{ display: 'block', fontSize: 13, color: 'var(--color-neutral-600)', marginTop: 2 }}>{sub}</span>
       </button>
     )
   }
@@ -44,8 +46,8 @@ export default function Log({ plan_item }) {
 
         <form onSubmit={save}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
-            {outcomeButton('got_it', 'Got it')}
-            {outcomeButton('needs_practice', 'Needs practice')}
+            {outcomeButton('got_it', '🌟', 'Got it!', 'Nailed it — moving on')}
+            {outcomeButton('needs_practice', '💪', 'Needs practice', 'Good try — we go again')}
           </div>
           <p style={{ margin: 'var(--space-3) 0 var(--space-6)', fontSize: 13, color: 'var(--color-neutral-600)' }}>
             Two “got it” in a row marks the skill mastered. “Needs practice” keeps it in

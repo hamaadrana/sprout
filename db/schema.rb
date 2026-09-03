@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_31_180000) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_03_090000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -71,8 +71,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_31_180000) do
     t.datetime "created_at", null: false
     t.date "date_of_birth", null: false
     t.string "framing", default: "coverage", null: false
+    t.string "gender"
+    t.string "goals", default: [], null: false, array: true
+    t.string "head_start_codes", default: [], null: false, array: true
     t.string "name", null: false
     t.date "target_school_start_on"
+    t.jsonb "traits", default: {}, null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_children_on_user_id"

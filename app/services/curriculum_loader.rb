@@ -7,6 +7,8 @@ class CurriculumLoader
   class UnknownPrerequisiteError < StandardError; end
 
   # Track letter in the skill code (NUM.B04...) → display strand.
+  # New curriculum files declare their own map under domain.strands;
+  # this is the fallback for numeracy.yml, which predates that key.
   STRANDS = {
     "A" => "Foundations",
     "B" => "Counting",
@@ -62,6 +64,7 @@ class CurriculumLoader
 
   def load_skills
     domain_attrs = @data.fetch("domain")
+    @strands = domain_attrs["strands"] || STRANDS
     domain = Domain.find_or_initialize_by(code: domain_attrs.fetch("code"))
     domain.update!(
       name: domain_attrs.fetch("name"),
@@ -107,7 +110,7 @@ class CurriculumLoader
 
   def strand_for(code)
     track = code.split(".")[1].to_s[0]
-    STRANDS[track]
+    (@strands || STRANDS)[track]
   end
 
   # Activities have no stable code; they are keyed on (skill, position).

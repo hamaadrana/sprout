@@ -18,9 +18,25 @@ class DailyPlan
          .to_a
   end
 
+  # Round-robin across domains so a two-item day mixes numeracy and
+  # English rather than serving two skills from whichever domain sorts
+  # first.
+  def self.pick_skills(child)
+    eligible = NextSkill.for(child, limit: ITEMS_PER_DAY * 4)
+    by_domain = eligible.group_by(&:domain_id).values
+    picks = []
+    until picks.length == ITEMS_PER_DAY || by_domain.all?(&:empty?)
+      by_domain.each do |queue|
+        skill = queue.shift
+        picks << skill if skill && picks.length < ITEMS_PER_DAY
+      end
+    end
+    picks
+  end
+
   def self.generate(child, date)
     ActiveRecord::Base.transaction do
-      NextSkill.for(child, limit: ITEMS_PER_DAY).each_with_index do |skill, index|
+      pick_skills(child).each_with_index do |skill, index|
         activity = skill.activities.order(:position).last
         next unless activity
 

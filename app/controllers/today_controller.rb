@@ -11,11 +11,7 @@ class TodayController < ApplicationController
       date: Date.current.iso8601,
       total_minutes: pending.sum { |i| i.activity.duration_minutes },
       pending_count: pending.length,
-      progress: {
-        mastered: mastered,
-        total: total,
-        domain: current_child.active_domains.first&.name || "Numeracy"
-      },
+      progress: { mastered: mastered, total: total },
       plan_items: items.map { |item| plan_item_props(item) }
     }
   end
@@ -31,14 +27,15 @@ class TodayController < ApplicationController
       skill: {
         id: item.skill_id,
         code: item.skill.code,
-        title: item.skill.title,
+        title: adapt(item.skill.title),
         strand: item.skill.strand,
-        mastery_descriptor: item.skill.mastery_descriptor
+        domain: item.skill.domain.name,
+        mastery_descriptor: adapt(item.skill.mastery_descriptor)
       },
       activity: {
-        title: item.activity.title,
+        title: adapt(item.activity.title),
         kind: item.activity.kind.humanize(capitalize: false),
-        instructions: item.activity.instructions,
+        instructions: adapt(item.activity.instructions),
         materials: item.activity.materials,
         duration_minutes: item.activity.duration_minutes
       },

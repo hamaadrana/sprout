@@ -22,6 +22,16 @@ class WorksheetBuilder
         end,
         guide_style: GUIDE_STYLES.fetch(style, style)
       }
+    when "letter_tracing"
+      letters = params.fetch("letters", %w[a b c])
+      style = params.fetch("guide_style", "dashed")
+      {
+        template: "numeral_tracing", # same row-of-glyphs rendering
+        rows: letters.map do |letter|
+          { numeral: letter, repetitions: params.fetch("repetitions", 4) }
+        end,
+        guide_style: GUIDE_STYLES.fetch(style, style)
+      }
     when "count_and_write"
       max = params["max_count"] || params["max"] || 10
       if params["mode"] == "missing_number"

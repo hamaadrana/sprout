@@ -13,6 +13,17 @@ class Child < ApplicationRecord
 
   validates :name, presence: true
   validates :date_of_birth, presence: true
+  validates :gender, inclusion: { in: %w[girl boy] }, allow_nil: true
+
+  # Pronouns for UI copy and for adapting curriculum text (which is
+  # authored with she/her). nil gender falls back to they/them.
+  def pronouns
+    case gender
+    when "girl" then { subject: "she", object: "her", possessive: "her", reflexive: "herself" }
+    when "boy" then { subject: "he", object: "him", possessive: "his", reflexive: "himself" }
+    else { subject: "they", object: "them", possessive: "their", reflexive: "themselves" }
+    end
+  end
 
   def active_domains
     domains.merge(ChildDomain.where(active: true))

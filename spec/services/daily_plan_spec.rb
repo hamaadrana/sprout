@@ -8,7 +8,12 @@ RSpec.describe DailyPlan do
 
   before do
     CurriculumLoader.load_all
-    ChildDomain.create!(child: child, domain: Domain.find_by!(code: "NUM"))
+    Domain.find_each { |d| ChildDomain.create!(child: child, domain: d) }
+  end
+
+  it "mixes domains on a fresh day" do
+    items = DailyPlan.for(child)
+    expect(items.map { |i| i.skill.domain.code }.uniq.length).to eq(2)
   end
 
   it "persists up to two items and returns the same plan on re-read" do

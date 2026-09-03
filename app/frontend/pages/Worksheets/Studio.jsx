@@ -6,16 +6,18 @@ export default function Studio({ skill, template, defaults, overridable }) {
   const frameRef = useRef(null)
   const [variant, setVariant] = useState(0)
   const [numerals, setNumerals] = useState((defaults.numerals || []).join(','))
+  const [letters, setLetters] = useState((defaults.letters || []).join(','))
   const [repetitions, setRepetitions] = useState(defaults.repetitions || 4)
   const [guide, setGuide] = useState('dashed')
 
   const sheetUrl = useMemo(() => {
     const params = new URLSearchParams({ bare: '1', variant: String(variant) })
     if (overridable.includes('numerals') && numerals.trim()) params.set('numerals', numerals)
+    if (overridable.includes('letters') && letters.trim()) params.set('letters', letters)
     if (overridable.includes('repetitions')) params.set('repetitions', String(repetitions))
     if (overridable.includes('guide_style')) params.set('guide_style', guide)
     return `/worksheets/${skill.id}/sheet?${params.toString()}`
-  }, [skill.id, variant, numerals, repetitions, guide, overridable])
+  }, [skill.id, variant, numerals, letters, repetitions, guide, overridable])
 
   const print = () => frameRef.current?.contentWindow?.print()
 
@@ -40,6 +42,12 @@ export default function Studio({ skill, template, defaults, overridable }) {
             <div className="field">
               <label>Numerals (comma-separated)</label>
               <input className="input" value={numerals} onChange={(e) => setNumerals(e.target.value)} />
+            </div>
+          )}
+          {overridable.includes('letters') && (
+            <div className="field">
+              <label>Letters (comma-separated)</label>
+              <input className="input" value={letters} onChange={(e) => setLetters(e.target.value)} />
             </div>
           )}
           {overridable.includes('repetitions') && (

@@ -4,19 +4,19 @@ import Shell from '../components/Shell'
 
 const SIZE = 1080
 
-function drawCard(ctx, { childName, monthLabel, masteredThisMonth, activeDays, readiness }) {
-  ctx.fillStyle = '#f8f4f4'
+function drawCard(ctx, { childName, monthLabel, masteredThisMonth, activeDays, readiness, brandName }) {
+  ctx.fillStyle = '#fff9f0'
   ctx.fillRect(0, 0, SIZE, SIZE)
 
   const pad = 90
-  const serif = (weight, px) => `${weight} ${px}px "Source Serif 4", Georgia, serif`
+  const serif = (weight, px) => `${weight} ${px}px "Baloo 2", sans-serif`
   const mono = (px) => `600 ${px}px ui-monospace, Menlo, monospace`
 
-  ctx.fillStyle = '#006786'
+  ctx.fillStyle = '#d2431f'
   ctx.font = mono(26)
   ctx.fillText(monthLabel.toUpperCase(), pad, pad + 26)
 
-  ctx.fillStyle = '#201e1d'
+  ctx.fillStyle = '#33291f'
   ctx.font = serif(600, 76)
   const headline = `${childName} finished ${masteredThisMonth} skill${masteredThisMonth === 1 ? '' : 's'} this month`
   const words = headline.split(' ')
@@ -39,25 +39,25 @@ function drawCard(ctx, { childName, monthLabel, masteredThisMonth, activeDays, r
   ctx.fillText(String(activeDays), pad, statsY)
   ctx.fillText(`${readiness.met}/${readiness.total}`, pad + 330, statsY)
   ctx.font = serif(400, 30)
-  ctx.fillStyle = '#605d5d'
+  ctx.fillStyle = '#675a46'
   ctx.fillText('days learning', pad, statsY + 48)
   ctx.fillText('readiness outcomes', pad + 330, statsY + 48)
 
   ctx.font = serif(400, 28)
-  ctx.fillStyle = '#7d7979'
+  ctx.fillStyle = '#85755d'
   ctx.fillText('Mapped to the national ECE curriculum', pad, SIZE - pad)
-  ctx.fillStyle = '#201e1d'
+  ctx.fillStyle = '#33291f'
   ctx.font = serif(600, 36)
-  const brand = 'Tracker'
+  const brand = brandName
   ctx.fillText(brand, SIZE - pad - ctx.measureText(brand).width, SIZE - pad)
 
-  ctx.strokeStyle = '#0088b0'
+  ctx.strokeStyle = '#f4572e'
   ctx.lineWidth = 10
   ctx.strokeRect(5, 5, SIZE - 10, SIZE - 10)
 }
 
 export default function ShareCard(props) {
-  const { child } = usePage().props
+  const { child, app_name } = usePage().props
   const canvasRef = useRef(null)
 
   const paint = () => {
@@ -69,6 +69,7 @@ export default function ShareCard(props) {
       masteredThisMonth: props.mastered_this_month,
       activeDays: props.consistency.active_days,
       readiness: props.readiness,
+      brandName: `\u{1F331} ${app_name}`,
     })
   }
 
@@ -81,14 +82,14 @@ export default function ShareCard(props) {
     canvasRef.current.toBlob((blob) => {
       const a = document.createElement('a')
       a.href = URL.createObjectURL(blob)
-      a.download = `tracker-${props.month}.png`
+      a.download = `${app_name.toLowerCase()}-${props.month}.png`
       a.click()
       URL.revokeObjectURL(a.href)
     }, 'image/png')
   }
 
   return (
-    <Shell active="Report">
+    <Shell active="Progress">
       <div style={{ maxWidth: 520, margin: '0 auto' }}>
         <div className="n">Shareable card · {props.month_label}</div>
         <h1 style={{ fontSize: 30, margin: 'var(--space-2) 0 var(--space-4)' }}>

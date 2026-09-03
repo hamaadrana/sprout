@@ -8,17 +8,34 @@ class ApplicationController < ActionController::Base
 
   inertia_share do
     {
+      app_name: Rails.configuration.x.app_name,
+      tagline: Rails.configuration.x.app_tagline,
       auth: current_user && { name: current_user.name, email: current_user.email },
       child: current_child && {
         id: current_child.id,
         name: current_child.name,
         age_label: current_child.age_label,
-        framing: current_child.framing
+        framing: current_child.framing,
+        gender: current_child.gender,
+        pronouns: current_child.pronouns,
+        personality: current_child.traits["personality"],
+        months_to_school: months_to_school
       }
     }
   end
 
   private
+
+  # Adapts she/her-authored content text to the current child's pronouns.
+  def adapt(text)
+    Pronouns.adapt(text, current_child&.gender)
+  end
+
+  def months_to_school
+    date = current_child&.target_school_start_on
+    return nil if date.blank?
+    [ (date.year * 12 + date.month) - (Date.current.year * 12 + Date.current.month), 0 ].max
+  end
 
   def layout_by_context
     devise_controller? ? "auth" : "application"

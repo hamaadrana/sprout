@@ -1,0 +1,674 @@
+# English & phonics — ages 3 to 6
+#
+# Sequence derived from the National Curriculum of Pakistan 2022-23,
+# Early Childhood Education — Domain B: Language and Literacy
+# (B1 receptive, B2 expressive, B3a reading, B3b phonological awareness,
+# B4 writing). SLO codes referenced in `slo_refs`.
+#
+# Strands run in PARALLEL: a child can be blending sounds while still
+# working on pencil grip. Skill codes are STABLE. Never renumber.
+#
+# Text is authored with she/her; the app adapts pronouns per child.
+
+domain:
+  code: LIT
+  name: English
+  position: 2
+  strands:
+    A: "Listening & talking"
+    B: "Sounds & phonics"
+    C: "Reading"
+    D: "Writing"
+
+skills:
+
+  # ---------------------------------------------------------------
+  # Track A — Listening & talking
+  # ---------------------------------------------------------------
+
+  - code: LIT.A01.follows_instructions
+    position: 10
+    title: Follow a two-step instruction
+    age_min_months: 36
+    age_max_months: 50
+    school_readiness: true
+    slo_refs: ["ECE-00-B1-05"]
+    prereqs: []
+    mastery_descriptor: >
+      Carries out a two-part instruction — "put the cup on the table and bring
+      your shoes" — without the steps being repeated one at a time.
+    activities:
+      - title: Little helper missions
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Send her on two-part missions around the house: "bring the red
+          cushion and put it next to Baba." Start with two steps, stretch to
+          three once two is easy. Real errands beat drills — she can see the
+          job matters.
+
+  - code: LIT.A02.rhymes_and_songs
+    position: 20
+    title: Join in rhymes and songs
+    age_min_months: 36
+    age_max_months: 48
+    school_readiness: false
+    slo_refs: ["ECE-00-B1-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Sings along with three or four favourite rhymes, filling in the ends of
+      lines when you pause, with actions where the rhyme has them.
+    activities:
+      - title: Stop-and-wait singing
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Sing a rhyme she knows and stop dead before the last word of a line.
+          Wait — she fills it in. Mix English rhymes with any she loves.
+          Repetition is the point; sing the same ones for weeks.
+
+  - code: LIT.A03.speaks_in_sentences
+    position: 30
+    title: Talk in full sentences
+    age_min_months: 36
+    age_max_months: 54
+    school_readiness: true
+    slo_refs: ["ECE-00-B2-01", "ECE-00-B2-04"]
+    prereqs: []
+    mastery_descriptor: >
+      Uses four-to-six word sentences to ask for things and tell you what
+      happened, rather than single words and pointing.
+    activities:
+      - title: The magic full answer
+        kind: conversation
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          When she points and says "water!", model the full sentence back —
+          "I want a glass of water, please" — and have her say it before the
+          glass appears. Cheerful, never a punishment; the sentence is the
+          key that opens the door.
+
+  - code: LIT.A04.tells_about_day
+    position: 40
+    title: Tell you about something that happened
+    age_min_months: 42
+    age_max_months: 60
+    school_readiness: true
+    slo_refs: ["ECE-00-B2-04", "ECE-00-B2-05"]
+    prereqs: [LIT.A03.speaks_in_sentences]
+    mastery_descriptor: >
+      Tells a short, understandable account of something she did — what
+      happened first and what happened next — to someone who wasn't there.
+    activities:
+      - title: One thing at dinner
+        kind: conversation
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          At dinner, everyone tells one thing from their day — her included.
+          Ask one follow-up question so she has to add a detail. Don't correct
+          grammar mid-story; just keep the story coming.
+
+  - code: LIT.A05.new_words
+    position: 50
+    title: Pick up and use new words
+    age_min_months: 42
+    age_max_months: 66
+    school_readiness: false
+    slo_refs: ["ECE-00-B2-02"]
+    prereqs: [LIT.A03.speaks_in_sentences]
+    mastery_descriptor: >
+      Uses new words heard during the week in her own talk — you catch her
+      saying "enormous" or "gigantic" unprompted.
+    activities:
+      - title: Word of the week
+        kind: conversation
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Pick one juicy word on Monday — enormous, tiny, freezing, brave —
+          and use it all week at every excuse. Count together how many times
+          each of you catches the other using it. She'll start planting it in
+          sentences just to win.
+
+  - code: LIT.A06.retells_story
+    position: 60
+    title: Retell a story in the right order
+    age_min_months: 48
+    age_max_months: 66
+    school_readiness: true
+    slo_refs: ["ECE-00-B2-03", "ECE-00-B3a-05"]
+    prereqs: [LIT.A04.tells_about_day]
+    mastery_descriptor: >
+      Retells a familiar story with the beginning, middle and end in the
+      right order — prompted only by "and then what happened?"
+    activities:
+      - title: You tell it tonight
+        kind: conversation
+        duration_minutes: 15
+        materials: ["a story book she knows well"]
+        instructions: >
+          After you read a favourite, swap roles: she "reads" it to you from
+          the pictures. Prompt with "what happened first?" and "then what?"
+          The order matters more than the details.
+
+  # ---------------------------------------------------------------
+  # Track B — Sounds & phonics
+  # ---------------------------------------------------------------
+
+  - code: LIT.B01.listening_ears
+    position: 100
+    title: Notice and name sounds around her
+    age_min_months: 36
+    age_max_months: 48
+    school_readiness: false
+    slo_refs: ["ECE-00-B1-03"]
+    prereqs: []
+    mastery_descriptor: >
+      Sits quietly for a minute, then names three or more sounds she heard —
+      fan, horn, bird, someone in the kitchen.
+    activities:
+      - title: The one-minute listen
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Close your eyes together for one minute and count the sounds on
+          your fingers. Then name them. Tuned ears come before tuned sounds —
+          this is where phonics secretly starts.
+
+  - code: LIT.B02.rhyme_spotting
+    position: 110
+    title: Hear when two words rhyme
+    age_min_months: 40
+    age_max_months: 56
+    school_readiness: false
+    slo_refs: ["ECE-00-B3b-05"]
+    prereqs: [LIT.A02.rhymes_and_songs]
+    mastery_descriptor: >
+      Says yes or no correctly when asked "do cat and hat rhyme? do cat and
+      dog?", and offers a rhyme of her own — real or nonsense — for a word
+      you give.
+    activities:
+      - title: Rhyme or no rhyme
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Fire quick pairs at her: cat–hat, sun–bun, cat–car. Thumbs up if
+          they rhyme, thumbs down if not. Then flip it — you say a word, she
+          makes a rhyme. Nonsense words count double for laughs.
+
+  - code: LIT.B03.syllable_claps
+    position: 120
+    title: Clap the beats in a word
+    age_min_months: 44
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-B3b-05"]
+    prereqs: [LIT.B01.listening_ears]
+    mastery_descriptor: >
+      Claps out the syllables of familiar words correctly — "Am-mi" is two
+      claps, "mo-tor-cy-cle" is four — for new words too, not just practised
+      ones.
+    activities:
+      - title: Clap the family
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Clap out everyone's name in the family, then foods, then animals.
+          Which name has the most claps? Who has the shortest name? Do it in
+          the car; no materials, endless words.
+
+  - code: LIT.B04.first_sounds
+    position: 130
+    title: Hear the first sound of a word
+    age_min_months: 48
+    age_max_months: 62
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-02"]
+    prereqs: [LIT.B03.syllable_claps]
+    mastery_descriptor: >
+      Tells you the sound (not the letter name) a spoken word starts with —
+      "sss" for sun, "mmm" for mango — for most simple words.
+    activities:
+      - title: I spy with sounds
+        kind: game
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          Play I-spy with sounds, not names: "I spy something that starts
+          with mmm." Stretch the sound long and slow. When she guesses,
+          she takes a turn spying. Use sounds, never letter names — "mmm",
+          not "em".
+
+  - code: LIT.B05.first_letter_sounds
+    position: 140
+    title: Know the sounds of the first letters (s a t p i n)
+    age_min_months: 48
+    age_max_months: 64
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-01"]
+    prereqs: [LIT.B04.first_sounds]
+    mastery_descriptor: >
+      Says the right sound when shown s, a, t, p, i or n, and finds the right
+      letter when you say a sound. These six unlock the most words.
+    activities:
+      - title: Six-letter treasure cards
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["six paper cards with s a t p i n written large"]
+        instructions: >
+          One new letter every few days, never all six at once. Say the sound,
+          trace the card with a finger, hunt for three things starting with
+          it. Old letters stay in the game so nothing fades.
+      - title: Letter sound tracing
+        kind: worksheet
+        duration_minutes: 10
+        materials: ["printed sheet", "thick pencil"]
+        instructions: >
+          Trace each letter while saying its sound out loud — the sound and
+          the shape need to arrive together. Two letters per sitting is
+          plenty.
+        worksheet_template: letter_tracing
+        worksheet_params: { letters: ["s", "a", "t", "p", "i", "n"], repetitions: 4 }
+
+  - code: LIT.B06.letter_sounds_full
+    position: 150
+    title: Know most letter sounds
+    age_min_months: 52
+    age_max_months: 68
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-01"]
+    prereqs: [LIT.B05.first_letter_sounds]
+    mastery_descriptor: >
+      Gives the correct sound for twenty or more letters shown out of order,
+      without running through the alphabet song to get there.
+    activities:
+      - title: Sound snap
+        kind: game
+        duration_minutes: 10
+        materials: ["letter cards for the letters she has met"]
+        instructions: >
+          Flip letter cards one by one; she says each sound as fast as she
+          can. Pull out the slow ones into a "practising pile" that gets an
+          extra round. Three new letters a week is a good pace.
+        worksheet_template: letter_tracing
+        worksheet_params: { letters: ["m", "d", "g", "o", "c", "k"], repetitions: 4 }
+
+  - code: LIT.B07.sound_sorting
+    position: 160
+    title: Sort things by their first sound
+    age_min_months: 52
+    age_max_months: 66
+    school_readiness: false
+    slo_refs: ["ECE-00-B3b-04"]
+    prereqs: [LIT.B04.first_sounds, LIT.B05.first_letter_sounds]
+    mastery_descriptor: >
+      Sorts a mixed pile of objects or pictures into groups by first sound —
+      the spoon and the sock go to "sss", the ball and the bottle to "b".
+    activities:
+      - title: Two-box sound sort
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["small household objects", "two boxes", "two letter cards"]
+        instructions: >
+          Tape a letter card on each box, gather objects starting with the
+          two sounds, and sort. Say each word slowly, stretching the first
+          sound: "sssss-poon." Swap in new letter pairs as she learns them.
+
+  - code: LIT.B08.oral_blending
+    position: 170
+    title: Blend spoken sounds into a word
+    age_min_months: 54
+    age_max_months: 68
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-06"]
+    prereqs: [LIT.B04.first_sounds]
+    mastery_descriptor: >
+      Hears you say "c...a...t" slowly and tells you the word is "cat" — for
+      new three-sound words, reliably, with no letters in sight.
+    activities:
+      - title: Robot talk
+        kind: game
+        duration_minutes: 5
+        materials: []
+        instructions: >
+          Talk like a robot: "pass me the c-u-p." She translates and passes
+          it. Then she gives YOU robot orders. This is the exact skill
+          reading is built on, and it needs no letters at all.
+
+  - code: LIT.B09.reads_cvc_words
+    position: 180
+    title: Read simple three-letter words
+    age_min_months: 58
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-04", "ECE-00-B3b-06"]
+    prereqs: [LIT.B06.letter_sounds_full, LIT.B08.oral_blending, LIT.C04.knows_letters]
+    mastery_descriptor: >
+      Sounds out and reads new consonant-vowel-consonant words — cat, sun,
+      big, top — without having memorised them first.
+    activities:
+      - title: Word family swaps
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["letter cards"]
+        instructions: >
+          Build "cat" from letter cards. Sound it, slide the sounds together,
+          read it. Now swap just the first card: bat, hat, mat. One change at
+          a time keeps it winnable. Three words is a great session.
+
+  # ---------------------------------------------------------------
+  # Track C — Reading
+  # ---------------------------------------------------------------
+
+  - code: LIT.C01.book_love
+    position: 200
+    title: Handle books and love them
+    age_min_months: 36
+    age_max_months: 48
+    school_readiness: true
+    slo_refs: ["ECE-00-B3a-01", "ECE-00-B3a-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Holds a book the right way up, turns pages one at a time front to back,
+      and picks favourites off the shelf by their covers.
+    activities:
+      - title: Ten minutes on the same lap
+        kind: conversation
+        duration_minutes: 10
+        materials: ["any picture book"]
+        instructions: >
+          A book on your lap at the same time every day — after lunch or
+          before sleep. Let her turn the pages and set the pace. The routine
+          is the teaching; everything else in this strand grows out of it.
+
+  - code: LIT.C02.print_direction
+    position: 210
+    title: Know which way the words go
+    age_min_months: 42
+    age_max_months: 58
+    school_readiness: false
+    slo_refs: ["ECE-00-B3a-06", "ECE-00-B3a-07"]
+    prereqs: [LIT.C01.book_love]
+    mastery_descriptor: >
+      Runs a finger under English text left-to-right, top-to-bottom, and
+      knows the story lives in the black marks, not just the pictures.
+    activities:
+      - title: Finger under the words
+        kind: conversation
+        duration_minutes: 10
+        materials: ["a picture book"]
+        instructions: >
+          As you read, run your finger under the text. After a few days, her
+          finger does the driving and you follow it. If Urdu books are also
+          part of home reading, point out that they run the other way — a
+          real observation, worth saying out loud once.
+
+  - code: LIT.C03.name_letters
+    position: 220
+    title: Spot the letters of her own name
+    age_min_months: 42
+    age_max_months: 58
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-01"]
+    prereqs: []
+    mastery_descriptor: >
+      Recognises her own name written down and points out its first letter
+      anywhere she sees it — on signs, packets, screens.
+    activities:
+      - title: Her name everywhere
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["paper", "marker"]
+        instructions: >
+          Write her name big and bright and put it on her door. Hunt for her
+          first letter out in the world — on number plates, shop signs,
+          biscuit packets. "That's MY letter!" is the whole win.
+
+  - code: LIT.C04.knows_letters
+    position: 230
+    title: Recognise most letters
+    age_min_months: 48
+    age_max_months: 66
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-01"]
+    prereqs: [LIT.C03.name_letters]
+    mastery_descriptor: >
+      Names twenty or more letters shown out of order, in different fonts —
+      on flashcards, in books, on packets.
+    activities:
+      - title: Newspaper letter hunt
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["an old newspaper page", "a marker"]
+        instructions: >
+          Give her a page and one letter to hunt. She circles every one she
+          finds. Messy real print beats a flashcard — the letter has to be
+          recognised in the wild.
+
+  - code: LIT.C05.upper_lower_match
+    position: 240
+    title: Match capitals to small letters
+    age_min_months: 54
+    age_max_months: 70
+    school_readiness: true
+    slo_refs: ["ECE-00-B3b-01"]
+    prereqs: [LIT.C04.knows_letters]
+    mastery_descriptor: >
+      Pairs capital and small forms — A with a, B with b — for most of the
+      alphabet.
+    activities:
+      - title: Letter pairs memory game
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["cards with capitals on half, small letters on the rest"]
+        instructions: >
+          Face-down memory: a pair is a capital and its small letter. Start
+          with eight pairs, not the whole alphabet. She'll beat you within a
+          week and that's the plan.
+
+  - code: LIT.C06.sight_words
+    position: 250
+    title: Read the first sight words
+    age_min_months: 58
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-B3a-03"]
+    prereqs: [LIT.C04.knows_letters]
+    mastery_descriptor: >
+      Reads five or more common words on sight — the, and, is, it, my —
+      words that can't be sounded out, recognised whole.
+    activities:
+      - title: The word wall
+        kind: hands_on
+        duration_minutes: 5
+        materials: ["cards", "tape"]
+        instructions: >
+          Five words on the wall at her eye level. Read them together daily —
+          ten seconds, that's all. Add one new word a week and let her be the
+          one who sticks it up.
+
+  - code: LIT.C07.first_sentences
+    position: 260
+    title: Read a short sentence
+    age_min_months: 62
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-B3a-03", "ECE-00-B3b-06"]
+    prereqs: [LIT.B09.reads_cvc_words, LIT.C06.sight_words]
+    mastery_descriptor: >
+      Reads a simple sentence — "the cat sat on my bed" — mixing sight words
+      and sounded-out words, and tells you what it said.
+    activities:
+      - title: Secret message at breakfast
+        kind: game
+        duration_minutes: 5
+        materials: ["paper", "marker"]
+        instructions: >
+          Leave a short note under the plate: "a bun for you". She reads
+          it to claim what it promises. Reading with a payoff beats reading
+          for practice, every time.
+
+  # ---------------------------------------------------------------
+  # Track D — Writing
+  # ---------------------------------------------------------------
+
+  - code: LIT.D01.pencil_grip
+    position: 300
+    title: Hold a pencil properly
+    age_min_months: 36
+    age_max_months: 52
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-02"]
+    prereqs: []
+    mastery_descriptor: >
+      Holds a chunky pencil or crayon in a comfortable three-finger grip and
+      draws lines and circles with control, not a fist.
+    activities:
+      - title: Little pinchy tools
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["clothes pegs, tongs, broken crayons"]
+        instructions: >
+          Grip is built away from the pencil: pegging clothes, picking up
+          cotton balls with tongs, drawing with crayon stubs too short to
+          fist. Short crayons force the pinch — don't throw the broken ones
+          away.
+
+  - code: LIT.D02.lines_and_waves
+    position: 310
+    title: Trace lines, waves and zigzags
+    age_min_months: 42
+    age_max_months: 56
+    school_readiness: false
+    slo_refs: ["ECE-00-B4-01"]
+    prereqs: [LIT.D01.pencil_grip]
+    mastery_descriptor: >
+      Traces straight lines, waves, zigzags and circles staying mostly on
+      the path, working left to right.
+    activities:
+      - title: Roads for toy cars
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["paper", "marker", "a small toy car"]
+        instructions: >
+          Draw wavy and zigzag "roads" across the page. First the car drives
+          them, then her finger, then the crayon. Left to right always —
+          that habit is being laid down here.
+
+  - code: LIT.D03.first_letter_name
+    position: 320
+    title: Write the first letter of her name
+    age_min_months: 46
+    age_max_months: 60
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-04"]
+    prereqs: [LIT.D02.lines_and_waves, LIT.C03.name_letters]
+    mastery_descriptor: >
+      Writes the first letter of her own name from memory, recognisably and
+      with the strokes in the right direction.
+    activities:
+      - title: My letter, everywhere
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["tray of flour or sand", "paper", "crayon"]
+        instructions: >
+          Trace her letter in a flour tray, in the air, on your palm — then
+          on paper. Watch the starting point: a letter drawn bottom-up looks
+          fine and becomes a slow habit later.
+        worksheet_template: letter_tracing
+        worksheet_params: { letters: ["a"], repetitions: 6 }
+
+  - code: LIT.D04.traces_letters
+    position: 330
+    title: Trace letters with correct strokes
+    age_min_months: 50
+    age_max_months: 66
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-04"]
+    prereqs: [LIT.D02.lines_and_waves, LIT.C04.knows_letters]
+    mastery_descriptor: >
+      Traces most letters starting at the right point and moving in the
+      right direction. Wobbles are fine; backwards strokes are the thing to
+      catch.
+    activities:
+      - title: Letter tracing sheets
+        kind: worksheet
+        duration_minutes: 10
+        materials: ["printed sheet", "thick pencil"]
+        instructions: >
+          Two or three letters per sitting, chosen from the sounds she
+          already knows — writing and phonics feed each other. Say the sound
+          as she traces.
+        worksheet_template: letter_tracing
+        worksheet_params: { letters: ["c", "a", "t", "s"], repetitions: 4 }
+
+  - code: LIT.D05.writes_name
+    position: 340
+    title: Write her own name
+    age_min_months: 54
+    age_max_months: 70
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-05"]
+    prereqs: [LIT.D03.first_letter_name]
+    mastery_descriptor: >
+      Writes her full first name from memory — capital first letter, small
+      letters after — readably, without a copy to look at.
+    activities:
+      - title: Sign your masterpieces
+        kind: hands_on
+        duration_minutes: 5
+        materials: ["her drawings", "pencil"]
+        instructions: >
+          Every drawing she makes now gets signed by the artist. Write it
+          first for tracing, then copying, then from memory. Teach
+          capital-then-small from the start — all-capitals is hard to undo.
+
+  - code: LIT.D06.letters_from_memory
+    position: 350
+    title: Write letters from memory
+    age_min_months: 58
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-04"]
+    prereqs: [LIT.D04.traces_letters]
+    mastery_descriptor: >
+      Writes most letters when you say the sound — no tracing guide, no
+      copy. A few reversals (b and d) are still normal.
+    activities:
+      - title: Sound dictation
+        kind: hands_on
+        duration_minutes: 10
+        materials: ["paper", "pencil"]
+        instructions: >
+          Say a sound; she writes the letter. Three or four sounds per round.
+          Keep a "tricky letters" list on the fridge and give those an extra
+          turn during the week.
+
+  - code: LIT.D07.writes_words
+    position: 360
+    title: Write simple words by their sounds
+    age_min_months: 62
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-B4-08"]
+    prereqs: [LIT.D06.letters_from_memory, LIT.B08.oral_blending]
+    mastery_descriptor: >
+      Listens to a simple word — cat, sun, mud — breaks it into sounds
+      herself and writes it. Invented spelling of harder words ("I lyk
+      mango") counts as a win, not an error.
+    activities:
+      - title: Label the house
+        kind: hands_on
+        duration_minutes: 15
+        materials: ["paper strips", "marker", "tape"]
+        instructions: >
+          She writes labels and sticks them where they belong: bed, mat,
+          cup, tap. Sound each word out slowly together. Leave the labels
+          up — the house becomes her first book.

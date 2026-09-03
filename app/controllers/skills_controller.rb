@@ -2,12 +2,14 @@ class SkillsController < ApplicationController
   before_action :require_child!
 
   def index
+    domains = current_child.active_domains.order(:position).to_a
+    domain = domains.detect { |d| d.code == params[:domain] } || domains.first
+
     progress_by_skill = current_child.skill_progress.index_by(&:skill_id)
     mastered_ids = progress_by_skill.values.select(&:mastered?).map(&:skill_id).to_set
-    next_ids = NextSkill.for(current_child, limit: 2).map(&:id).to_set
+    next_ids = NextSkill.for(current_child, limit: 4).map(&:id).to_set
 
-    skills = Skill.where(domain: current_child.active_domains)
-                  .includes(:prerequisites).order(:position)
+    skills = Skill.where(domain: domain).includes(:prerequisites).order(:position)
 
     strands = skills.group_by(&:strand).map do |strand, strand_skills|
       {
@@ -21,10 +23,11 @@ class SkillsController < ApplicationController
     end
 
     selected = params[:skill].presence &&
-               skills.detect { |s| s.id == params[:skill].to_i }
+               Skill.where(domain: domains).detect { |s| s.id == params[:skill].to_i }
 
     render inertia: "Skills/Index", props: {
-      domain_name: current_child.active_domains.first&.name || "Numeracy",
+      domain_code: domain&.code,
+      domains: domains.map { |d| { code: d.code, name: d.name } },
       strands: strands,
       selected_skill: selected && selected_props(selected, progress_by_skill[selected.id])
     }
@@ -81,16 +84,16 @@ class SkillsController < ApplicationController
       else "not_started"
       end
 
-    { id: skill.id, code: skill.code, title: skill.title, state: state }
+    { id: skill.id, code: skill.code, title: adapt(skill.title), state: state }
   end
 
   def selected_props(skill, progress)
     {
       id: skill.id,
       code: skill.code,
-      title: skill.title,
+      title: adapt(skill.title),
       strand: skill.strand,
-      mastery_descriptor: skill.mastery_descriptor,
+      mastery_descriptor: adapt(skill.mastery_descriptor),
       slo_refs: skill.slo_refs,
       age_min_months: skill.age_min_months,
       age_max_months: skill.age_max_months,

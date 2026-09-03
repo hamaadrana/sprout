@@ -2,6 +2,10 @@
 # child), coverage, and readiness against the national curriculum. One data
 # set, two framings — the view only changes the words.
 class ReportBuilder
+  include Rails.application.routes.url_helpers
+
+  THUMB = { resize_to_limit: [ 400, 400 ] }.freeze
+
   def initialize(child, month = Date.current.beginning_of_month)
     @child = child
     @month = month.beginning_of_month
@@ -18,7 +22,9 @@ class ReportBuilder
       consistency: consistency_props,
       coverage: coverage_props,
       readiness: readiness_props,
-      mastered_this_month: mastered_this_month
+      mastered_this_month: mastered_this_month,
+      streak: current_streak,
+      recent_photos: recent_photos
     }
   end
 
@@ -49,20 +55,54 @@ class ReportBuilder
   end
 
   def coverage_props
-    skills = Skill.where(domain: @child.active_domains)
+    skills = Skill.where(domain: @child.active_domains).includes(:domain)
     mastered_ids = @child.skill_progress.mastered.pluck(:skill_id).to_set
 
     {
       mastered: skills.count { |s| mastered_ids.include?(s.id) },
       total: skills.length,
-      strands: skills.group_by(&:strand).sort_by { |_, list| -list.length }.map do |strand, list|
+      domains: skills.group_by(&:domain).sort_by { |d, _| d.position }.map do |domain, domain_skills|
         {
-          name: strand || "Other",
-          mastered: list.count { |s| mastered_ids.include?(s.id) },
-          total: list.length
+          name: domain.name,
+          code: domain.code,
+          mastered: domain_skills.count { |s| mastered_ids.include?(s.id) },
+          total: domain_skills.length,
+          strands: domain_skills.group_by(&:strand).map do |strand, list|
+            {
+              name: strand || "Other",
+              mastered: list.count { |s| mastered_ids.include?(s.id) },
+              total: list.length
+            }
+          end
         }
       end
     }
+  end
+
+  # Consecutive active days ending today or yesterday — the "don't break
+  # the chain" number.
+  def current_streak
+    active = @child.log_entries.where(logged_on: 60.days.ago..Date.current)
+                   .distinct.pluck(:logged_on).to_set
+    day = active.include?(Date.current) ? Date.current : Date.current - 1
+    streak = 0
+    while active.include?(day)
+      streak += 1
+      day -= 1
+    end
+    streak
+  end
+
+  def recent_photos
+    @child.portfolio_items.with_attached_image.order(taken_on: :desc, id: :desc)
+          .limit(6).filter_map do |item|
+      next unless item.image.attached?
+      {
+        id: item.id,
+        caption: item.caption,
+        thumb_url: rails_representation_path(item.image.variant(THUMB), only_path: true)
+      }
+    end
   end
 
   def readiness_props
@@ -77,7 +117,7 @@ class ReportBuilder
         when "practising", "introduced" then "in_progress"
         else "not_yet"
         end
-      { title: skill.title, status: status }
+      { title: Pronouns.adapt(skill.title, @child.gender), status: status }
     end
 
     {

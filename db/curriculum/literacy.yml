@@ -678,3 +678,32 @@ skills:
           up — the house becomes her first book.
         worksheet_template: word_tracing
         worksheet_params: { words: ["cat", "sun", "mat", "cup"], repetitions: 2 }
+
+  # ---------------------------------------------------------------
+  # Appended 2026-09 — new codes only, nothing renumbered
+  # ---------------------------------------------------------------
+
+  - code: LIT.B10.digraph_sounds
+    position: 190
+    title: Hear the two-letter sounds (sh, ch, th)
+    age_min_months: 60
+    age_max_months: 72
+    school_readiness: false
+    slo_refs: ["ECE-00-B3b-03"]
+    prereqs: [LIT.B06.letter_sounds_full]
+    mastery_descriptor: >
+      Knows that sh, ch and th are two letters making ONE sound, gives the
+      sound when shown the pair, and spots them at the start of spoken
+      words — ship, chair, thumb.
+    activities:
+      - title: The quiet sound and the train sound
+        kind: game
+        duration_minutes: 10
+        materials: []
+        instructions: >
+          Give each digraph a character: sh is the librarian ("shhh!"), ch
+          is the train ("ch-ch-ch"), th is the cheeky tongue-peek. Hunt
+          words that start with each: shoe, shop; chai, chand; thumb,
+          three. One digraph a week is plenty.
+        worksheet_template: word_tracing
+        worksheet_params: { words: ["ship", "shop", "chat", "chin"], repetitions: 2 }

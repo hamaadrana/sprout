@@ -6,8 +6,33 @@ class LibraryLoader
     ActiveRecord::Base.transaction do
       counts[:activities] = load_activities(dir.join("activity_library.yml"))
       counts[:projects] = load_projects(dir.join("make_it_projects.yml"))
+      counts[:worksheets] = load_worksheets(dir.join("worksheets.yml"))
     end
     counts
+  end
+
+  def self.load_worksheets(path)
+    return 0 unless File.exist?(path)
+    data = YAML.safe_load_file(path)
+
+    data.fetch("worksheets", []).each_with_index do |attrs, index|
+      skill_code = attrs["skill"]
+      if skill_code.present? && !Skill.exists?(code: skill_code)
+        raise "Worksheet #{attrs['code']} references unknown skill #{skill_code}"
+      end
+
+      record = Worksheet.find_or_initialize_by(code: attrs.fetch("code"))
+      record.update!(
+        title: attrs.fetch("title"),
+        template: attrs.fetch("template"),
+        params: attrs.fetch("params", {}),
+        domain_code: attrs.fetch("domain"),
+        skill_code: skill_code,
+        level: attrs.fetch("level", 1),
+        position: index + 1
+      )
+    end
+    Worksheet.count
   end
 
   def self.load_activities(path)

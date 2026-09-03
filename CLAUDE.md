@@ -59,6 +59,10 @@ she/her in new chrome copy.
   date so all six get plan slots across a week.
 - Onboarding "head start" answers pre-master skills via
   ChildrenController::HEAD_START (update it when curriculum codes change).
+- `db/library/worksheets.yml` — the printable-sheet catalog (100+ entries,
+  stable WS.* codes, linked to skills via skill_code for progress-state
+  filtering; levels 1-3). Loaded with the library; Worksheet model.
+  /worksheets routes address CATALOG ids, not skill ids.
 - `db/library/` — activity_library.yml (106 cross-domain activities) and
   make_it_projects.yml (45 projects), loaded by `rake curriculum:load_library`,
   keyed on stable codes. Supervision flags must always surface in the UI.

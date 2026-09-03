@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_03_090000) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_03_150000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -250,6 +250,22 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_090000) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "worksheets", force: :cascade do |t|
+    t.string "code", null: false
+    t.datetime "created_at", null: false
+    t.string "domain_code", null: false
+    t.integer "level", default: 1, null: false
+    t.jsonb "params", default: {}, null: false
+    t.integer "position", default: 0, null: false
+    t.string "skill_code"
+    t.string "template", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_worksheets_on_code", unique: true
+    t.index ["domain_code", "position"], name: "index_worksheets_on_domain_code_and_position"
+    t.index ["skill_code"], name: "index_worksheets_on_skill_code"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

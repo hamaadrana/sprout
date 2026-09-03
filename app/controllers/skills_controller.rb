@@ -99,7 +99,8 @@ class SkillsController < ApplicationController
       age_max_months: skill.age_max_months,
       attempts: progress&.attempts_count || 0,
       state: progress&.state || "not_started",
-      has_worksheet: skill.activities.any? { |a| a.resources.any?(&:generated_worksheet?) }
+      worksheet_id: Worksheet.where(skill_code: skill.code)
+                             .order(:level, :position).pick(:id)
     }
   end
 end

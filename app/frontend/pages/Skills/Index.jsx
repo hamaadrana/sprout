@@ -169,8 +169,8 @@ export default function SkillsIndex({ domain_code, domains, strands, selected_sk
                 </button>
               </>
             )}
-            {selected_skill.has_worksheet && (
-              <a href={`/worksheets/${selected_skill.id}`} className="btn btn-ghost btn-block">
+            {selected_skill.worksheet_id && (
+              <a href={`/worksheets/${selected_skill.worksheet_id}`} className="btn btn-ghost btn-block">
                 📝 Open the worksheet
               </a>
             )}

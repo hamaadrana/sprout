@@ -123,8 +123,8 @@ function ActivityCard({ item, index, expanded, onExpand }) {
           Let’s do it! ✨
         </Link>
         <Link href="/skills" className="btn btn-ghost btn-block">Swap this one</Link>
-        {item.has_worksheet && (
-          <Link href={`/worksheets/${item.skill.id}`} className="btn btn-ghost btn-block">
+        {item.worksheet_id && (
+          <Link href={`/worksheets/${item.worksheet_id}`} className="btn btn-ghost btn-block">
             📝 Print the worksheet
           </Link>
         )}

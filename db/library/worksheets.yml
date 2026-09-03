@@ -1,0 +1,247 @@
+# The worksheet catalog. Each entry is one parameterised printable sheet,
+# keyed by a STABLE code (never renumber; append new codes). `skill` links
+# the sheet to a curriculum skill so the catalog can be filtered by the
+# child's progress. `level`: 1 starter, 2 growing, 3 confident.
+#
+# All sheets are generated at print time via WorksheetBuilder — no files,
+# no third-party material.
+
+worksheets:
+
+  # ── Numeracy · numeral tracing ─────────────────────────────────────
+  - { code: WS.NUM.001, title: "First numerals — 1, 2, 3", template: numeral_tracing, domain: NUM, skill: NUM.B10.trace_numerals_5, level: 1,
+      params: { numerals: [1, 2, 3], repetitions: 5 } }
+  - { code: WS.NUM.002, title: "Numerals 1 to 5", template: numeral_tracing, domain: NUM, skill: NUM.B10.trace_numerals_5, level: 1,
+      params: { numerals: [1, 2, 3, 4, 5], repetitions: 4 } }
+  - { code: WS.NUM.003, title: "Numerals 4 and 5, extra practice", template: numeral_tracing, domain: NUM, skill: NUM.B10.trace_numerals_5, level: 1,
+      params: { numerals: [4, 5], repetitions: 6 } }
+  - { code: WS.NUM.004, title: "Zero and friends — 0, 1, 2", template: numeral_tracing, domain: NUM, skill: NUM.B14.zero, level: 1,
+      params: { numerals: [0, 1, 2], repetitions: 5 } }
+  - { code: WS.NUM.005, title: "Numerals 6 to 10", template: numeral_tracing, domain: NUM, skill: NUM.B11.trace_numerals_10, level: 2,
+      params: { numerals: [6, 7, 8, 9, 10], repetitions: 4 } }
+  - { code: WS.NUM.006, title: "The tricky twins — 6 and 9", template: numeral_tracing, domain: NUM, skill: NUM.B11.trace_numerals_10, level: 2,
+      params: { numerals: [6, 9], repetitions: 6 } }
+  - { code: WS.NUM.007, title: "Curvy numbers — 2, 5 and 8", template: numeral_tracing, domain: NUM, skill: NUM.B11.trace_numerals_10, level: 2,
+      params: { numerals: [2, 5, 8], repetitions: 5 } }
+  - { code: WS.NUM.008, title: "Teen numbers — 11 to 15", template: numeral_tracing, domain: NUM, skill: NUM.B23.teen_numbers, level: 3,
+      params: { numerals: [11, 12, 13, 14, 15], repetitions: 3 } }
+  - { code: WS.NUM.009, title: "Big numbers — 16 to 20", template: numeral_tracing, domain: NUM, skill: NUM.B19.numerals_to_20, level: 3,
+      params: { numerals: [16, 17, 18, 19, 20], repetitions: 3 } }
+
+  # ── Numeracy · count and write ─────────────────────────────────────
+  - { code: WS.NUM.010, title: "Count and write to 3", template: count_and_write, domain: NUM, skill: NUM.B03.one_to_one_5, level: 1,
+      params: { max: 3, rows: 3 } }
+  - { code: WS.NUM.011, title: "Count and write to 5", template: count_and_write, domain: NUM, skill: NUM.B08.quantity_to_numeral_5, level: 1,
+      params: { max: 5, rows: 3 } }
+  - { code: WS.NUM.012, title: "Count and write to 5, round two", template: count_and_write, domain: NUM, skill: NUM.B08.quantity_to_numeral_5, level: 1,
+      params: { max: 5, rows: 4 } }
+  - { code: WS.NUM.013, title: "Count and write to 8", template: count_and_write, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { max: 8, rows: 4 } }
+  - { code: WS.NUM.014, title: "Count and write to 10", template: count_and_write, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { max: 10, rows: 4 } }
+  - { code: WS.NUM.015, title: "Count and write to 10, challenge", template: count_and_write, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 3,
+      params: { max: 10, rows: 5 } }
+
+  # ── Numeracy · missing numbers ─────────────────────────────────────
+  - { code: WS.NUM.016, title: "Missing numbers to 5", template: count_and_write, domain: NUM, skill: NUM.B16.before_after_10, level: 1,
+      params: { max: 5, rows: 5, mode: missing_number } }
+  - { code: WS.NUM.017, title: "Missing numbers to 10", template: count_and_write, domain: NUM, skill: NUM.B16.before_after_10, level: 2,
+      params: { max: 10, rows: 5, mode: missing_number } }
+  - { code: WS.NUM.018, title: "Missing numbers to 10, round two", template: count_and_write, domain: NUM, skill: NUM.B17.order_numbers_10, level: 2,
+      params: { max: 10, rows: 6, mode: missing_number } }
+  - { code: WS.NUM.019, title: "Missing numbers to 15", template: count_and_write, domain: NUM, skill: NUM.B22.order_numbers_20, level: 3,
+      params: { max: 15, rows: 5, mode: missing_number } }
+  - { code: WS.NUM.020, title: "Missing numbers to 20", template: count_and_write, domain: NUM, skill: NUM.B22.order_numbers_20, level: 3,
+      params: { max: 20, rows: 5, mode: missing_number } }
+  - { code: WS.NUM.021, title: "Missing teens — the wobbly bridge", template: count_and_write, domain: NUM, skill: NUM.B23.teen_numbers, level: 3,
+      params: { max: 15, rows: 6, mode: missing_number } }
+
+  # ── Numeracy · count and circle ────────────────────────────────────
+  - { code: WS.NUM.022, title: "Count and circle 3", template: count_and_circle, domain: NUM, skill: NUM.B03.one_to_one_5, level: 1,
+      params: { target_number: 3, distractor_range: 3 } }
+  - { code: WS.NUM.023, title: "Count and circle 4", template: count_and_circle, domain: NUM, skill: NUM.B03.one_to_one_5, level: 1,
+      params: { target_number: 4, distractor_range: 3 } }
+  - { code: WS.NUM.024, title: "Count and circle 5", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 1,
+      params: { target_number: 5, distractor_range: 4 } }
+  - { code: WS.NUM.025, title: "Count and circle 6", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 2,
+      params: { target_number: 6, distractor_range: 4 } }
+  - { code: WS.NUM.026, title: "Count and circle 7", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 2,
+      params: { target_number: 7, distractor_range: 4 } }
+  - { code: WS.NUM.027, title: "Count and circle 8", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 2,
+      params: { target_number: 8, distractor_range: 5 } }
+  - { code: WS.NUM.028, title: "Count and circle 9", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 3,
+      params: { target_number: 9, distractor_range: 5 } }
+  - { code: WS.NUM.029, title: "Count and circle 10", template: count_and_circle, domain: NUM, skill: NUM.B04.one_to_one_10, level: 3,
+      params: { target_number: 10, distractor_range: 5 } }
+
+  # ── Numeracy · ten frames ──────────────────────────────────────────
+  - { code: WS.NUM.030, title: "Ten frames — small numbers", template: ten_frame, domain: NUM, skill: NUM.B08.quantity_to_numeral_5, level: 1,
+      params: { numbers: [2, 3, 4, 5] } }
+  - { code: WS.NUM.031, title: "Ten frames — middle numbers", template: ten_frame, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { numbers: [4, 5, 6, 7] } }
+  - { code: WS.NUM.032, title: "Ten frames — big numbers", template: ten_frame, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { numbers: [6, 8, 9, 10] } }
+  - { code: WS.NUM.033, title: "Ten frames — how many more to 10?", template: ten_frame, domain: NUM, skill: NUM.C03.add_subtract_10_concrete, level: 3,
+      params: { numbers: [3, 6, 7, 9] } }
+  - { code: WS.NUM.034, title: "Ten frames — mixed bag", template: ten_frame, domain: NUM, skill: NUM.C03.add_subtract_10_concrete, level: 3,
+      params: { numbers: [2, 5, 8, 10] } }
+
+  # ── Numeracy · match quantity to numeral ───────────────────────────
+  - { code: WS.NUM.035, title: "Match the count — 1 to 5", template: match_quantity_numeral, domain: NUM, skill: NUM.B08.quantity_to_numeral_5, level: 1,
+      params: { range: [1, 5], pairs: 4 } }
+  - { code: WS.NUM.036, title: "Match the count — 3 to 8", template: match_quantity_numeral, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { range: [3, 8], pairs: 5 } }
+  - { code: WS.NUM.037, title: "Match the count — 5 to 10", template: match_quantity_numeral, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 2,
+      params: { range: [5, 10], pairs: 5 } }
+  - { code: WS.NUM.038, title: "Match the count — the full ten", template: match_quantity_numeral, domain: NUM, skill: NUM.B09.quantity_to_numeral_10, level: 3,
+      params: { range: [1, 10], pairs: 6 } }
+
+  # ── Numeracy · more or less ────────────────────────────────────────
+  - { code: WS.NUM.039, title: "More or less — up to 5", template: more_or_less, domain: NUM, skill: NUM.B12.more_less, level: 1,
+      params: { pairs: 4, max: 5 } }
+  - { code: WS.NUM.040, title: "More or less — up to 5, round two", template: more_or_less, domain: NUM, skill: NUM.B12.more_less, level: 1,
+      params: { pairs: 5, max: 5 } }
+  - { code: WS.NUM.041, title: "More or less — up to 6", template: more_or_less, domain: NUM, skill: NUM.B12.more_less, level: 1,
+      params: { pairs: 5, max: 6 } }
+  - { code: WS.NUM.042, title: "More or less — up to 8", template: more_or_less, domain: NUM, skill: NUM.B12.more_less, level: 2,
+      params: { pairs: 5, max: 8 } }
+  - { code: WS.NUM.043, title: "More or less — up to 10", template: more_or_less, domain: NUM, skill: NUM.B12.more_less, level: 2,
+      params: { pairs: 6, max: 10 } }
+
+  # ── Numeracy · patterns ────────────────────────────────────────────
+  - { code: WS.NUM.044, title: "AB patterns — red, blue, red…", template: pattern_completion, domain: NUM, skill: NUM.D04.recognise_patterns, level: 1,
+      params: { types: [AB, AB, AB], length: 8 } }
+  - { code: WS.NUM.045, title: "AB patterns, round two", template: pattern_completion, domain: NUM, skill: NUM.D04.recognise_patterns, level: 1,
+      params: { types: [AB, AB, AB, AB], length: 8 } }
+  - { code: WS.NUM.046, title: "AB patterns, round three", template: pattern_completion, domain: NUM, skill: NUM.D04.recognise_patterns, level: 1,
+      params: { types: [AB, AB, AB], length: 10 } }
+  - { code: WS.NUM.047, title: "AAB patterns — clap, clap, stomp", template: pattern_completion, domain: NUM, skill: NUM.D04.recognise_patterns, level: 2,
+      params: { types: [AAB, AAB, AAB], length: 9 } }
+  - { code: WS.NUM.048, title: "ABC patterns — three in the dance", template: pattern_completion, domain: NUM, skill: NUM.D05.create_patterns, level: 3,
+      params: { types: [ABC, ABC, ABC], length: 9 } }
+  - { code: WS.NUM.049, title: "Pattern party — all mixed up", template: pattern_completion, domain: NUM, skill: NUM.D05.create_patterns, level: 3,
+      params: { types: [AB, AAB, ABC], length: 9 } }
+
+  # ── Numeracy · shapes & sizes ──────────────────────────────────────
+  - { code: WS.NUM.050, title: "Trace circle, square, triangle", template: shape_tracing, domain: NUM, skill: NUM.D01.name_2d_shapes, level: 1,
+      params: { shapes: [circle, square, triangle] } }
+  - { code: WS.NUM.051, title: "Trace rectangle and oval", template: shape_tracing, domain: NUM, skill: NUM.D01.name_2d_shapes, level: 2,
+      params: { shapes: [rectangle, oval] } }
+  - { code: WS.NUM.052, title: "Trace all five shapes", template: shape_tracing, domain: NUM, skill: NUM.D02.compare_shapes, level: 2,
+      params: { shapes: [circle, square, triangle, rectangle, oval] } }
+  - { code: WS.NUM.053, title: "Order the circles by size", template: size_ordering, domain: NUM, skill: NUM.E02.comparative_language, level: 1,
+      params: { shape: circle, count: 4 } }
+  - { code: WS.NUM.054, title: "Order the squares by size", template: size_ordering, domain: NUM, skill: NUM.E02.comparative_language, level: 2,
+      params: { shape: square, count: 5 } }
+  - { code: WS.NUM.055, title: "Order the triangles by size", template: size_ordering, domain: NUM, skill: NUM.E02.comparative_language, level: 2,
+      params: { shape: triangle, count: 4 } }
+
+  # ── English · lowercase letter sounds ──────────────────────────────
+  - { code: WS.LIT.001, title: "First sounds — s, a, t, p", template: letter_tracing, domain: LIT, skill: LIT.B05.first_letter_sounds, level: 1,
+      params: { letters: [s, a, t, p], repetitions: 4 } }
+  - { code: WS.LIT.002, title: "Next sounds — i, n, m, d", template: letter_tracing, domain: LIT, skill: LIT.B05.first_letter_sounds, level: 1,
+      params: { letters: [i, n, m, d], repetitions: 4 } }
+  - { code: WS.LIT.003, title: "Sounds — g, o, c, k", template: letter_tracing, domain: LIT, skill: LIT.B06.letter_sounds_full, level: 2,
+      params: { letters: [g, o, c, k], repetitions: 4 } }
+  - { code: WS.LIT.004, title: "Sounds — e, u, r, h", template: letter_tracing, domain: LIT, skill: LIT.B06.letter_sounds_full, level: 2,
+      params: { letters: [e, u, r, h], repetitions: 4 } }
+  - { code: WS.LIT.005, title: "Sounds — b, f, l, j", template: letter_tracing, domain: LIT, skill: LIT.B06.letter_sounds_full, level: 2,
+      params: { letters: [b, f, l, j], repetitions: 4 } }
+  - { code: WS.LIT.006, title: "Sounds — v, w, x, y", template: letter_tracing, domain: LIT, skill: LIT.B06.letter_sounds_full, level: 3,
+      params: { letters: [v, w, x, y], repetitions: 4 } }
+  - { code: WS.LIT.007, title: "Last sounds — z and q, plus review", template: letter_tracing, domain: LIT, skill: LIT.B06.letter_sounds_full, level: 3,
+      params: { letters: [z, q, s, a], repetitions: 4 } }
+  - { code: WS.LIT.008, title: "The mirror letters — b, d, p, q", template: letter_tracing, domain: LIT, skill: LIT.D06.letters_from_memory, level: 3,
+      params: { letters: [b, d, p, q], repetitions: 5 } }
+
+  # ── English · capital letters ──────────────────────────────────────
+  - { code: WS.LIT.009, title: "Capital letters A to F", template: letter_tracing, domain: LIT, skill: LIT.D04.traces_letters, level: 2,
+      params: { letters: [A, B, C, D, E, F], repetitions: 3 } }
+  - { code: WS.LIT.010, title: "Capital letters G to M", template: letter_tracing, domain: LIT, skill: LIT.D04.traces_letters, level: 2,
+      params: { letters: [G, H, I, J, K, L, M], repetitions: 3 } }
+  - { code: WS.LIT.011, title: "Capital letters N to T", template: letter_tracing, domain: LIT, skill: LIT.D06.letters_from_memory, level: 3,
+      params: { letters: [N, O, P, Q, R, S, T], repetitions: 3 } }
+  - { code: WS.LIT.012, title: "Capital letters U to Z", template: letter_tracing, domain: LIT, skill: LIT.D06.letters_from_memory, level: 3,
+      params: { letters: [U, V, W, X, Y, Z], repetitions: 3 } }
+
+  # ── English · big and small letter matching ────────────────────────
+  - { code: WS.LIT.013, title: "Match big and small — 4 pairs", template: letter_case_match, domain: LIT, skill: LIT.C05.upper_lower_match, level: 1,
+      params: { pairs: 4 } }
+  - { code: WS.LIT.014, title: "Match big and small — 6 pairs", template: letter_case_match, domain: LIT, skill: LIT.C05.upper_lower_match, level: 2,
+      params: { pairs: 6 } }
+  - { code: WS.LIT.015, title: "Match big and small — 6 more pairs", template: letter_case_match, domain: LIT, skill: LIT.C05.upper_lower_match, level: 2,
+      params: { pairs: 6 } }
+  - { code: WS.LIT.016, title: "Match big and small — 8 pairs", template: letter_case_match, domain: LIT, skill: LIT.C05.upper_lower_match, level: 3,
+      params: { pairs: 8 } }
+  - { code: WS.LIT.017, title: "Match big and small — the full ten", template: letter_case_match, domain: LIT, skill: LIT.C05.upper_lower_match, level: 3,
+      params: { pairs: 10 } }
+
+  # ── English · my name ──────────────────────────────────────────────
+  - { code: WS.LIT.018, title: "Write my own name", template: word_tracing, domain: LIT, skill: LIT.D05.writes_name, level: 1,
+      params: { use_name: true, repetitions: 4 } }
+
+  # ── English · word families (CVC reading & writing) ────────────────
+  - { code: WS.LIT.019, title: "The -at family — cat, hat, mat", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [cat, hat, mat, bat], repetitions: 2 } }
+  - { code: WS.LIT.020, title: "The -an family — man, fan, pan", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [man, fan, pan, can], repetitions: 2 } }
+  - { code: WS.LIT.021, title: "The -ap family — cap, map, tap", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [cap, map, tap, nap], repetitions: 2 } }
+  - { code: WS.LIT.022, title: "The -en family — hen, pen, ten", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [hen, pen, ten, men], repetitions: 2 } }
+  - { code: WS.LIT.023, title: "The -et family — net, wet, jet", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [net, wet, pet, jet], repetitions: 2 } }
+  - { code: WS.LIT.024, title: "The -ig family — pig, big, dig", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [pig, big, dig, wig], repetitions: 2 } }
+  - { code: WS.LIT.025, title: "The -in family — pin, bin, win", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [pin, bin, win, tin], repetitions: 2 } }
+  - { code: WS.LIT.026, title: "The -og family — dog, log, fog", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [dog, log, fog, jog], repetitions: 2 } }
+  - { code: WS.LIT.027, title: "The -op family — top, mop, hop", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [top, mop, hop, pop], repetitions: 2 } }
+  - { code: WS.LIT.028, title: "The -ug family — bug, rug, mug", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [bug, rug, mug, jug], repetitions: 2 } }
+  - { code: WS.LIT.029, title: "The -un family — sun, run, fun", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 2,
+      params: { words: [sun, run, bun, fun], repetitions: 2 } }
+  - { code: WS.LIT.030, title: "Mixed-up words — one from each family", template: word_tracing, domain: LIT, skill: LIT.B09.reads_cvc_words, level: 3,
+      params: { words: [cat, pig, sun, dog, ten], repetitions: 2 } }
+
+  # ── English · digraphs ─────────────────────────────────────────────
+  - { code: WS.LIT.031, title: "The sh words — ship, shop, shed", template: word_tracing, domain: LIT, skill: LIT.B10.digraph_sounds, level: 3,
+      params: { words: [ship, shop, shed, shut], repetitions: 2 } }
+  - { code: WS.LIT.032, title: "The ch words — chat, chin, chip", template: word_tracing, domain: LIT, skill: LIT.B10.digraph_sounds, level: 3,
+      params: { words: [chat, chin, chip, chop], repetitions: 2 } }
+  - { code: WS.LIT.033, title: "The th words — this, that, then", template: word_tracing, domain: LIT, skill: LIT.B10.digraph_sounds, level: 3,
+      params: { words: [this, that, then, them], repetitions: 2 } }
+
+  # ── English · sight words ──────────────────────────────────────────
+  - { code: WS.LIT.034, title: "Sight words — the, and, is, it", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 2,
+      params: { words: [the, and, is, it], repetitions: 3 } }
+  - { code: WS.LIT.035, title: "Sight words — my, to, go, we", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 2,
+      params: { words: [my, to, go, we], repetitions: 3 } }
+  - { code: WS.LIT.036, title: "Sight words — see, can, at, in", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 2,
+      params: { words: [see, can, at, in], repetitions: 3 } }
+  - { code: WS.LIT.037, title: "Sight words — he, she, me, be", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 3,
+      params: { words: [he, she, me, be], repetitions: 3 } }
+  - { code: WS.LIT.038, title: "Sight words — up, down, big, little", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 3,
+      params: { words: [up, down, big, little], repetitions: 2 } }
+  - { code: WS.LIT.039, title: "Colour words — red, blue, green", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 3,
+      params: { words: [red, blue, green], repetitions: 3 } }
+  - { code: WS.LIT.040, title: "Number words — one, two, three", template: word_tracing, domain: LIT, skill: LIT.C06.sight_words, level: 3,
+      params: { words: [one, two, three], repetitions: 3 } }
+
+  # ── Creativity · colour by shape ───────────────────────────────────
+  - { code: WS.ART.001, title: "Colour hunt — three shapes", template: colour_by_shape, domain: ART, skill: ART.A01.first_colours, level: 1,
+      params: { shapes: [circle, square, triangle], colours: [red, blue, yellow], grid_count: 15 } }
+  - { code: WS.ART.002, title: "Colour hunt — three shapes, round two", template: colour_by_shape, domain: ART, skill: ART.A01.first_colours, level: 1,
+      params: { shapes: [circle, square, triangle], colours: [green, red, blue], grid_count: 15 } }
+  - { code: WS.ART.003, title: "Colour hunt — three shapes, round three", template: colour_by_shape, domain: ART, skill: ART.A01.first_colours, level: 1,
+      params: { shapes: [circle, triangle, square], colours: [yellow, green, red], grid_count: 15 } }
+  - { code: WS.ART.004, title: "Colour hunt — four shapes", template: colour_by_shape, domain: ART, skill: ART.A02.rainbow_colours, level: 2,
+      params: { shapes: [circle, square, triangle, rectangle], colours: [red, blue, yellow, green], grid_count: 16 } }
+  - { code: WS.ART.005, title: "Colour hunt — four shapes, new colours", template: colour_by_shape, domain: ART, skill: ART.A02.rainbow_colours, level: 2,
+      params: { shapes: [circle, square, triangle, oval], colours: [orange, purple, pink, brown], grid_count: 16 } }
+  - { code: WS.ART.006, title: "Colour hunt — all five shapes", template: colour_by_shape, domain: ART, skill: ART.A02.rainbow_colours, level: 3,
+      params: { shapes: [circle, square, triangle, rectangle, oval], colours: [red, blue, yellow, green, purple], grid_count: 20 } }
+  - { code: WS.ART.007, title: "Colour hunt — five shapes, round two", template: colour_by_shape, domain: ART, skill: ART.A02.rainbow_colours, level: 3,
+      params: { shapes: [circle, square, triangle, rectangle, oval], colours: [pink, orange, green, blue, brown], grid_count: 20 } }

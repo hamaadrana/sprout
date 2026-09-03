@@ -1,10 +1,10 @@
-<% content_for :title, "#{@skill_title} — worksheet" %>
+<% content_for :title, "#{@sheet_title} — worksheet" %>
 
 <% unless @bare %>
   <div class="toolbar">
     <button class="print" onclick="window.print()">Print / Save as PDF</button>
     <%= link_to "Generate new practice", @regen_url, class: "regen" %>
-    <%= link_to "← Back", worksheet_studio_path(@skill.id), class: "back" %>
+    <%= link_to "← Back", @back_url, class: "back" %>
   </div>
 <% end %>
 
@@ -12,8 +12,8 @@
   <header class="sheet-header">
     <span class="mascot">🌱</span>
     <div>
-      <h1><%= @skill_title %></h1>
-      <p><%= @activity_title %></p>
+      <h1><%= @sheet_title %></h1>
+      <% if @sheet_subtitle %><p><%= @sheet_subtitle %></p><% end %>
     </div>
   </header>
 

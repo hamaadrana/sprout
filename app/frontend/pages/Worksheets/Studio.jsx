@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react'
 import { useMemo, useRef, useState } from 'react'
 import Shell from '../../components/Shell'
 
-export default function Studio({ skill, template, defaults, overridable }) {
+export default function Studio({ sheet, skill, template, defaults, overridable }) {
   const frameRef = useRef(null)
   const [variant, setVariant] = useState(0)
   const [numerals, setNumerals] = useState((defaults.numerals || []).join(','))
@@ -18,15 +18,15 @@ export default function Studio({ skill, template, defaults, overridable }) {
     if (overridable.includes('words') && words.trim()) params.set('words', words)
     if (overridable.includes('repetitions')) params.set('repetitions', String(repetitions))
     if (overridable.includes('guide_style')) params.set('guide_style', guide)
-    return `/worksheets/${skill.id}/sheet?${params.toString()}`
-  }, [skill.id, variant, numerals, letters, words, repetitions, guide, overridable])
+    return `/worksheets/${sheet.id}/sheet?${params.toString()}`
+  }, [sheet.id, variant, numerals, letters, words, repetitions, guide, overridable])
 
   const print = () => frameRef.current?.contentWindow?.print()
 
   return (
     <Shell active="Worksheets">
       <div className="n">The printing press 🖨️ · {template.replace(/_/g, ' ')}</div>
-      <h1 style={{ fontSize: 30, margin: 'var(--space-2) 0 var(--space-4)' }}>{skill.title}</h1>
+      <h1 style={{ fontSize: 30, margin: 'var(--space-2) 0 var(--space-4)' }}>{sheet.title}</h1>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 280px', gap: 'var(--space-8)', alignItems: 'start' }}>
         <iframe

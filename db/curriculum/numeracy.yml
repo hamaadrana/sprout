@@ -861,3 +861,27 @@ skills:
           on the calendar and make a paper chain with one link per day.
           Snip a link each morning. The shrinking chain is time made
           touchable.
+
+  - code: NUM.B23.teen_numbers
+    position: 227
+    title: Master the tricky teens (11-15)
+    age_min_months: 56
+    age_max_months: 72
+    school_readiness: true
+    slo_refs: ["ECE-00-C1-01", "ECE-00-C1-02"]
+    prereqs: [NUM.B18.rote_count_20, NUM.B11.trace_numerals_10]
+    mastery_descriptor: >
+      Reads, says and writes 11 to 15 without mixing them up — the numbers
+      whose names refuse to follow the pattern. Knows 13 is not 30.
+    activities:
+      - title: Teen number bootcamp
+        kind: worksheet
+        duration_minutes: 10
+        materials: ["printed sheet", "pencil"]
+        instructions: >
+          Two teens per session, said aloud while tracing — "thir-TEEN" with
+          a finger on the 1 and the 3. Contrast the sound-alikes on purpose:
+          thirteen/thirty, fourteen/forty. Hearing the difference is half
+          the battle.
+        worksheet_template: numeral_tracing
+        worksheet_params: { numerals: [11, 12, 13, 14, 15], repetitions: 3 }

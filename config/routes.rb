@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   end
 
   get "worksheets", to: "worksheets#index"
-  get "worksheets/:skill_id", to: "worksheets#studio", as: :worksheet_studio
-  get "worksheets/:skill_id/sheet", to: "worksheets#sheet", as: :sheet_worksheet
+  get "worksheets/:id", to: "worksheets#studio", as: :worksheet_studio
+  get "worksheets/:id/sheet", to: "worksheets#sheet", as: :sheet_worksheet
 
   resources :portfolio_items, only: [ :index, :create, :destroy ], path: "portfolio"
 

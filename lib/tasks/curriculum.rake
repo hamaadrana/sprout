@@ -9,6 +9,7 @@ namespace :curriculum do
   desc "Load the activity library and Make-It projects from db/library (idempotent)"
   task load_library: :environment do
     counts = LibraryLoader.load_all
-    puts "#{counts[:activities]} library activities, #{counts[:projects]} make-it projects."
+    puts "#{counts[:activities]} library activities, #{counts[:projects]} make-it projects, " \
+         "#{counts[:worksheets]} catalog worksheets."
   end
 end

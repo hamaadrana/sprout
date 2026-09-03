@@ -39,7 +39,8 @@ class TodayController < ApplicationController
         materials: item.activity.materials,
         duration_minutes: item.activity.duration_minutes
       },
-      has_worksheet: item.activity.resources.any?(&:generated_worksheet?)
+      worksheet_id: Worksheet.where(skill_code: item.skill.code)
+                             .order(:level, :position).pick(:id)
     }
   end
 end

@@ -7,92 +7,111 @@ class WorksheetsController < ApplicationController
     "word_tracing" => %w[words repetitions]
   }.freeze
 
-  # All printable worksheets across the child's domains, grouped by strand.
+  # The catalog: every printable sheet, with the child's progress state on
+  # the linked skill so the page can filter like the skill library does.
   def index
-    progress_by_skill = current_child.skill_progress.index_by(&:skill_id)
+    progress_by_code = current_child.skill_progress.includes(:skill)
+                                    .index_by { |p| p.skill.code }
+    next_codes = NextSkill.for(current_child, limit: 4).map(&:code).to_set
 
-    rows = worksheet_skills.map do |skill|
-      resource = worksheet_resource(skill)
+    rows = Worksheet.order(:position).map do |sheet|
       {
-        skill_id: skill.id,
-        title: adapt(skill.title),
-        domain: skill.domain.name,
-        domain_code: skill.domain.code,
-        strand: skill.strand,
-        template: resource.worksheet_template,
-        state: progress_by_skill[skill.id]&.state || "not_started"
+        id: sheet.id,
+        title: adapt(sheet.title),
+        template: sheet.template,
+        level: sheet.level,
+        domain_code: sheet.domain_code,
+        state: state_for(sheet.skill_code, progress_by_code, next_codes)
       }
     end
 
     render inertia: "Worksheets/Index", props: {
-      groups: rows.group_by { |r| [ r[:domain_code], r[:domain] ] }
-                  .map { |(code, name), list| { domain_code: code, domain: name, rows: list } }
+      rows: rows,
+      domains: Domain.order(:position)
+                     .select { |d| rows.any? { |r| r[:domain_code] == d.code } }
+                     .map { |d| { code: d.code, name: d.name } }
     }
   end
 
-  # The studio: preview + parameters + print (wireframe 1g).
+  # The studio: preview + parameters + print.
   def studio
-    skill = worksheet_skills.detect { |s| s.id == params[:skill_id].to_i }
-    raise ActiveRecord::RecordNotFound if skill.nil?
-    resource = worksheet_resource(skill)
+    sheet = Worksheet.find(params[:id])
 
     render inertia: "Worksheets/Studio", props: {
-      skill: { id: skill.id, title: adapt(skill.title) },
-      template: resource.worksheet_template,
-      defaults: resource.worksheet_params,
-      variant: params.fetch(:variant, 0).to_i,
-      overridable: OVERRIDABLE.fetch(resource.worksheet_template, [])
+      sheet: { id: sheet.id, title: adapt(sheet.title), level: sheet.level },
+      template: sheet.template,
+      defaults: sheet.params,
+      overridable: OVERRIDABLE.fetch(sheet.template, []),
+      skill: sheet.skill && { id: sheet.skill.id, title: adapt(sheet.skill.title) }
     }
   end
 
-  # The printable A4 sheet, rendered standalone (loaded in the studio's
-  # iframe and by the legacy plan-item route).
+  # The printable A4 sheet (loaded in the studio's iframe).
   def sheet
-    skill = worksheet_skills.detect { |s| s.id == params[:skill_id].to_i }
-    raise ActiveRecord::RecordNotFound if skill.nil?
-    render_sheet(skill)
+    record = Worksheet.find(params[:id])
+    render_sheet(
+      key: record.code,
+      template: record.template,
+      base_params: record.params,
+      title: adapt(record.title),
+      subtitle: record.skill ? adapt(record.skill.title) : nil,
+      regen_url: sheet_worksheet_path(record.id, variant: next_variant, **overrides_for(record.template)),
+      back_url: worksheet_studio_path(record.id)
+    )
   end
 
-  def show # legacy: by plan item
+  def show # legacy: by plan item, using the activity's inline worksheet
     plan_item = current_child.plan_items.find(params[:plan_item_id])
     resource = plan_item.activity.resources.generated_worksheet.first
     raise ActiveRecord::RecordNotFound, "No worksheet for this activity" if resource.nil?
-    render_sheet(plan_item.skill)
+
+    render_sheet(
+      key: plan_item.skill.code,
+      template: resource.worksheet_template,
+      base_params: resource.worksheet_params,
+      title: adapt(plan_item.skill.title),
+      subtitle: adapt(plan_item.activity.title),
+      regen_url: plan_item_worksheet_path(plan_item, variant: next_variant),
+      back_url: today_path
+    )
   end
 
   private
 
-  def render_sheet(skill)
-    resource = worksheet_resource(skill)
-    raise ActiveRecord::RecordNotFound if resource.nil?
+  def state_for(skill_code, progress_by_code, next_codes)
+    progress = skill_code && progress_by_code[skill_code]
+    if progress&.mastered? then "mastered"
+    elsif progress&.practising? || progress&.introduced? then "practising"
+    elsif next_codes.include?(skill_code) then "next"
+    else "not_started"
+    end
+  end
 
+  def render_sheet(key:, template:, base_params:, title:, subtitle:, regen_url:, back_url:)
     @variant = params.fetch(:variant, 0).to_i
     @bare = params[:bare].present?
-    seed = WorksheetSeed.for(
-      child: current_child, skill: skill, date: Date.current, variant: @variant
-    )
+    seed = WorksheetSeed.for(child: current_child, key: key, date: Date.current, variant: @variant)
+
     @worksheet = WorksheetBuilder.build(
-      template: resource.worksheet_template,
-      params: effective_params(resource),
+      template: template,
+      params: base_params.merge(overrides_for(template))
+                         .merge("child_name" => current_child.name),
       seed: seed
     )
     @child = current_child
-    @skill = skill
-    @skill_title = adapt(skill.title)
-    @activity_title = adapt(resource.activity.title)
-    @activity = resource.activity
-    @regen_url = sheet_worksheet_path(@skill.id, variant: @variant + 1, **override_params(resource))
+    @sheet_title = title
+    @sheet_subtitle = subtitle
+    @regen_url = regen_url
+    @back_url = back_url
     render :show, layout: "worksheet"
   end
 
-  def effective_params(resource)
-    resource.worksheet_params
-            .merge(override_params(resource))
-            .merge("child_name" => current_child.name)
+  def next_variant
+    params.fetch(:variant, 0).to_i + 1
   end
 
-  def override_params(resource)
-    keys = OVERRIDABLE.fetch(resource.worksheet_template, [])
+  def overrides_for(template)
+    keys = OVERRIDABLE.fetch(template, [])
     overrides = {}
     keys.each do |key|
       value = params[key]
@@ -107,15 +126,5 @@ class WorksheetsController < ApplicationController
         end
     end
     overrides
-  end
-
-  def worksheet_skills
-    @worksheet_skills ||= Skill.where(domain: current_child.active_domains)
-      .includes(activities: :resources).order(:position)
-      .select { |s| worksheet_resource(s).present? }
-  end
-
-  def worksheet_resource(skill)
-    skill.activities.flat_map(&:resources).detect(&:generated_worksheet?)
   end
 end
